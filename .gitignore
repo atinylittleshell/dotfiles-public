@@ -1,4 +1,4 @@
 .DS_Store
-nvim/plugged
-.tmux/plugins
+nvim/plugged/
+.tmux/plugins/
 .oh-my-zsh
