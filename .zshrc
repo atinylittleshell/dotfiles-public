@@ -5,8 +5,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+export DOT_FILES_HOME="$(realpath "$(dirname "${BASH_SOURCE[0]}")")"
+
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/github/kunchenguid/dotfiles-public/.oh-my-zsh"
+export ZSH="$DOT_FILES_HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -83,6 +85,11 @@ export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/b
 
 # User configuration
 
+# Setup nvim
+mkdir -p ~/bin
+ln -nsf "$DOT_FILES_HOME/nvim" ~/.config/nvim
+ln -nsf "$DOT_FILES_HOME/nvim/nvim.appimage" ~/bin/nvim
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -108,12 +115,8 @@ export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/b
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/github/kunchenguid/dotfiles-public/.p10k.zsh ]] || source ~/github/kunchenguid/dotfiles-public/.p10k.zsh
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[[ ! -f "$DOT_FILES_HOME/.p10k.zsh" ]] || source "$DOT_FILES_HOME/.p10k.zsh"
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux -f ~/github/kunchenguid/dotfiles-public/.tmux/.tmux.conf new -As0
+  exec tmux -f "$DOT_FILES_HOME/.tmux/.tmux.conf" new -As0
 fi
