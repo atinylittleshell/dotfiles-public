@@ -5,7 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export DOT_FILES_HOME="$(realpath "$(dirname "${BASH_SOURCE[0]}")")"
+export DOT_FILES_HOME="$(realpath "$(dirname "$(readlink -f -- "${(%):-%N}")")")"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$DOT_FILES_HOME/.oh-my-zsh"
