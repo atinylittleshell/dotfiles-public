@@ -1,3 +1,5 @@
+package.path = package.path .. ";" .. os.getenv("DOT_FILES_HOME") .. "/nvim/?.lua"
+
 local packer_path = vim.fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 
 if vim.fn.empty(vim.fn.glob(packer_path)) > 0 then
@@ -13,55 +15,58 @@ vim.api.nvim_create_autocmd(
 require("packer").startup(function(use)
   -- common libraries
   use "wbthomason/packer.nvim"
-  use 'nvim-lua/plenary.nvim'
-  use 'williamboman/mason.nvim'
+  use "nvim-lua/plenary.nvim"
+  use(require("config.mason"))
 
   -- ui
-  use { 
-    "catppuccin/nvim", 
-    as = "catppuccin",
-    config = function() 
-      vim.g.catppuccin_flavour = "frappe" 
-      require("catppuccin").setup()
-      vim.cmd [[colorscheme catppuccin]]
+  use(require("config.catppuccin"))
+
+  use(require("config.lualine"))
+  use {
+    "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("nvim-web-devicons").setup()
     end
   }
-
-  use 'nvim-lualine/lualine.nvim'
-  use 'kyazdani42/nvim-web-devicons'
-  use({
-    "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end,
-    config = function() vim.g.mkdp_auto_start = 1 end
-  })
-  use 'nvim-telescope/telescope.nvim'
-  use 'nvim-telescope/telescope-file-browser.nvim'
+  use(require("config.markdown-preview"))
+  use(require("config.telescope"))
+  use(require("config.telescope-file-browser"))
   use {
-    "akinsho/toggleterm.nvim", 
-    tag = 'v2.*', 
+    "akinsho/toggleterm.nvim",
+    tag = "v2.*",
     config = function() require("toggleterm").setup() end
   }
 
   -- lsp
-  use 'williamboman/mason-lspconfig.nvim'
-  use 'neovim/nvim-lspconfig'
-  use 'onsails/lspkind-nvim'
-  use 'glepnir/lspsaga.nvim'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/nvim-cmp'
-  use 'jose-elias-alvarez/null-ls.nvim'
-  use 'Maan2003/lsp_lines.nvim'
+  use "williamboman/mason-lspconfig.nvim"
+  use(require("config.lspconfig"))
+  use "onsails/lspkind-nvim"
+  use "glepnir/lspsaga.nvim"
+  use "hrsh7th/cmp-buffer"
+  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/nvim-cmp"
+  use(require("config.null-ls"))
+  use "Maan2003/lsp_lines.nvim"
 
   -- editing
   use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate"
   }
-  use 'nvim-treesitter/nvim-treesitter-context'
-  use 'windwp/nvim-autopairs'
-  use 'windwp/nvim-ts-autotag'
-  use 'editorconfig/editorconfig-vim'
+  use "nvim-treesitter/nvim-treesitter-context"
+  use {
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup()
+    end
+  }
+  use {
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end
+  }
+  use "editorconfig/editorconfig-vim"
 end)
 
 -- options
@@ -76,5 +81,4 @@ vim.o.tabstop = 2
 vim.o.si = true
 vim.o.signcolumn = "yes"
 
--- keymap
-vim.g.mapleader = " "
+require("config.keymap")
