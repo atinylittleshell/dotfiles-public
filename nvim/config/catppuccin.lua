@@ -4,6 +4,7 @@ return {
   config = function()
     vim.g.catppuccin_flavour = "frappe"
     require("catppuccin").setup({
+      transparent_background = true,
       integrations = {
         treesitter = true,
         cmp = true,

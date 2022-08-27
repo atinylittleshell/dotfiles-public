@@ -29,11 +29,8 @@ require("packer").startup(function(use)
   use(require("config.markdown-preview"))
   use(require("config.telescope"))
   use(require("config.telescope-file-browser"))
-  use {
-    "akinsho/toggleterm.nvim",
-    tag = "v2.*",
-    config = function() require("toggleterm").setup() end
-  }
+  use(require("config/bufferline"))
+  use(require("config/fterm"))
 
   -- lsp
   use "williamboman/mason-lspconfig.nvim"
@@ -46,7 +43,6 @@ require("packer").startup(function(use)
   use(require("config/lsp-lines"))
 
   -- editing
-  use(require("config/bufferline"))
   use(require("config/treesitter"))
   use "nvim-treesitter/nvim-treesitter-context"
   use {

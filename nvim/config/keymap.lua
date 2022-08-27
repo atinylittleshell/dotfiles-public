@@ -9,6 +9,15 @@ local function telescope_buffer_dir()
   return vim.fn.expand('%:p:h')
 end
 
+local function noremap(mode, lhs, rhs, opts)
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
+-- telescope
 vim.keymap.set('n', '<leader>f',
   function()
     builtin.find_files({
@@ -26,5 +35,18 @@ vim.keymap.set("n", "<leader>e", function()
   })
 end)
 
-vim.keymap.set("n", "<Tab>", ":bnext<CR>")
-vim.keymap.set("n", "<leader>x", ":bd<CR>")
+-- buffer switching
+noremap("n", "<Tab>", ":bnext<CR>")
+noremap("n", "<S-Tab>", ":bprev<CR>")
+noremap("n", "<leader>x", ":bd<CR>")
+
+-- increment/decrement
+noremap("n", "+", "<C-a>")
+noremap("n", "-", "<C-x>")
+
+-- select all
+noremap("n", "<C-a>", "gg<S-v>G")
+
+-- terminal
+noremap('n', '<leader>t', '<CMD>lua require("FTerm").toggle()<CR>')
+noremap('t', '<leader>t', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
