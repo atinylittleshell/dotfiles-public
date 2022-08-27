@@ -8,3 +8,8 @@ if [[ ! -d "$DOT_FILES_HOME/.tmux/plugins/tpm" ]]
 then
   git clone https://github.com/tmux-plugins/tpm "$DOT_FILES_HOME/.tmux/plugins/tpm"
 fi
+
+if [[ ! -d "$DOT_FILES_HOME/.oh-my-zsh" ]]
+then
+  git clone https://github.com/ohmyzsh/ohmyzsh.git "$DOT_FILES_HOME/.oh-my-zsh"
+fi

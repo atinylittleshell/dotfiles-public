@@ -24,9 +24,7 @@ require("packer").startup(function(use)
   use(require("config.lualine"))
   use {
     "kyazdani42/nvim-web-devicons",
-    config = function()
-      require("nvim-web-devicons").setup()
-    end
+    config = function() require("nvim-web-devicons").setup() end
   }
   use(require("config.markdown-preview"))
   use(require("config.telescope"))
@@ -40,19 +38,16 @@ require("packer").startup(function(use)
   -- lsp
   use "williamboman/mason-lspconfig.nvim"
   use(require("config.lspconfig"))
-  use "onsails/lspkind-nvim"
-  use "glepnir/lspsaga.nvim"
+  use(require("config/lspsaga"))
   use "hrsh7th/cmp-buffer"
   use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/nvim-cmp"
+  use(require("config/cmp"))
   use(require("config.null-ls"))
-  use "Maan2003/lsp_lines.nvim"
+  use(require("config/lsp-lines"))
 
   -- editing
-  use {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate"
-  }
+  use(require("config/bufferline"))
+  use(require("config/treesitter"))
   use "nvim-treesitter/nvim-treesitter-context"
   use {
     "windwp/nvim-autopairs",
