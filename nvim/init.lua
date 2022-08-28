@@ -19,7 +19,7 @@ require("packer").startup(function(use)
   use(require("config.mason"))
 
   -- ui
-  use(require("config.catppuccin"))
+  use(require("config.rose-pine"))
 
   use(require("config.lualine"))
   use {
