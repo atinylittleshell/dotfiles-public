@@ -50,3 +50,11 @@ noremap("n", "<C-a>", "gg<S-v>G")
 -- terminal
 noremap('n', '<leader>t', '<CMD>lua require("FTerm").toggle()<CR>')
 noremap('t', '<leader>t', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
+
+-- lsp
+noremap('n', 'K', '<Cmd>Lspsaga hover_doc<CR>');
+noremap('n', 'gd', '<Cmd>Lspsaga lsp_finder<CR>');
+noremap('n', 'gp', '<Cmd>Lspsaga preview_definition<CR>');
+noremap('n', 'gr', '<Cmd>Lspsaga rename<CR>');
+noremap('n', 'ga', '<Cmd>Lspsaga code_action<CR>');
+noremap('v', 'ga', '<Cmd>Lspsaga range_code_action<CR>');
