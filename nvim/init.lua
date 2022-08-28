@@ -19,9 +19,9 @@ require("packer").startup(function(use)
   use(require("config.mason"))
 
   -- ui
-  use(require("config.rose-pine"))
-
+  use(require("config.bufferline"))
   use(require("config.lualine"))
+  use(require("config.rose-pine"))
   use {
     "kyazdani42/nvim-web-devicons",
     config = function() require("nvim-web-devicons").setup() end
@@ -29,21 +29,20 @@ require("packer").startup(function(use)
   use(require("config.markdown-preview"))
   use(require("config.telescope"))
   use(require("config.telescope-file-browser"))
-  use(require("config/bufferline"))
-  use(require("config/fterm"))
+  use(require("config.fterm"))
 
   -- lsp
   use "williamboman/mason-lspconfig.nvim"
   use(require("config.lspconfig"))
-  use(require("config/lspsaga"))
+  use(require("config.lspsaga"))
   use "hrsh7th/cmp-buffer"
   use "hrsh7th/cmp-nvim-lsp"
-  use(require("config/cmp"))
+  use(require("config.cmp"))
   use(require("config.null-ls"))
-  use(require("config/lsp-lines"))
+  use(require("config.lsp-lines"))
 
   -- editing
-  use(require("config/treesitter"))
+  use(require("config.treesitter"))
   use "nvim-treesitter/nvim-treesitter-context"
   use {
     "windwp/nvim-autopairs",
