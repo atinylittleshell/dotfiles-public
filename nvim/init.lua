@@ -12,6 +12,18 @@ vim.api.nvim_create_autocmd(
   { command = 'source <afile> | PackerCompile', group = packer_group, pattern = 'init.lua' }
 )
 
+-- vim options
+vim.o.clipboard = 'unnamedplus'
+vim.o.number = true
+vim.o.title = true
+vim.o.ignorecase = true
+vim.o.splitbelow = true
+vim.o.splitright = true
+vim.o.shiftwidth = 2
+vim.o.tabstop = 2
+vim.o.si = true
+vim.o.signcolumn = 'yes'
+
 require('packer').startup(function(use)
   -- common libraries
   use 'wbthomason/packer.nvim'
@@ -30,6 +42,12 @@ require('packer').startup(function(use)
   use(require('config.telescope'))
   use(require('config.telescope-file-browser'))
   use(require('config.fterm'))
+  use {
+    'folke/which-key.nvim',
+    config = function()
+      require('which-key').setup()
+    end
+  }
 
   -- lsp
   use 'williamboman/mason-lspconfig.nvim'
@@ -60,17 +78,5 @@ require('packer').startup(function(use)
   }
   use 'editorconfig/editorconfig-vim'
 end)
-
--- options
-vim.o.clipboard = 'unnamedplus'
-vim.o.number = true
-vim.o.title = true
-vim.o.ignorecase = true
-vim.o.splitbelow = true
-vim.o.splitright = true
-vim.o.shiftwidth = 2
-vim.o.tabstop = 2
-vim.o.si = true
-vim.o.signcolumn = 'yes'
 
 require('config.keymap')

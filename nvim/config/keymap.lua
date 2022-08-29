@@ -49,7 +49,7 @@ noremap("n", "<C-a>", "gg<S-v>G")
 
 -- terminal
 noremap('n', '<leader>t', '<CMD>lua require("FTerm").toggle()<CR>')
-noremap('t', '<leader>t', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
+noremap('t', '<ESC>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
 
 -- lsp
 noremap('n', 'K', '<Cmd>Lspsaga hover_doc<CR>');
