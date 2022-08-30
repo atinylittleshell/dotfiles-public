@@ -8,7 +8,7 @@ return {
         only_current_line = true
       },
       underline = true,
-      update_in_insert = false
+      update_in_insert = true
     })
   end
 }

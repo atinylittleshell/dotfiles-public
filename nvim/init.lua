@@ -62,6 +62,7 @@ require('packer').startup(function(use)
   use(require('config.lsp-lines'))
 
   -- editing
+  use 'github/copilot.vim'
   use(require('config.treesitter'))
   use 'nvim-treesitter/nvim-treesitter-context'
   use {
