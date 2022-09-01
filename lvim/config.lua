@@ -1,105 +1,123 @@
---[[
- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
- `lvim` is the global options object
-]]
-
--- Enable powershell as your default shell
-vim.opt.shell = "pwsh.exe -NoLogo"
-vim.opt.shellcmdflag =
+----=== Windows specific setup ===----
+if (vim.loop.os_uname().sysname == "Windows NT") then
+  -- Enable powershell as your default shell
+  vim.opt.shell = "pwsh.exe -NoLogo"
+  vim.opt.shellcmdflag =
   "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
-vim.cmd [[
-		let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-		let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-		set shellquote= shellxquote=
-  ]]
+  vim.cmd [[
+      let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+      let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+      set shellquote= shellxquote=
+    ]]
 
--- Set a compatible clipboard manager
-vim.g.clipboard = {
-  copy = {
-    ["+"] = "win32yank.exe -i --crlf",
-    ["*"] = "win32yank.exe -i --crlf",
-  },
-  paste = {
-    ["+"] = "win32yank.exe -o --lf",
-    ["*"] = "win32yank.exe -o --lf",
-  },
-}
+  -- Set a compatible clipboard manager
+  vim.g.clipboard = {
+    copy = {
+      ["+"] = "win32yank.exe -i --crlf",
+      ["*"] = "win32yank.exe -i --crlf",
+    },
+    paste = {
+      ["+"] = "win32yank.exe -o --lf",
+      ["*"] = "win32yank.exe -o --lf",
+    },
+  }
+end
 
--- general
+----=== General Options ===----
 lvim.log.level = "warn"
+lvim.colorscheme = "rose-pine"
 lvim.format_on_save = true
-lvim.colorscheme = "onedarker"
--- to disable icons and use a minimalist setup, uncomment the following
--- lvim.use_icons = false
+lvim.use_icons = false
 
--- keymappings [view all the defaults by pressing <leader>Lk]
+-- disable some annoying highlights
+vim.opt.cursorline = false
+vim.g.loaded_matchparen = 0
+
+----=== Key Mappings ===----
 lvim.leader = "space"
--- add your own keymapping
+
+-- files
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
--- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
--- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
--- unmap a default keymapping
--- vim.keymap.del("n", "<C-Up>")
--- override a default keymapping
--- lvim.keys.normal_mode["<C-q>"] = ":q<cr>" -- or vim.keymap.set("n", "<C-q>", ":q<cr>" )
 
--- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
--- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
--- local _, actions = pcall(require, "telescope.actions")
--- lvim.builtin.telescope.defaults.mappings = {
---   -- for input mode
---   i = {
---     ["<C-j>"] = actions.move_selection_next,
---     ["<C-k>"] = actions.move_selection_previous,
---     ["<C-n>"] = actions.cycle_history_next,
---     ["<C-p>"] = actions.cycle_history_prev,
---   },
---   -- for normal mode
---   n = {
---     ["<C-j>"] = actions.move_selection_next,
---     ["<C-k>"] = actions.move_selection_previous,
---   },
--- }
+-- buffer switching
+lvim.keys.normal_mode["<tab>"] = ":bnext<cr>"
+lvim.keys.normal_mode["<S-tab>"] = ":bprev<cr>"
+lvim.keys.normal_mode["<leader>x"] = ":bd<cr>"
 
--- Use which-key to add extra bindings with the leader-key prefix
--- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
--- lvim.builtin.which_key.mappings["t"] = {
---   name = "+Trouble",
---   r = { "<cmd>Trouble lsp_references<cr>", "References" },
---   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
---   d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
---   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
---   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
---   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
--- }
+-- select all
+lvim.keys.normal_mode["<C-a>"] = "gg<S-v>G"
 
--- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
+-- terminal
+lvim.keys.normal_mode["<leader>t"] = "<cmd>lua require(\"FTerm\").toggle()<CR>"
+lvim.keys.term_mode["<esc>"] = "<C-\\><C-n><cmd>lua require(\"FTerm\").toggle()<CR>"
+
+-- telescope
+local ts = require("telescope")
+local ts_builtin = require("telescope.builtin")
+local fb_actions = ts.extensions.file_browser.actions
+local function telescope_buffer_dir()
+  return vim.fn.expand("%:p:h")
+end
+
+lvim.builtin.telescope.on_config_done = function(telescope)
+  pcall(telescope.load_extension, "file_browser")
+end
+lvim.builtin.telescope.extensions = {
+  file_browser = {
+    hijack_netrw = true,
+    initial_mode = "normal",
+    hidden = true,
+    grouped = true,
+    respect_gitignore = true,
+    layout_config = { height = 40 },
+    mappings = {
+      ["n"] = {
+        ["a"] = fb_actions.create
+      }
+    }
+  }
+}
+lvim.keys.normal_mode["<leader>r"] =
+function()
+  ts_builtin.live_grep()
+end
+lvim.keys.normal_mode["<leader>e"] =
+function()
+  ts.extensions.file_browser.file_browser({
+    path = "%:p:h",
+    cwd = telescope_buffer_dir()
+  })
+end
+
+----=== Builtin Plugins ===----
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = false
--- lvim.builtin.terminal.shell = "pwsh.exe -NoLogo"
+lvim.builtin.nvimtree.active = false
 
--- nvim-tree has some performance issues on windows, see kyazdani42/nvim-tree.lua#549
-lvim.builtin.nvimtree.setup.diagnostics.enable = nil
-lvim.builtin.nvimtree.setup.filters.custom = nil
-lvim.builtin.nvimtree.setup.git.enable = nil
-lvim.builtin.nvimtree.setup.update_cwd = nil
-lvim.builtin.nvimtree.setup.update_focused_file.update_cwd = nil
-lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.renderer.highlight_git = nil
-lvim.builtin.nvimtree.setup.renderer.icons.show.git = nil
-
--- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
+  "bash",
   "c",
   "lua",
+  "python",
+  "rust",
+  "java",
+  "yaml",
+  "markdown",
+  "javascript",
+  "json",
+  "jsdoc",
+  "typescript",
+  "tsx",
+  "html",
+  "css",
 }
-
-lvim.builtin.treesitter.ignore_install = { "haskell" }
+lvim.builtin.treesitter.ignore_install = {}
 lvim.builtin.treesitter.highlight.enabled = true
 
--- generic LSP settings
+----=== LSP Settings ===----
+lvim.lsp.document_highlight = false
 
 -- -- make sure server will always be installed even if the server is in skipped_servers list
 -- lvim.lsp.installer.setup.ensure_installed = {
@@ -126,7 +144,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- ---remove a server from the skipped list, e.g. eslint, or emmet_ls. !!Requires `:LvimCacheReset` to take effect!!
 -- ---`:LvimInfo` lists which server(s) are skipped for the current filetype
--- lvim.lsp.automatic_configuration.skipped_servers = vim.tbl_filter(function(server)
+-- vim.tbl_map(function(server)
 --   return server ~= "emmet_ls"
 -- end, lvim.lsp.automatic_configuration.skipped_servers)
 
@@ -140,21 +158,27 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 -- end
 
--- -- set a formatter, this will override the language server formatting capabilities (if it exists)
--- local formatters = require "lvim.lsp.null-ls.formatters"
--- formatters.setup {
---   { command = "black", filetypes = { "python" } },
---   { command = "isort", filetypes = { "python" } },
---   {
---     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
---     command = "prettier",
---     ---@usage arguments to pass to the formatter
---     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
---     extra_args = { "--print-with", "100" },
---     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
---     filetypes = { "typescript", "typescriptreact" },
---   },
--- }
+-- set a formatter, this will override the language server formatting capabilities (if it exists)
+local formatters = require "lvim.lsp.null-ls.formatters"
+local null_ls = require "null-ls"
+formatters.setup {
+  null_ls.builtins.formatting.prettierd.with {
+    condition = function(utils)
+      return utils.root_has_file ".prettierrc"
+          or utils.root_has_file ".prettierrc.js"
+          or utils.root_has_file ".prettierrc.json"
+    end,
+    prefer_local = "node_modules/.bin"
+  },
+  null_ls.builtins.formatting.eslint_d.with {
+    condition = function(utils)
+      return utils.root_has_file ".eslintrc"
+          or utils.root_has_file ".eslintrc.js"
+          or utils.root_has_file ".eslintrc.json"
+    end,
+    prefer_local = "node_modules/.bin"
+  }
+}
 
 -- -- set additional linters
 -- local linters = require "lvim.lsp.null-ls.linters"
@@ -174,25 +198,43 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   },
 -- }
 
--- Additional Plugins
--- lvim.plugins = {
---     {"folke/tokyonight.nvim"},
---     {
---       "folke/trouble.nvim",
---       cmd = "TroubleToggle",
---     },
--- }
+----=== Extra Plugins ===----
+lvim.plugins = {
+  {
+    "rose-pine/neovim",
+    as = "rose-pine",
+    tag = "v1.*",
+    config = function()
+      require("rose-pine").setup({
+        dark_variant = "moon"
+      })
 
--- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- vim.api.nvim_create_autocmd("BufEnter", {
---   pattern = { "*.json", "*.jsonc" },
---   -- enable wrap mode for json files only
---   command = "setlocal wrap",
--- })
--- vim.api.nvim_create_autocmd("FileType", {
---   pattern = "zsh",
---   callback = function()
---     -- let treesitter use bash highlight for zsh files as well
---     require("nvim-treesitter.highlight").attach(0, "bash")
---   end,
--- })
+      vim.cmd "colorscheme rose-pine"
+    end
+  },
+  {
+    "numToStr/FTerm.nvim",
+    config = function()
+      require("FTerm").setup({
+        border = "double"
+      })
+    end
+  },
+  {
+    "nvim-telescope/telescope-file-browser.nvim"
+  },
+  {
+    "Maan2003/lsp_lines.nvim",
+    config = function()
+      require("lsp_lines").setup()
+      vim.diagnostic.config({
+        virtual_text = false,
+        virtual_lines = {
+          only_current_line = true
+        },
+        underline = true,
+        update_in_insert = true
+      })
+    end
+  }
+}

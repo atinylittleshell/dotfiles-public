@@ -81,7 +81,7 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Windows:/mnt/c/Windows/System32
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Windows:/mnt/c/Windows/System32
 
 # User configuration
 
@@ -93,6 +93,9 @@ ln -nsf "$DOT_FILES_HOME/nvim/nvim.appimage" ~/bin/nvim
 
 rm -rf ~/.config/lvim
 ln -nsf "$DOT_FILES_HOME/lvim" ~/.config/lvim
+
+# Cargo
+. "$HOME/.cargo/env"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
