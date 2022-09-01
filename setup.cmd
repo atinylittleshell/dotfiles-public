@@ -1,2 +1,0 @@
-SET DOT_FILES_HOME=%~dp0
-mklink /d %LOCALAPPDATA%\nvim %DOT_FILES_HOME%nvim

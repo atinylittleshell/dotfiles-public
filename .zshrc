@@ -85,10 +85,14 @@ export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/b
 
 # User configuration
 
-# Setup nvim
+# Setup nvim and lvim
 mkdir -p ~/bin
+rm -rf ~/.config/nvim
 ln -nsf "$DOT_FILES_HOME/nvim" ~/.config/nvim
 ln -nsf "$DOT_FILES_HOME/nvim/nvim.appimage" ~/bin/nvim
+
+rm -rf ~/.config/lvim
+ln -nsf "$DOT_FILES_HOME/lvim" ~/.config/lvim
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
