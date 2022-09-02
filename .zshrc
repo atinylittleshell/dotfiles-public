@@ -85,10 +85,6 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:
 
 # User configuration
 
-# wezterm
-rm -f ~/.wezterm
-ln -nsf "$DOT_FILES_HOME/.wezterm.lua" ~/.wezterm.lua
-
 # Setup nvim and lvim
 mkdir -p ~/bin
 rm -rf ~/.config/nvim
