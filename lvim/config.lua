@@ -54,7 +54,6 @@ lvim.keys.term_mode["<esc>"] = "<C-\\><C-n><cmd>lua require(\"FTerm\").toggle()<
 -- telescope
 local ts = require("telescope")
 local ts_builtin = require("telescope.builtin")
-local fb_actions = ts.extensions.file_browser.actions
 local function telescope_buffer_dir()
   return vim.fn.expand("%:p:h")
 end
@@ -69,12 +68,7 @@ lvim.builtin.telescope.extensions = {
     hidden = true,
     grouped = true,
     respect_gitignore = true,
-    layout_config = { height = 40 },
-    mappings = {
-      ["n"] = {
-        ["a"] = fb_actions.create
-      }
-    }
+    layout_config = { height = 40 }
   }
 }
 lvim.keys.normal_mode["<leader>r"] =
