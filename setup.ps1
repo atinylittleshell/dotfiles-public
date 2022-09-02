@@ -15,6 +15,13 @@ if ((Test-Path $profile) -and ((Get-Item $profile).LinkType -ne "SymbolicLink"))
 }
 New-Item -Force -ItemType SymbolicLink -Path $profile -Target (Join-Path -Path $PSScriptRoot -ChildPath "profile.ps1")
 
+$weztermLink = Join-Path -Path $HOME -ChildPath ".wezterm.lua"
+if ((Test-Path $weztermLink) -and ((Get-Item $profile).LinkType -ne "SymbolicLink")) {
+  Write-Warning "Deleting existing wezterm config: $weztermLink"
+  Remote-Item -Force $weztermLink
+}
+New-Item -Force -ItemType SymbolicLink -Path $weztermLink -Target (Join-Path -Path $PSScriptRoot -ChildPath ".wezterm.lua")
+
 $nvimLink = Join-Path -Path $env:LOCALAPPDATA -ChildPath "nvim"
 if ((Test-Path $nvimLink) -and ((Get-Item $nvimLink).LinkType -ne "SymbolicLink")) {
   Write-Warning "Deleting existing nvim directory: $nvimLink"

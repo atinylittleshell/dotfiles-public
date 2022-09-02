@@ -85,6 +85,10 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:
 
 # User configuration
 
+# wezterm
+rm -f ~/.wezterm
+ln -nsf "$DOT_FILES_HOME/.wezterm.lua" ~/.wezterm.lua
+
 # Setup nvim and lvim
 mkdir -p ~/bin
 rm -rf ~/.config/nvim
@@ -93,7 +97,6 @@ ln -nsf "$DOT_FILES_HOME/nvim/nvim.appimage" ~/bin/nvim
 
 rm -rf ~/.config/lvim
 ln -nsf "$DOT_FILES_HOME/lvim" ~/.config/lvim
-
 # Cargo
 . "$HOME/.cargo/env"
 
@@ -123,7 +126,3 @@ ln -nsf "$DOT_FILES_HOME/lvim" ~/.config/lvim
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f "$DOT_FILES_HOME/.p10k.zsh" ]] || source "$DOT_FILES_HOME/.p10k.zsh"
-
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux -f "$DOT_FILES_HOME/.tmux/.tmux.conf" new -As0
-fi
