@@ -26,6 +26,11 @@ vim.g.loaded_matchparen = 0
 ----=== Key Mappings ===----
 lvim.leader = "space"
 
+-- make 'p' no longer update register
+vim.cmd [[
+  xnoremap <expr> p 'pgv"'.v:register.'y'
+]]
+
 -- files
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
