@@ -85,6 +85,9 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:
 
 # User configuration
 
+# Auto title
+ZSH_THEME_TERM_TAB_TITLE_IDLE="%~"
+
 # Setup nvim and lvim
 mkdir -p ~/bin
 rm -rf ~/.config/nvim
