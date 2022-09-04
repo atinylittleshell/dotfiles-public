@@ -38,7 +38,7 @@ return {
     {
       key = 'x',
       mods = 'LEADER',
-      action = wezterm.action.CloseCurrentTab { confirm = true }
+      action = wezterm.action.CloseCurrentTab { confirm = false }
     },
     {
       key = '1',
