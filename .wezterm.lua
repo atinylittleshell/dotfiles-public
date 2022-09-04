@@ -1,7 +1,13 @@
 local wezterm = require 'wezterm'
 
 return {
-  font = wezterm.font 'DroidSansMono NF',
+  font = wezterm.font(
+    'DroidSansMono NF',
+    {
+      weight = 'DemiBold'
+    }
+  ),
+  font_size = 12.0,
   color_scheme = 'Rosé Pine Moon (base16)',
   window_decorations = "RESIZE",
   window_frame = {
