@@ -90,8 +90,6 @@ ZSH_THEME_TERM_TAB_TITLE_IDLE="%~"
 
 # Setup nvim and lvim
 mkdir -p ~/bin
-rm -rf ~/.config/nvim
-ln -nsf "$DOT_FILES_HOME/nvim" ~/.config/nvim
 ln -nsf "$DOT_FILES_HOME/nvim/nvim.appimage" ~/bin/nvim
 
 rm -rf ~/.config/lvim

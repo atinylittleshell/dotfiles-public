@@ -22,13 +22,6 @@ if ((Test-Path $weztermLink) -and ((Get-Item $profile).LinkType -ne "SymbolicLin
 }
 New-Item -Force -ItemType SymbolicLink -Path $weztermLink -Target (Join-Path -Path $PSScriptRoot -ChildPath ".wezterm.lua")
 
-$nvimLink = Join-Path -Path $env:LOCALAPPDATA -ChildPath "nvim"
-if ((Test-Path $nvimLink) -and ((Get-Item $nvimLink).LinkType -ne "SymbolicLink")) {
-  Write-Warning "Deleting existing nvim directory: $nvimLink"
-  Remove-Item -Force -Recurse $nvimLink
-}
-New-Item -Force -ItemType SymbolicLink -Path $nvimLink -Target (Join-Path -Path $PSScriptRoot -ChildPath "nvim")
-
 $lvimLink = Join-Path -Path $env:LOCALAPPDATA -ChildPath "lvim"
 if ((Test-Path $lvimLink) -and ((Get-Item $lvimLink).LinkType -ne "SymbolicLink")) {
   Write-Warning "Deleting existing lvim directory: $lvimLink"
