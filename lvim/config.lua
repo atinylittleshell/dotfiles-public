@@ -9,18 +9,6 @@ if (vim.loop.os_uname().sysname == "Windows NT") then
       let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
       set shellquote= shellxquote=
     ]]
-
-  -- Set a compatible clipboard manager
-  vim.g.clipboard = {
-    copy = {
-      ["+"] = "win32yank.exe -i --crlf",
-      ["*"] = "win32yank.exe -i --crlf",
-    },
-    paste = {
-      ["+"] = "win32yank.exe -o --lf",
-      ["*"] = "win32yank.exe -o --lf",
-    },
-  }
 end
 
 ----=== General Options ===----
@@ -28,6 +16,8 @@ lvim.log.level = "warn"
 lvim.colorscheme = "rose-pine"
 lvim.format_on_save = true
 lvim.use_icons = false
+vim.opt.mouse = ''
+vim.opt.clipboard = 'unnamedplus'
 
 -- disable some annoying highlights
 vim.opt.cursorline = false
@@ -227,7 +217,7 @@ lvim.plugins = {
           only_current_line = true
         },
         underline = true,
-        update_in_insert = true
+        update_in_insert = false
       })
     end
   }

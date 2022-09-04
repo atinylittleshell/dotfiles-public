@@ -16,6 +16,16 @@ return {
   leader = { key = '`', mods = '' },
   keys = {
     {
+      key = 'c',
+      mods = 'CTRL',
+      action = wezterm.action.CopyTo('Clipboard')
+    },
+    {
+      key = 'v',
+      mods = 'CTRL',
+      action = wezterm.action.PasteFrom('Clipboard')
+    },
+    {
       key = '`',
       mods = 'LEADER',
       action = wezterm.action.SendString '`'
