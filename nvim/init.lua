@@ -68,6 +68,7 @@ vim.o.smartindent = true
 vim.o.shiftwidth = 2
 vim.o.tabstop = 2
 vim.o.expandtab = true
+vim.o.undofile = true
 
 -- ui
 vim.o.cmdheight = 2
@@ -113,6 +114,7 @@ require('packer').startup(function(use)
   use 'numToStr/FTerm.nvim'
   use 'folke/which-key.nvim'
   use 'rcarriga/nvim-notify'
+  use 'lewis6991/gitsigns.nvim'
 
   -- language related
   use 'williamboman/mason-lspconfig.nvim'
@@ -214,6 +216,51 @@ require('notify').setup {
   stages = 'fade',
   timeout = 3000,
   render = 'default'
+}
+
+require('gitsigns').setup {
+  current_line_blame = true,
+  current_line_blame_opts = {
+    virt_text = true,
+    virt_text_pos = 'eol',
+    delay = 1000
+  },
+  on_attach = function(bufnr)
+    local gs = package.loaded.gitsigns
+
+    local function map(mode, l, r, opts)
+      opts = opts or {}
+      opts.buffer = bufnr
+      vim.keymap.set(mode, l, r, opts)
+    end
+
+    -- Navigation
+    map('n', ']c', function()
+      if vim.wo.diff then return ']c' end
+      vim.schedule(function() gs.next_hunk() end)
+      return '<Ignore>'
+    end, { expr = true })
+
+    map('n', '[c', function()
+      if vim.wo.diff then return '[c' end
+      vim.schedule(function() gs.prev_hunk() end)
+      return '<Ignore>'
+    end, { expr = true })
+
+    -- Actions
+    map({ 'n', 'v' }, '<Leader>hs', ':Gitsigns stage_hunk<CR>')
+    map({ 'n', 'v' }, '<Leader>hr', ':Gitsigns reset_hunk<CR>')
+    map('n', '<Leader>hS', gs.stage_buffer)
+    map('n', '<Leader>hu', gs.undo_stage_hunk)
+    map('n', '<Leader>hR', gs.reset_buffer)
+    map('n', '<Leader>hp', gs.preview_hunk)
+    map('n', '<Leader>hd', gs.diffthis)
+    map('n', '<Leader>hD', function() gs.diffthis('~') end)
+    map('n', '<Leader>td', gs.toggle_deleted)
+
+    -- Text object
+    map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+  end
 }
 
 -- markdown preview
@@ -438,17 +485,17 @@ vim.cmd [[
 ]]
 
 -- telescope
-vim.keymap.set('n', '<leader>f',
+vim.keymap.set('n', '<Leader>f',
   function()
     builtin.find_files({
       no_ignore = false,
       hidden = true
     })
   end)
-vim.keymap.set('n', '<leader>r', function()
+vim.keymap.set('n', '<Leader>r', function()
   builtin.live_grep()
 end)
-vim.keymap.set('n', '<leader>e', function()
+vim.keymap.set('n', '<Leader>e', function()
   telescope.extensions.file_browser.file_browser({
     path = '%:p:h',
     cwd = buffer_dir()
@@ -456,9 +503,9 @@ vim.keymap.set('n', '<leader>e', function()
 end)
 
 -- buffer switching
-noremap('n', '<tab>', ':bnext<cr>')
-noremap('n', '<S-tab>', ':bprev<cr>')
-noremap('n', '<leader>x', ':bd<cr>')
+noremap('n', '<Tab>', ':bnext<CR>')
+noremap('n', '<S-Tab>', ':bprev<CR>')
+noremap('n', '<Leader>x', ':bd<CR>')
 
 -- increment/decrement
 noremap('n', '+', '<C-a>')
@@ -468,13 +515,13 @@ noremap('n', '-', '<C-x>')
 noremap('n', '<C-a>', 'gg<S-v>G')
 
 -- terminal
-noremap('n', '<leader>t', '<cmd>lua require("FTerm").toggle()<cr>')
-noremap('t', '<esc>', '<C-\\><C-n><cmd>lua require("FTerm").toggle()<cr>')
+noremap('n', '<Leader>t', '<CMD>lua require("FTerm").toggle()<CR>')
+noremap('t', '<ESC>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
 
 -- lsp
-noremap('n', 'K', '<cmd>Lspsaga hover_doc<cr>');
-noremap('n', 'gd', '<cmd>Lspsaga lsp_finder<cr>');
-noremap('n', 'gp', '<cmd>Lspsaga preview_definition<cr>');
-noremap('n', 'gr', '<cmd>Lspsaga rename<cr>');
-noremap('n', 'ga', '<cmd>Lspsaga code_action<cr>');
-noremap('v', 'ga', '<cmd>Lspsaga range_code_action<cr>');
+noremap('n', 'K', '<CMD>Lspsaga hover_doc<CR>');
+noremap('n', 'gd', '<CMD>Lspsaga lsp_finder<CR>');
+noremap('n', 'gp', '<CMD>Lspsaga preview_definition<CR>');
+noremap('n', 'gr', '<CMD>Lspsaga rename<CR>');
+noremap('n', 'ga', '<CMD>Lspsaga code_action<CR>');
+noremap('v', 'ga', '<CMD>Lspsaga range_code_action<CR>');

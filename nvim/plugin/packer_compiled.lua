@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/home/kunchenguid/.local/share/nvim/site/pack/packer/start/editorconfig-vim",
     url = "https://github.com/editorconfig/editorconfig-vim"
   },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/home/kunchenguid/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
   ["lsp_lines.nvim"] = {
     loaded = true,
     path = "/home/kunchenguid/.local/share/nvim/site/pack/packer/start/lsp_lines.nvim",
