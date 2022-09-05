@@ -17,6 +17,11 @@ return {
   keys = {
     {
       key = 'c',
+      mods = 'SUPER',
+      action = wezterm.action.SendString('\x03')
+    },
+    {
+      key = 'c',
       mods = 'CTRL',
       action = wezterm.action.CopyTo('Clipboard')
     },
