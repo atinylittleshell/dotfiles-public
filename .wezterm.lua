@@ -17,7 +17,7 @@ return {
   keys = {
     {
       key = 'c',
-      mods = 'SUPER',
+      mods = 'ALT',
       action = wezterm.action.SendString('\x03')
     },
     {
