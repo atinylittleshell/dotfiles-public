@@ -92,6 +92,9 @@ ZSH_THEME_TERM_TAB_TITLE_IDLE="%~"
 mkdir -p ~/bin
 ln -nsf "$DOT_FILES_HOME/nvim/nvim.appimage" ~/bin/nvim
 
+rm -rf ~/.config/nvim
+ln -nsf "$DOT_FILES_HOME/nvim" ~/.config/nvim
+
 rm -rf ~/.config/lvim
 ln -nsf "$DOT_FILES_HOME/lvim" ~/.config/lvim
 # Cargo
