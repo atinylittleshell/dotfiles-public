@@ -10,6 +10,7 @@ return {
   font_size = 12.0,
   color_scheme = 'Rosé Pine Moon (base16)',
   tab_bar_at_bottom = true,
+  tab_max_width = 64,
   use_fancy_tab_bar = false,
   window_decorations = "RESIZE",
   window_frame = {
