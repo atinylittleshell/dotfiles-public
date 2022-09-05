@@ -39,11 +39,6 @@ end
 ----=== Util Functions ===---
 ----=====================----
 
-local function noremap(mode, lhs, rhs)
-  local options = { noremap = true, silent = true }
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
-
 local function buffer_dir()
   return vim.fn.expand('%:p:h')
 end
@@ -209,8 +204,6 @@ require('lualine').setup {
   }
 }
 
-require('which-key').setup()
-
 vim.notify = require('notify')
 require('notify').setup {
   stages = 'fade',
@@ -218,48 +211,35 @@ require('notify').setup {
   render = 'default'
 }
 
+local wk = require('which-key')
+wk.setup()
+
 require('gitsigns').setup {
   current_line_blame = true,
   current_line_blame_opts = {
     virt_text = true,
-    virt_text_pos = 'eol',
+    virt_text_pos = 'right_align',
     delay = 1000
   },
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
 
-    local function map(mode, l, r, opts)
-      opts = opts or {}
-      opts.buffer = bufnr
-      vim.keymap.set(mode, l, r, opts)
-    end
-
-    -- Navigation
-    map('n', ']c', function()
-      if vim.wo.diff then return ']c' end
-      vim.schedule(function() gs.next_hunk() end)
-      return '<Ignore>'
-    end, { expr = true })
-
-    map('n', '[c', function()
-      if vim.wo.diff then return '[c' end
-      vim.schedule(function() gs.prev_hunk() end)
-      return '<Ignore>'
-    end, { expr = true })
-
-    -- Actions
-    map({ 'n', 'v' }, '<Leader>hs', ':Gitsigns stage_hunk<CR>')
-    map({ 'n', 'v' }, '<Leader>hr', ':Gitsigns reset_hunk<CR>')
-    map('n', '<Leader>hS', gs.stage_buffer)
-    map('n', '<Leader>hu', gs.undo_stage_hunk)
-    map('n', '<Leader>hR', gs.reset_buffer)
-    map('n', '<Leader>hp', gs.preview_hunk)
-    map('n', '<Leader>hd', gs.diffthis)
-    map('n', '<Leader>hD', function() gs.diffthis('~') end)
-    map('n', '<Leader>td', gs.toggle_deleted)
-
-    -- Text object
-    map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+    wk.register({
+      h = {
+        name = 'Hunk',
+        p = { gs.preview_hunk, 'preview' },
+        r = { gs.reset_hunk, 'Reset' },
+        R = { gs.reset_buffer, 'Reset Buffer' },
+        s = { gs.stage_hunk, 'Stage' },
+        u = { gs.undo_stage_hunk, 'Undo Stage' },
+        n = { gs.select_hunk, 'Select' },
+        N = { gs.select_prev_hunk, 'Select Prev' },
+        d = { gs.diffthis, 'Diff' },
+      }
+    }, {
+      buffer = bufnr,
+      prefix = '<leader>',
+    })
   end
 }
 
@@ -484,44 +464,115 @@ vim.cmd [[
   xnoremap <expr> p 'pgv"'.v:register.'y'
 ]]
 
--- telescope
-vim.keymap.set('n', '<Leader>f',
-  function()
-    builtin.find_files({
-      no_ignore = false,
-      hidden = true
-    })
-  end)
-vim.keymap.set('n', '<Leader>r', function()
-  builtin.live_grep()
-end)
-vim.keymap.set('n', '<Leader>e', function()
-  telescope.extensions.file_browser.file_browser({
-    path = '%:p:h',
-    cwd = buffer_dir()
-  })
-end)
+-- n mode with no prefix
+wk.register({
+  -- buffer
+  ['<Tab>'] = {
+    ':bnext<CR>',
+    'Next Buffer'
+  },
+  ['<S-Tab>'] = {
+    ':bprevious<CR>',
+    'Previous Buffer'
+  },
+  -- increment/decrement
+  ['+'] = {
+    '<C-a>',
+    'Increment'
+  },
+  ['-'] = {
+    '<C-x>',
+    'Increment'
+  },
+  -- selection
+  ['<C-a>'] = {
+    'ggVG',
+    'Select All'
+  },
+  -- lspsaga
+  K = {
+    '<CMD>Lspsaga hover_doc<CR>',
+    'Hover'
+  },
+  g = {
+    name = 'lspsaga',
+    d = {
+      '<CMD>Lspsaga lsp_finder<CR>',
+      'Go to Definition'
+    },
+    p = {
+      '<CMD>Lspsaga preview_definition<CR>',
+      'Preview Definition'
+    },
+    r = {
+      '<CMD>Lspsaga rename<CR>',
+      'Rename'
+    },
+    a = {
+      '<CMD>Lspsaga code_action<CR>',
+      'Code Action'
+    },
+    s = {
+      '<CMD>Lspsaga signature_help<CR>',
+      'Signature Help'
+    },
+  }
+})
 
--- buffer switching
-noremap('n', '<Tab>', ':bnext<CR>')
-noremap('n', '<S-Tab>', ':bprev<CR>')
-noremap('n', '<Leader>x', ':bd<CR>')
+-- n mode with leader prefix
+wk.register({
+  -- telescope
+  f = {
+    function()
+      builtin.find_files({
+        no_ignore = false,
+        hidden = true
+      })
+    end,
+    'Find Files'
+  },
+  r = {
+    function()
+      builtin.live_grep()
+    end,
+    'Grep'
+  },
+  e = {
+    function()
+      telescope.extensions.file_browser.file_browser({
+        path = '%:p:h',
+        cwd = buffer_dir()
+      })
+    end,
+    'File Browser'
+  },
+  -- buffer
+  x = {
+    ':bd<CR>',
+    'Close Buffer'
+  },
+  -- terminal
+  t = {
+    '<CMD>lua require("FTerm").toggle()<CR>',
+    'Open Terminal',
+  },
+  -- highlight
+  n = {
+    ':set hlsearch!<CR>',
+    'Toggle Highlight'
+  },
+}, {
+  prefix = '<leader>',
+  mode = 'n'
+})
 
--- increment/decrement
-noremap('n', '+', '<C-a>')
-noremap('n', '-', '<C-x>')
-
--- select all
-noremap('n', '<C-a>', 'gg<S-v>G')
-
--- terminal
-noremap('n', '<Leader>t', '<CMD>lua require("FTerm").toggle()<CR>')
-noremap('t', '<ESC>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
-
--- lsp
-noremap('n', 'K', '<CMD>Lspsaga hover_doc<CR>');
-noremap('n', 'gd', '<CMD>Lspsaga lsp_finder<CR>');
-noremap('n', 'gp', '<CMD>Lspsaga preview_definition<CR>');
-noremap('n', 'gr', '<CMD>Lspsaga rename<CR>');
-noremap('n', 'ga', '<CMD>Lspsaga code_action<CR>');
-noremap('v', 'ga', '<CMD>Lspsaga range_code_action<CR>');
+-- t mode with no prefix
+wk.register({
+  -- terminal
+  ['<ESC>'] = {
+    '<CMD>lua require("FTerm").toggle()<CR>',
+    'Close Terminal',
+  },
+}, {
+  mode = 't'
+})
