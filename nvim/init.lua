@@ -289,7 +289,7 @@ vim.api.nvim_create_augroup('formatting', {})
 vim.api.nvim_create_autocmd('BufWritePre', {
   group = 'formatting',
   callback = function()
-    vim.lsp.buf.formatting_sync(nil, 3000)
+    vim.lsp.buf.formatting_sync(nil, 5000)
     vim.notify('File formatted on save.')
   end,
 })
