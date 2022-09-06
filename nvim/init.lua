@@ -51,7 +51,7 @@ end
 vim.o.backup = false
 vim.o.swapfile = false
 vim.o.termguicolors = true
-vim.o.title = true
+vim.o.title = false
 vim.o.fileencodings = 'utf-8'
 vim.o.clipboard = 'unnamedplus'
 vim.o.mouse = ''
@@ -416,7 +416,7 @@ null_ls.setup({
 })
 
 vim.diagnostic.config({
-  virtual_text = true,
+  virtual_text = false,
   underline = true,
   secerity_sort = true,
   update_in_insert = false
