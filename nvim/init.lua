@@ -124,7 +124,6 @@ require('packer').startup(function(use)
   use 'saadparwaiz1/cmp_luasnip'
   use 'hrsh7th/nvim-cmp'
   use 'jose-elias-alvarez/null-ls.nvim'
-  use 'Maan2003/lsp_lines.nvim'
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
@@ -359,7 +358,16 @@ nvim_lsp.sumneko_lua.setup {
   }
 }
 
-require('lspsaga').init_lsp_saga {}
+require('lspsaga').init_lsp_saga {
+  code_action_keys = {
+    quit = '<ESC>',
+    exec = '<CR>'
+  },
+  definition_action_keys = {
+    quit = '<ESC>',
+    open = '<CR>'
+  },
+}
 
 local cmp = require('cmp')
 if (cmp ~= nil) then
@@ -407,13 +415,10 @@ null_ls.setup({
   }
 })
 
-require('lsp_lines').setup()
 vim.diagnostic.config({
-  virtual_text = false,
-  virtual_lines = {
-    only_current_line = true
-  },
+  virtual_text = true,
   underline = true,
+  secerity_sort = true,
   update_in_insert = false
 })
 
@@ -515,6 +520,14 @@ wk.register({
     s = {
       '<CMD>Lspsaga signature_help<CR>',
       'Signature Help'
+    },
+    l = {
+      '<CMD>Lspsaga show_line_diagnostics<CR>',
+      'Show Line Diagnostics'
+    },
+    c = {
+      '<CMD>Lspsaga show_cursor_diagnostics<CR>',
+      'Show Cursor Diagnostics'
     },
   }
 })
