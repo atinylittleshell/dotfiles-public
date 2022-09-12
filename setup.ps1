@@ -36,4 +36,5 @@ if ((Test-Path $lvimLink) -and ((Get-Item $lvimLink).LinkType -ne "SymbolicLink"
 }
 New-Item -Force -ItemType SymbolicLink -Path $lvimLink -Target (Join-Path -Path $PSScriptRoot -ChildPath "lvim")
 
-choco install mingw
+choco install llvm -y
+iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim | ni "$(@($env:XDG_DATA_HOME, $env:LOCALAPPDATA)[$null -eq $env:XDG_DATA_HOME])/nvim-data/site/autoload/plug.vim" -Force
