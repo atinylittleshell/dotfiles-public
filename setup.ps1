@@ -35,3 +35,5 @@ if ((Test-Path $lvimLink) -and ((Get-Item $lvimLink).LinkType -ne "SymbolicLink"
   Remove-Item -Force -Recurse $lvimLink
 }
 New-Item -Force -ItemType SymbolicLink -Path $lvimLink -Target (Join-Path -Path $PSScriptRoot -ChildPath "lvim")
+
+choco install mingw

@@ -1,5 +1,24 @@
 local wezterm = require 'wezterm'
 
+local prog_powershell = {
+  'C:\\Program Files\\PowerShell\\7\\pwsh.exe'
+}
+local prog_wsl = {
+  'C:\\Windows\\System32\\wsl.exe',
+  '-d',
+  'Ubuntu-22.04',
+  '--cd',
+  '~'
+}
+
+local default_prog = function()
+  if package.config:sub(1,1) == '\\' then
+    return prog_powershell
+  else
+    return prog_wsl
+  end
+end
+
 return {
   font = wezterm.font(
     'DroidSansMono NF',
@@ -78,27 +97,15 @@ return {
       action = wezterm.action.ActivateTab(5)
     },
   },
-  default_prog = {
-    'C:\\Windows\\System32\\wsl.exe',
-    '-d',
-    'Ubuntu-22.04',
-    '--cd',
-    '~'
-  },
+  default_prog = default_prog(),
   launch_menu = {
     {
       label = 'Ubuntu',
-      args = {
-        'C:\\Windows\\System32\\wsl.exe',
-        '-d',
-        'Ubuntu-22.04'
-      }
+      args = prog_wsl
     },
     {
       label = 'Powershell',
-      args = {
-        'C:\\Program Files\\PowerShell\\7\\pwsh.exe'
-      }
+      args = prog_powershell
     }
   }
 }
