@@ -1,24 +1,3 @@
-----===========================----
-----=== Auto Install Packer ===----
-----===========================----
-
-local packer_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
-
-if vim.fn.empty(vim.fn.glob(packer_path)) > 0 then
-  vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. packer_path)
-  return
-end
-
-----===========================----
-----=== Auto Packer Compile ===----
-----===========================----
-
-local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
-vim.api.nvim_create_autocmd(
-  'BufWritePost',
-  { command = 'source <afile> | PackerCompile', group = packer_group, pattern = 'init.lua' }
-)
-
 ----=====================----
 ----=== Windows Setup ===----
 ----=====================----
@@ -83,59 +62,53 @@ vim.g.loaded_matchparen = 0
 ----=== Plugins ===----
 ----===============----
 
-require('packer').startup(function(use)
-  -- common libraries
-  use 'wbthomason/packer.nvim'
-  use 'nvim-lua/plenary.nvim'
-  use 'williamboman/mason.nvim'
+local Plug = vim.fn['plug#']
+vim.call('plug#begin')
 
-  -- ui
-  use {
-    'rose-pine/neovim',
-    as = 'rose-pine',
-    tag = 'v1.*',
-  }
-  use {
-    'akinsho/bufferline.nvim',
-    tag = 'v2.*'
-  }
-  use 'nvim-lualine/lualine.nvim'
-  use {
-    'iamcco/markdown-preview.nvim',
-    run = function() vim.fn['mkdp#util#install']() end,
-  }
-  use 'nvim-telescope/telescope.nvim'
-  use 'nvim-telescope/telescope-file-browser.nvim'
-  use 'numToStr/FTerm.nvim'
-  use 'folke/which-key.nvim'
-  use 'rcarriga/nvim-notify'
-  use 'lewis6991/gitsigns.nvim'
+-- common libraries
+Plug 'wbthomason/packer.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'williamboman/mason.nvim'
 
-  -- language related
-  use 'williamboman/mason-lspconfig.nvim'
-  use 'neovim/nvim-lspconfig'
-  use {
-    'glepnir/lspsaga.nvim',
-    branch = 'main',
-  }
-  use 'L3MON4D3/LuaSnip'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'saadparwaiz1/cmp_luasnip'
-  use 'hrsh7th/nvim-cmp'
-  use 'jose-elias-alvarez/null-ls.nvim'
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
-  }
-  use 'nvim-treesitter/nvim-treesitter-context'
+-- ui
+Plug 'rose-pine/neovim'
+Plug 'akinsho/bufferline.nvim'
+Plug 'nvim-lualine/lualine.nvim'
+Plug('iamcco/markdown-preview.nvim', {
+  ['do'] = function() vim.fn['mkdp#util#install']() end,
+  ['for'] = { 'markdown', 'vim-plug' }
+})
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
+Plug 'numToStr/FTerm.nvim'
+Plug 'folke/which-key.nvim'
+Plug 'rcarriga/nvim-notify'
+Plug 'lewis6991/gitsigns.nvim'
 
-  -- editing
-  use 'github/copilot.vim'
-  use 'windwp/nvim-autopairs'
-  use 'windwp/nvim-ts-autotag'
-  use 'editorconfig/editorconfig-vim'
-end)
+-- language related
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug('glepnir/lspsaga.nvim', {
+  ['branch'] = 'main'
+})
+Plug 'L3MON4D3/LuaSnip'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug('nvim-treesitter/nvim-treesitter', {
+  ['do'] = ':TSUpdate',
+})
+Plug 'nvim-treesitter/nvim-treesitter-context'
+
+-- editing
+Plug 'github/copilot.vim'
+Plug 'windwp/nvim-autopairs'
+Plug 'windwp/nvim-ts-autotag'
+Plug 'editorconfig/editorconfig-vim'
+
+vim.call('plug#end')
 
 require('mason').setup {
   ui = {
@@ -454,7 +427,7 @@ ts.setup {
     enable = true,
   },
 }
-require 'nvim-treesitter.install'.compilers = { 'cl', 'gcc' }
+require 'nvim-treesitter.install'.compilers = { 'clang' }
 require('treesitter-context').setup()
 
 require('nvim-autopairs').setup()
