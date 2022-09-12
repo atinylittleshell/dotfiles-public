@@ -11,6 +11,7 @@ nnoremap + <C-a>
 nnoremap - <C-x>
 nnoremap <C-a> ggVG
 
+nnoremap ga <cmd>call VSCodeNotify('editor.action.quickFix')<cr>
 nnoremap <space>e <cmd>call VSCodeNotify('workbench.view.explorer')<cr>
 nnoremap <space>f <cmd>call VSCodeNotify('workbench.action.quickOpen')<cr>
 nnoremap <space>r <cmd>call VSCodeNotify('workbench.action.findInFiles')<cr>
