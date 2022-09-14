@@ -22,6 +22,13 @@ if ((Test-Path $weztermLink) -and ((Get-Item $profile).LinkType -ne "SymbolicLin
 }
 New-Item -Force -ItemType SymbolicLink -Path $weztermLink -Target (Join-Path -Path $PSScriptRoot -ChildPath ".wezterm.lua")
 
+$alacrittyLink = Join-Path -Path $env:APPDATA -ChildPath "alacritty\\alacritty.yml"
+if ((Test-Path $alacrittyLink) -and ((Get-Item $profile).LinkType -ne "SymbolicLink")) {
+  Write-Warning "Deleting existing alacritty config: $alacrittyLink"
+  Remote-Item -Force $alacrittyLink
+}
+New-Item -Force -ItemType SymbolicLink -Path $alacrittyLink -Target (Join-Path -Path $PSScriptRoot -ChildPath "alacritty.yml")
+
 $nvimLink = Join-Path -Path $env:LOCALAPPDATA -ChildPath "nvim"
 if ((Test-Path $nvimLink) -and ((Get-Item $nvimLink).LinkType -ne "SymbolicLink")) {
   Write-Warning "Deleting existing nvim directory: $nvimLink"
@@ -35,6 +42,3 @@ if ((Test-Path $lvimLink) -and ((Get-Item $lvimLink).LinkType -ne "SymbolicLink"
   Remove-Item -Force -Recurse $lvimLink
 }
 New-Item -Force -ItemType SymbolicLink -Path $lvimLink -Target (Join-Path -Path $PSScriptRoot -ChildPath "lvim")
-
-choco install llvm -y
-iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim | ni "$(@($env:XDG_DATA_HOME, $env:LOCALAPPDATA)[$null -eq $env:XDG_DATA_HOME])/nvim-data/site/autoload/plug.vim" -Force

@@ -427,7 +427,7 @@ ts.setup {
     enable = true,
   },
 }
-require 'nvim-treesitter.install'.compilers = { 'clang' }
+require 'nvim-treesitter.install'.compilers = { 'x86_64-w64-mingw32-clang', 'gcc' }
 require('treesitter-context').setup()
 
 require('nvim-autopairs').setup()
