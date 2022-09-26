@@ -21,7 +21,7 @@ end
 
 return {
   font = wezterm.font(
-    'DroidSansMono NF',
+    'Hack NF',
     {
       weight = 'DemiBold'
     }

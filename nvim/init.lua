@@ -2,8 +2,10 @@
 ----=== Windows Setup ===----
 ----=====================----
 
-if (vim.loop.os_uname().sysname == 'Windows NT') then
+local ftermCmd = nil
+if (vim.loop.os_uname().sysname == 'Windows_NT') then
   -- Enable powershell as your default shell
+  ftermCmd = 'pwsh.exe -NoLogo'
   vim.opt.shell = 'pwsh.exe -NoLogo'
   vim.opt.shellcmdflag =
   '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
@@ -84,6 +86,7 @@ Plug 'numToStr/FTerm.nvim'
 Plug 'folke/which-key.nvim'
 Plug 'rcarriga/nvim-notify'
 Plug 'lewis6991/gitsigns.nvim'
+Plug 'xiyaowong/nvim-transparent'
 
 -- language related
 Plug 'williamboman/mason-lspconfig.nvim'
@@ -178,6 +181,7 @@ require('lualine').setup {
 
 vim.notify = require('notify')
 require('notify').setup {
+  background_colour = '#000000',
   stages = 'fade',
   timeout = 3000,
   render = 'default'
@@ -252,7 +256,8 @@ telescope.setup {
 telescope.load_extension('file_browser')
 
 require('FTerm').setup({
-  border = 'double'
+  border = 'double',
+  cmd = ftermCmd
 })
 
 -- lsp
@@ -268,7 +273,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 })
 
 local on_attach = function(client)
-  if client.name == 'tsserver' or client.name == 'eslint' or client.name == 'tailwindcss' then
+  if client.name == 'tsserver' or client.name == 'eslint' or client.name == 'tailwindcss' or client.name == 'rust_analyzer' then
     client.resolved_capabilities.document_formatting = false
   end
 end
@@ -310,6 +315,11 @@ nvim_lsp.tsserver.setup {
 }
 
 nvim_lsp.tailwindcss.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
+nvim_lsp.rust_analyzer.setup {
   on_attach = on_attach,
   capabilities = capabilities
 }
@@ -384,7 +394,8 @@ null_ls.setup({
             or utils.root_has_file '.eslintrc.json'
       end,
       prefer_local = 'node_modules/.bin'
-    }
+    },
+    null_ls.builtins.formatting.rustfmt
   }
 })
 
@@ -432,6 +443,10 @@ require('treesitter-context').setup()
 
 require('nvim-autopairs').setup()
 require('nvim-ts-autotag').setup()
+
+require('transparent').setup({
+  enable = true
+})
 
 ----====================----
 ----=== Key Bindings ===----
