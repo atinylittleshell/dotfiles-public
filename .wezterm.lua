@@ -10,9 +10,12 @@ local prog_wsl = {
   '--cd',
   '~'
 }
+local prog_cmd = {
+  'C:\\Windows\\System32\\cmd.exe',
+}
 
 local default_prog = function()
-  if package.config:sub(1,1) == '\\' then
+  if package.config:sub(1, 1) == '\\' then
     return prog_powershell
   else
     return prog_wsl
@@ -106,6 +109,10 @@ return {
     {
       label = 'Powershell',
       args = prog_powershell
+    },
+    {
+      label = 'Cmd',
+      args = prog_cmd
     }
   }
 }

@@ -267,14 +267,15 @@ vim.api.nvim_create_augroup('formatting', {})
 vim.api.nvim_create_autocmd('BufWritePre', {
   group = 'formatting',
   callback = function()
-    vim.lsp.buf.formatting_sync(nil, 5000)
+    vim.lsp.buf.format()
     vim.notify('File formatted on save.')
   end,
 })
 
 local on_attach = function(client)
-  if client.name == 'tsserver' or client.name == 'eslint' or client.name == 'tailwindcss' or client.name == 'rust_analyzer' then
-    client.resolved_capabilities.document_formatting = false
+  if client.name == 'tsserver' or client.name == 'eslint' or client.name == 'tailwindcss' or
+      client.name == 'rust_analyzer' then
+    client.server_capabilities.documentFormattingProvider = false
   end
 end
 
@@ -443,10 +444,6 @@ require('treesitter-context').setup()
 
 require('nvim-autopairs').setup()
 require('nvim-ts-autotag').setup()
-
-require('transparent').setup({
-  enable = true
-})
 
 ----====================----
 ----=== Key Bindings ===----
