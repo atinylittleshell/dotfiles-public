@@ -1,4 +1,3 @@
 .DS_Store
-nvim/plugged/
-.tmux/plugins/
 .oh-my-zsh
+packer_compiled.lua

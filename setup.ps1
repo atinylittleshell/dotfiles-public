@@ -27,4 +27,4 @@ if ((Test-Path $nvimLink) -and ((Get-Item $nvimLink).LinkType -ne "SymbolicLink"
   Write-Warning "Deleting existing nvim directory: $nvimLink"
   Remove-Item -Force -Recurse $nvimLink
 }
-New-Item -Force -ItemType SymbolicLink -Path $nvimLink -Target (Join-Path -Path $PSScriptRoot -ChildPath "nvim")
+New-Item -Force -ItemType SymbolicLink -Path $nvimLink -Target (Join-Path -Path $PSScriptRoot -ChildPath "nvim_0.8")
