@@ -20,6 +20,6 @@ end
 ----=== Config modules ===----
 ----======================----
 require('plugins')
-require('plugins_config')
 require('vim_config')
+require('keys')
 
