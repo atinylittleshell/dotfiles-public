@@ -7,10 +7,10 @@ vim.cmd([[
 
 local ensure_packer = function()
   local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
   if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
+    fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+    vim.cmd([[packadd packer.nvim]])
     return true
   end
   return false
@@ -36,7 +36,7 @@ require('packer').startup(function(use)
         config = function()
           require('plugins_config.mason-lspconfig')
         end,
-        after = 'mason.nvim'
+        after = 'mason.nvim',
       },
     },
   })
@@ -56,21 +56,21 @@ require('packer').startup(function(use)
     config = function()
       require('plugins_config.nvim-notify')
     end,
-    after = 'rose-pine'
+    after = 'rose-pine',
   })
   use({
     'akinsho/bufferline.nvim',
     config = function()
       require('plugins_config.bufferline')
     end,
-    after = 'rose-pine'
+    after = 'rose-pine',
   })
   use({
     'nvim-lualine/lualine.nvim',
     config = function()
       require('plugins_config.lualine')
     end,
-    after = 'rose-pine'
+    after = 'rose-pine',
   })
   use({
     'folke/which-key.nvim',
@@ -87,7 +87,7 @@ require('packer').startup(function(use)
     event = 'BufWinEnter',
   })
   use({
-    'nvim-telescope/telescope-file-browser.nvim'
+    'nvim-telescope/telescope-file-browser.nvim',
   })
   use({
     'nvim-telescope/telescope.nvim',
@@ -138,6 +138,7 @@ require('packer').startup(function(use)
       {
         'jose-elias-alvarez/null-ls.nvim',
         config = function()
+          require('plugins_config.null-ls')
         end,
         after = 'nvim-lspconfig',
       },

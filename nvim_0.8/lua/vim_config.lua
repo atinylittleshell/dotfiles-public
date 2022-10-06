@@ -55,3 +55,13 @@ o.updatetime = 100
 -- disable some unnecessary highlighting
 o.cursorline = false
 g.loaded_matchparen = 0
+
+-- format on save
+vim.api.nvim_create_augroup('formatting', {})
+vim.api.nvim_create_autocmd('BufWritePre', {
+  group = 'formatting',
+  callback = function()
+    vim.lsp.buf.format()
+    vim.notify('File formatted on save.')
+  end,
+})
