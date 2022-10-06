@@ -112,10 +112,6 @@ require('packer').startup(function(use)
       { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
-      {
-        'windwp/nvim-autopairs',
-        after = 'nvim-cmp',
-      },
     },
     event = 'InsertEnter',
   })
@@ -155,6 +151,7 @@ require('packer').startup(function(use)
       'JoosepAlviste/nvim-ts-context-commentstring',
       'nvim-treesitter/nvim-treesitter-context',
       'nvim-treesitter/nvim-treesitter-refactor',
+      'windwp/nvim-autopairs',
     },
     config = function()
       require('plugins_config.treesitter')
