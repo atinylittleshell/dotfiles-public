@@ -9,37 +9,37 @@ local on_attach = function(client, bufnr)
   wk.register({
     K = {
       '<CMD>Lspsaga hover_doc<CR>',
-      'Hover'
+      'Hover',
     },
     g = {
       name = 'lspsaga',
       d = {
         '<CMD>Lspsaga lsp_finder<CR>',
-        'Go to Definition'
+        'Go to Definition',
       },
       p = {
         '<CMD>Lspsaga peek_definition<CR>',
-        'Peek Definition'
+        'Peek Definition',
       },
       n = {
         '<CMD>Lspsaga rename<CR>',
-        'Rename'
+        'Rename',
       },
       a = {
         '<CMD>Lspsaga code_action<CR>',
-        'Code Action'
+        'Code Action',
       },
       s = {
         '<CMD>Lspsaga signature_help<CR>',
-        'Signature Help'
+        'Signature Help',
       },
       l = {
         '<CMD>Lspsaga show_line_diagnostics<CR>',
-        'Show Line Diagnostics'
+        'Show Line Diagnostics',
       },
       c = {
         '<CMD>Lspsaga show_cursor_diagnostics<CR>',
-        'Show Cursor Diagnostics'
+        'Show Cursor Diagnostics',
       },
     },
     ['[g'] = {
@@ -55,13 +55,52 @@ local on_attach = function(client, bufnr)
   })
 
   -- formatting for the following languages are covered by null-ls
-  if client.name == 'tsserver' or client.name == 'eslint' or client.name == 'tailwindcss' or
-      client.name == 'rust_analyzer' then
+  if
+    client.name == 'tsserver'
+    or client.name == 'eslint'
+    or client.name == 'tailwindcss'
+    or client.name == 'rust_analyzer'
+  then
     client.server_capabilities.documentFormattingProvider = false
   end
 end
 
-nvim_lsp.sumneko_lua.setup {
+nvim_lsp.cssls.setup({
+  on_attach = on_attach,
+  settings = {
+    css = {
+      lint = {
+        unknownAtRules = 'ignore',
+      },
+    },
+  },
+})
+
+nvim_lsp.html.setup({
+  on_attach = on_attach,
+})
+
+nvim_lsp.jsonls.setup({
+  on_attach = on_attach,
+})
+
+nvim_lsp.eslint.setup({
+  on_attach = on_attach,
+})
+
+nvim_lsp.tsserver.setup({
+  on_attach = on_attach,
+})
+
+nvim_lsp.tailwindcss.setup({
+  on_attach = on_attach,
+})
+
+nvim_lsp.rust_analyzer.setup({
+  on_attach = on_attach,
+})
+
+nvim_lsp.sumneko_lua.setup({
   on_attach = on_attach,
   settings = {
     Lua = {
@@ -73,7 +112,7 @@ nvim_lsp.sumneko_lua.setup {
       },
       workspace = {
         library = vim.api.nvim_get_runtime_file('', true),
-      }
-    }
-  }
-}
+      },
+    },
+  },
+})

@@ -1,5 +1,5 @@
 local ts = require('nvim-treesitter.configs')
-ts.setup {
+ts.setup({
   highlight = {
     enable = true,
     use_languagetree = true,
@@ -13,10 +13,6 @@ ts.setup {
   context_commentstring = {
     enable = true,
     enable_autocmd = false,
-  },
-  refactor = {
-    highlight_definitions = { enable = true },
-    highlight_current_scope = { enable = false },
   },
   auto_install = true,
   ensure_installed = {
@@ -34,11 +30,11 @@ ts.setup {
     'python',
     'yaml',
     'lua',
-    'vim'
+    'vim',
   },
-}
+})
 
-require 'nvim-treesitter.install'.compilers = { 'x86_64-w64-mingw32-clang', 'gcc' }
+require('nvim-treesitter.install').compilers = { 'x86_64-w64-mingw32-clang', 'gcc' }
 
 require('treesitter-context').setup()
 require('nvim-autopairs').setup()

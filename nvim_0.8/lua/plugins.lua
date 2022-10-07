@@ -52,6 +52,13 @@ require('packer').startup(function(use)
 
   -- ui
   use({
+    'xiyaowong/nvim-transparent',
+    config = function()
+      require('plugins_config.transparent')
+    end,
+    after = 'rose-pine',
+  })
+  use({
     'rcarriga/nvim-notify',
     config = function()
       require('plugins_config.nvim-notify')
@@ -106,6 +113,9 @@ require('packer').startup(function(use)
         requires = {
           'rafamadriz/friendly-snippets',
         },
+        config = function()
+          require('plugins_config.luasnip')
+        end,
       },
       { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp' },
       { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
@@ -113,7 +123,16 @@ require('packer').startup(function(use)
       { 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
     },
+    config = function()
+      require('plugins_config.nvim-cmp')
+    end,
     event = 'InsertEnter',
+  })
+  use({
+    'numToStr/Comment.nvim',
+    config = function()
+      require('plugins_config.comment')
+    end,
   })
   use({
     'github/copilot.vim',
@@ -151,8 +170,12 @@ require('packer').startup(function(use)
       'windwp/nvim-ts-autotag',
       'JoosepAlviste/nvim-ts-context-commentstring',
       'nvim-treesitter/nvim-treesitter-context',
-      'nvim-treesitter/nvim-treesitter-refactor',
-      'windwp/nvim-autopairs',
+      {
+        'windwp/nvim-autopairs',
+        config = function()
+          require('plugins_config.nvim-autopairs')
+        end,
+      },
     },
     config = function()
       require('plugins_config.treesitter')
