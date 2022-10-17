@@ -94,12 +94,6 @@ require('packer').startup(function(use)
     event = 'BufWinEnter',
   })
   use({
-    'ahmedkhalf/project.nvim',
-    config = function()
-      require('plugins_config.project')
-    end,
-  })
-  use({
     'nvim-telescope/telescope.nvim',
     config = function()
       require('plugins_config.telescope')
