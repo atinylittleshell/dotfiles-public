@@ -59,7 +59,7 @@ wk.register({
   },
   -- terminal
   t = {
-    '<CMD>lua require("FTerm").toggle()<CR>',
+    '<CMD>exe v:count1 . "ToggleTerm"<CR>',
     'Open Terminal',
   },
 }, {
@@ -71,7 +71,7 @@ wk.register({
 wk.register({
   -- terminal
   ['<ESC>'] = {
-    '<CMD>lua require("FTerm").toggle()<CR>',
+    '<CMD>close<CR>',
     'Close Terminal',
   },
 }, {

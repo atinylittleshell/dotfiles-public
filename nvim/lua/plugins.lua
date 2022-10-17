@@ -112,6 +112,12 @@ require('packer').startup(function(use)
       require('plugins_config.nvim-tree')
     end,
   })
+  use({
+    'akinsho/toggleterm.nvim',
+    config = function()
+      require('plugins_config.toggleterm')
+    end,
+  })
 
   -- autocompletion
   use({
