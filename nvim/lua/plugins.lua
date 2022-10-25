@@ -101,6 +101,12 @@ require('packer').startup(function(use)
     after = 'which-key.nvim',
   })
   use({
+    'ggandor/leap.nvim',
+    config = function()
+      require('plugins_config.leap')
+    end,
+  })
+  use({
     'nvim-tree/nvim-tree.lua',
     config = function()
       require('plugins_config.nvim-tree')
