@@ -59,10 +59,14 @@ require('packer').startup(function(use)
     after = 'rose-pine',
   })
   use({
-    'rcarriga/nvim-notify',
+    'folke/noice.nvim',
+    event = 'VimEnter',
     config = function()
-      require('plugins_config.nvim-notify')
+      require('plugins_config.noice')
     end,
+    requires = {
+      'MunifTanjim/nui.nvim',
+    },
     after = 'rose-pine',
   })
   use({
