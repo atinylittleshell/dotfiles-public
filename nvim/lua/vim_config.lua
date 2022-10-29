@@ -38,7 +38,7 @@ o.wildmenu = true
 
 -- ui
 o.ls = 0
-o.cmdheight = 0
+o.cmdheight = 1
 o.signcolumn = 'yes'
 o.splitbelow = true
 o.splitright = true
