@@ -64,7 +64,6 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   group = 'formatting',
   callback = function()
     vim.lsp.buf.format({ timeout_ms = 10000 })
-    vim.notify('File formatted on save.')
   end,
 })
 
