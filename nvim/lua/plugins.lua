@@ -123,6 +123,41 @@ require('packer').startup(function(use)
     end,
   })
 
+  -- autocompletion
+  use({
+    'hrsh7th/nvim-cmp',
+    requires = {
+      {
+        'L3MON4D3/LuaSnip',
+        requires = {
+          'rafamadriz/friendly-snippets',
+        },
+        config = function()
+          require('plugins_config.luasnip')
+        end,
+      },
+      { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp' },
+      { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
+    },
+    config = function()
+      require('plugins_config.nvim-cmp')
+    end,
+    event = 'InsertEnter',
+  })
+  use({
+    'numToStr/Comment.nvim',
+    config = function()
+      require('plugins_config.comment')
+    end,
+  })
+  use({
+    'github/copilot.vim',
+    'editorconfig/editorconfig-vim',
+  })
+
   -- lsp
   use({
     'neovim/nvim-lspconfig',
@@ -165,37 +200,6 @@ require('packer').startup(function(use)
       require('plugins_config.treesitter')
     end,
     run = ':TSUpdate',
-  })
-
-  -- autocompletion
-  use({
-    'VonHeikemen/lsp-zero.nvim',
-    requires = {
-      -- Autocompletion
-      { 'hrsh7th/nvim-cmp' },
-      { 'hrsh7th/cmp-buffer' },
-      { 'hrsh7th/cmp-path' },
-      { 'saadparwaiz1/cmp_luasnip' },
-      { 'hrsh7th/cmp-nvim-lsp' },
-      { 'hrsh7th/cmp-nvim-lua' },
-
-      -- Snippets
-      { 'L3MON4D3/LuaSnip' },
-      { 'rafamadriz/friendly-snippets' },
-    },
-    config = function()
-      require('plugins_config.lsp-zero')
-    end,
-  })
-  use({
-    'numToStr/Comment.nvim',
-    config = function()
-      require('plugins_config.comment')
-    end,
-  })
-  use({
-    'github/copilot.vim',
-    'editorconfig/editorconfig-vim',
   })
 
   -- Automatically set up your configuration after cloning packer.nvim
