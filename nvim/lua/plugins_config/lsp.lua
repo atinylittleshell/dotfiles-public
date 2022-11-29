@@ -54,13 +54,12 @@ local on_attach = function(client, bufnr)
     buffer = bufnr,
   })
 
+  if client.name == 'eslint' then
+    client.server_capabilities.documentFormattingProvider = true
+  end
+
   -- formatting for the following languages are covered by null-ls
-  if
-    client.name == 'tsserver'
-    or client.name == 'eslint'
-    or client.name == 'tailwindcss'
-    or client.name == 'rust_analyzer'
-  then
+  if client.name == 'tsserver' or client.name == 'tailwindcss' or client.name == 'rust_analyzer' then
     client.server_capabilities.documentFormattingProvider = false
   end
 end
