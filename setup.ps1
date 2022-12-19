@@ -22,5 +22,13 @@ if ((Test-Path $nvimLink) -and ((Get-Item $nvimLink).LinkType -ne "SymbolicLink"
 }
 New-Item -Force -ItemType SymbolicLink -Path $nvimLink -Target (Join-Path -Path $PSScriptRoot -ChildPath "nvim")
 
+$starshipLink = Join-Path -Path $env:LOCALAPPDATA -ChildPath "starship.toml"
+if ((Test-Path $starshipLink) -and ((Get-Item $starshipLink).LinkType -ne "SymbolicLink")) {
+  Write-Warning "Deleting existing starship config: $starshipLink"
+  Remove-Item -Force -Recurse $starshipLink
+}
+New-Item -Force -ItemType SymbolicLink -Path $starshipLink -Target (Join-Path -Path $PSScriptRoot -ChildPath "starship.toml")
+
 choco install fd -y
 choco install ripgrep -y
+choco install starship -y
