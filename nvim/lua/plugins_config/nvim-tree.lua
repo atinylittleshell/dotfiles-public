@@ -13,13 +13,7 @@ require('nvim-tree').setup({
     number = true,
     relativenumber = true,
     adaptive_size = true,
-    width = 60,
-    float = {
-      enable = true,
-      open_win_config = {
-        border = 'double',
-      },
-    },
+    width = 48,
     mappings = {
       list = {
         { key = '<ESC>', cb = require('nvim-tree.config').nvim_tree_callback('close') },
