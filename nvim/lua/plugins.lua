@@ -99,21 +99,18 @@ require('packer').startup(function(use)
   })
   use({
     'nvim-telescope/telescope.nvim',
+    after = 'which-key.nvim',
+    requires = {
+      'nvim-telescope/telescope-file-browser.nvim',
+    },
     config = function()
       require('plugins_config.telescope')
     end,
-    after = 'which-key.nvim',
   })
   use({
     'ggandor/leap.nvim',
     config = function()
       require('plugins_config.leap')
-    end,
-  })
-  use({
-    'nvim-tree/nvim-tree.lua',
-    config = function()
-      require('plugins_config.nvim-tree')
     end,
   })
   use({
@@ -145,7 +142,7 @@ require('packer').startup(function(use)
     config = function()
       require('plugins_config.nvim-cmp')
     end,
-    event = 'InsertEnter',
+    event = 'BufWinEnter',
   })
   use({
     'numToStr/Comment.nvim',
