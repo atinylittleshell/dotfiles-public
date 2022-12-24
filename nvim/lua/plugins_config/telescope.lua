@@ -17,7 +17,7 @@ telescope.setup({
       initial_mode = 'normal',
       hidden = true,
       grouped = true,
-      respect_gitignore = true,
+      respect_gitignore = false,
       layout_config = { height = 40 },
       mappings = {
         ['n'] = {
