@@ -59,7 +59,7 @@ require('lazy').setup({
   },
   {
     'folke/noice.nvim',
-    event = 'VimEnter',
+    event = 'BufWinEnter',
     config = function()
       require('plugins_config.noice')
     end,
@@ -76,14 +76,15 @@ require('lazy').setup({
   },
   {
     'nvim-lualine/lualine.nvim',
-    event = 'VimEnter',
+    event = 'BufWinEnter',
     config = function()
       require('plugins_config.lualine')
     end,
   },
   {
     'folke/which-key.nvim',
-    lazy = true,
+    lazy = false,
+    priority = 900,
     config = function()
       require('plugins_config.which-key')
     end,
@@ -107,7 +108,7 @@ require('lazy').setup({
   },
   {
     'ggandor/leap.nvim',
-    event = 'BufWinEnter',
+    event = 'VimEnter',
     config = function()
       require('plugins_config.leap')
     end,
@@ -145,7 +146,7 @@ require('lazy').setup({
   },
   {
     'editorconfig/editorconfig-vim',
-    event = 'BufWinEnter',
+    event = 'VimEnter',
   },
   {
     'hrsh7th/nvim-cmp',
@@ -181,7 +182,7 @@ require('lazy').setup({
   -- lsp
   {
     'neovim/nvim-lspconfig',
-    event = 'BufWinEnter',
+    event = 'VimEnter',
     config = function()
       require('plugins_config.lsp')
     end,
@@ -203,7 +204,7 @@ require('lazy').setup({
   },
   {
     'nvim-treesitter/nvim-treesitter',
-    event = 'BufWinEnter',
+    event = 'VimEnter',
     dependencies = {
       'windwp/nvim-ts-autotag',
       'JoosepAlviste/nvim-ts-context-commentstring',
