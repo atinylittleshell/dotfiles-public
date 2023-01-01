@@ -19,7 +19,6 @@ end
 ----======================----
 ----=== Config modules ===----
 ----======================----
-require('plugins')
 require('vim_config')
+require('plugins')
 require('keys')
-
