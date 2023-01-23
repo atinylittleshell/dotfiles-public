@@ -1,4 +1,4 @@
-require('lualine').setup {
+require('lualine').setup({
   options = {
     theme = 'rose-pine',
     icons_enabled = false,
@@ -11,6 +11,8 @@ require('lualine').setup {
     lualine_c = { 'diagnostics' },
     lualine_x = { 'encoding', 'fileformat' },
     lualine_y = { 'filetype' },
-    lualine_z = { 'location' }
-  }
-}
+    lualine_z = { 'location' },
+  },
+  winbar = {},
+  inactive_winbar = {},
+})

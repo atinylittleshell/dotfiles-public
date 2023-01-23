@@ -43,6 +43,7 @@ o.signcolumn = 'yes'
 o.splitbelow = true
 o.splitright = true
 o.wrap = false
+o.scrolloff = 16
 
 -- show relative number
 o.number = true
@@ -55,7 +56,6 @@ o.ttimeoutlen = 10
 o.updatetime = 100
 
 -- disable some unnecessary highlighting
-o.cursorline = false
 g.loaded_matchparen = 0
 
 -- format on save

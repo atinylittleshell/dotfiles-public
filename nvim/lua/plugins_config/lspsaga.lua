@@ -1,14 +1,14 @@
-require('lspsaga').init_lsp_saga({
-  code_action_lightbulb = {
-    cache_code_action = false,
+require('lspsaga').setup({
+  symbol_in_winbar = {
+    enable = false,
+  },
+  lightbulb = {
     virtual_text = false,
   },
-  code_action_keys = {
-    quit = '<ESC>',
-    exec = '<CR>',
-  },
-  definition_action_keys = {
-    quit = '<ESC>',
-    open = '<CR>',
+  code_action = {
+    keys = {
+      quit = '<ESC>',
+      exec = '<CR>',
+    },
   },
 })

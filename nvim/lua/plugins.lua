@@ -14,10 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- common utils
   {
-    'lewis6991/impatient.nvim',
-    lazy = false,
-  },
-  {
     'nvim-lua/plenary.nvim',
     lazy = true,
   },
@@ -56,16 +52,6 @@ require('lazy').setup({
     config = function()
       require('plugins_config.transparent')
     end,
-  },
-  {
-    'folke/noice.nvim',
-    event = 'BufWinEnter',
-    config = function()
-      require('plugins_config.noice')
-    end,
-    dependencies = {
-      'MunifTanjim/nui.nvim',
-    },
   },
   {
     'akinsho/bufferline.nvim',
@@ -190,6 +176,7 @@ require('lazy').setup({
       {
         'glepnir/lspsaga.nvim',
         branch = 'main',
+        event = 'BufRead',
         config = function()
           require('plugins_config.lspsaga')
         end,

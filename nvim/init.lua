@@ -6,17 +6,6 @@ if vim.fn.has('nvim-0.8') == 0 then
 end
 
 ----======================----
-----=== impatient.nvim ===----
-----======================----
-do
-  local ok, _ = pcall(require, 'impatient')
-
-  if not ok then
-    vim.notify('impatient.nvim not installed yet', vim.log.levels.WARN)
-  end
-end
-
-----======================----
 ----=== Config modules ===----
 ----======================----
 require('vim_config')
