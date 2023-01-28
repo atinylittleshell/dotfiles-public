@@ -1,10 +1,17 @@
-#!/usr/bin/env bash
+#!/bin/bash
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-brew install git
-brew install zsh
-brew install neovim
-brew install starship
+if [ "$(uname)" == "Darwin" ]; then
+	brew install git
+	brew install zsh
+	brew install neovim
+	brew install starship
+else
+	sudo apt update
+	sudo apt install git
+	sudo apt install zsh
+	curl -sS https://starship.rs/install.sh | sh
+fi
 
 rm ~/.zshrc
 ln -s $SCRIPT_DIR/.zshrc ~/.zshrc
