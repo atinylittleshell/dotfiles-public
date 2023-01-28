@@ -58,6 +58,11 @@ o.updatetime = 100
 -- disable some unnecessary highlighting
 g.loaded_matchparen = 0
 
+-- disable copilot in telescope
+g.copilot_filetypes = {
+  TelescopePrompt = false,
+}
+
 -- format on save
 vim.api.nvim_create_augroup('formatting', {})
 vim.api.nvim_create_autocmd('BufWritePre', {
