@@ -99,6 +99,14 @@ nvim_lsp.rust_analyzer.setup({
   on_attach = on_attach,
 })
 
+nvim_lsp.pyright.setup({
+  on_attach = on_attach,
+})
+
+nvim_lsp.prismals.setup({
+  on_attach = on_attach,
+})
+
 nvim_lsp.sumneko_lua.setup({
   on_attach = on_attach,
   settings = {
