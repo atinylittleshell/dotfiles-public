@@ -5,6 +5,8 @@ if [ "$(uname)" == "Darwin" ]; then
 	brew install git
 	brew install zsh
   brew install ripgrep
+  brew install neovim
+  brew install zsh-autosuggestions
 	brew install starship
 else
 	sudo apt update
@@ -14,7 +16,6 @@ else
   sudo apt-get install ripgrep
 	curl -sS https://starship.rs/install.sh | sh
 fi
-
 
 rm ~/.zshrc
 ln -s $SCRIPT_DIR/.zshrc ~/.zshrc
