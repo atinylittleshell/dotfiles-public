@@ -177,6 +177,7 @@ require('lazy').setup({
         'glepnir/lspsaga.nvim',
         branch = 'main',
         event = 'BufRead',
+        dependencies = { { 'nvim-tree/nvim-web-devicons' } },
         config = function()
           require('plugins_config.lspsaga')
         end,
