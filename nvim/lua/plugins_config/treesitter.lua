@@ -5,7 +5,7 @@ ts.setup({
     use_languagetree = true,
   },
   indent = {
-    enable = true,
+    enable = false,
   },
   autotag = {
     enable = true,
@@ -17,6 +17,7 @@ ts.setup({
   auto_install = true,
   ensure_installed = {
     'bash',
+    'dockerfile',
     'javascript',
     'jsdoc',
     'typescript',
@@ -26,7 +27,9 @@ ts.setup({
     'graphql',
     'json',
     'markdown',
+    'markdown_inline',
     'php',
+    'prisma',
     'python',
     'yaml',
     'lua',

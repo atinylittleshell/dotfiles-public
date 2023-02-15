@@ -63,7 +63,7 @@ local on_attach = function(client, bufnr)
       client.name == 'tsserver'
       or client.name == 'tailwindcss'
       or client.name == 'rust_analyzer'
-      or client.name == 'sumneko_lua'
+      or client.name == 'lua_ls'
   then
     client.server_capabilities.documentFormattingProvider = false
   end
@@ -112,7 +112,7 @@ nvim_lsp.prismals.setup({
     on_attach = on_attach,
 })
 
-nvim_lsp.sumneko_lua.setup({
+nvim_lsp.lua_ls.setup({
     on_attach = on_attach,
     settings = {
         Lua = {
