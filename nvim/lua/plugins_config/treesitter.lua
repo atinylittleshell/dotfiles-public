@@ -40,5 +40,4 @@ ts.setup({
 require('nvim-treesitter.install').compilers = { 'x86_64-w64-mingw32-clang', 'gcc' }
 
 require('treesitter-context').setup()
-require('nvim-autopairs').setup()
 require('nvim-ts-autotag').setup()

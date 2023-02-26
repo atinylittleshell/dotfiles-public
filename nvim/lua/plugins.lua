@@ -197,12 +197,6 @@ require('lazy').setup({
       'windwp/nvim-ts-autotag',
       'JoosepAlviste/nvim-ts-context-commentstring',
       'nvim-treesitter/nvim-treesitter-context',
-      {
-        'windwp/nvim-autopairs',
-        config = function()
-          require('plugins_config.nvim-autopairs')
-        end,
-      },
     },
     config = function()
       require('plugins_config.treesitter')
