@@ -5,7 +5,8 @@ ts.setup({
     use_languagetree = true,
   },
   indent = {
-    enable = false,
+    enable = true,
+    disable = { 'c', 'yaml', 'python', 'html', 'css' },
   },
   autotag = {
     enable = true,

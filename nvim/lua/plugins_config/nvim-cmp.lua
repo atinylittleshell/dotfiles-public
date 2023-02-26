@@ -24,7 +24,6 @@ cmp.setup({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
-    -- disabled for autopairs mapping
     ['<CR>'] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Insert,
       select = true,
@@ -55,6 +54,3 @@ cmp.setup.cmdline('/', {
 cmp.setup.filetype('TelescopePrompt', {
   enabled = false,
 })
-
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
