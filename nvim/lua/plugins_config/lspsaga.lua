@@ -5,6 +5,9 @@ require('lspsaga').setup({
   lightbulb = {
     virtual_text = false,
   },
+  diagnostic = {
+    on_insert = false,
+  },
   code_action = {
     keys = {
       quit = '<ESC>',

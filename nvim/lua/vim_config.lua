@@ -44,6 +44,8 @@ o.splitbelow = true
 o.splitright = true
 o.wrap = false
 o.scrolloff = 16
+o.textwidth = 120
+o.colorcolumn = '+0'
 
 -- show relative number
 o.number = true
@@ -70,4 +72,9 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   callback = function()
     vim.lsp.buf.format({ timeout_ms = 10000 })
   end,
+})
+
+-- diagnostic
+vim.diagnostic.config({
+  virtual_text = false,
 })
