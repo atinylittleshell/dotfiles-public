@@ -8,6 +8,7 @@ if [ "$(uname)" == "Darwin" ]; then
   brew install neovim
   mkdir ~/.zsh
   git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 	brew install starship
 else
 	sudo apt update
@@ -17,6 +18,7 @@ else
   sudo apt-get install ripgrep zip unzip
   mkdir ~/.zsh
   git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 	curl -sS https://starship.rs/install.sh | sh
 fi
 

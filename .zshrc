@@ -5,6 +5,7 @@ SAVEHIST=10000
 setopt appendhistory
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export PATH=~/.npm-global/bin:$PATH
 
