@@ -46,14 +46,6 @@ require('lazy').setup({
 
   -- ui
   {
-    'xiyaowong/nvim-transparent',
-    lazy = false,
-    priority = 999,
-    config = function()
-      require('plugins_config.transparent')
-    end,
-  },
-  {
     'akinsho/bufferline.nvim',
     event = 'BufWinEnter',
     config = function()
