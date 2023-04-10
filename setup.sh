@@ -2,6 +2,7 @@
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 if [ "$(uname)" == "Darwin" ]; then
+  brew tap homebrew/cask-versions
 	brew install git
 	brew install zsh
   brew install ripgrep
@@ -10,6 +11,7 @@ if [ "$(uname)" == "Darwin" ]; then
   git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 	brew install starship
+  brew install --cask wezterm-nightly
 else
 	sudo apt update
 	sudo apt install git
@@ -20,6 +22,12 @@ else
   git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 	curl -sS https://starship.rs/install.sh | sh
+
+  sudo rm /usr/bin/nvim
+  sudo ln -s $SCRIPT_DIR/nvim.appimage /usr/bin/nvim
+
+  sudo rm /usr/bin/wezterm
+  sudo ln -s $SCRIPT_DIR/wezterm.appimage /usr/bin/wezterm
 fi
 
 rm ~/.zshrc
@@ -31,6 +39,3 @@ ln -s $SCRIPT_DIR/starship.toml ~/.config/starship.toml
 
 rm ~/.config/nvim
 ln -s $SCRIPT_DIR/nvim ~/.config/nvim
-
-sudo rm /usr/bin/nvim
-sudo ln -s $SCRIPT_DIR/nvim.appimage /usr/bin/nvim

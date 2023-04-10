@@ -29,6 +29,7 @@ if ((Test-Path $starshipLink) -and ((Get-Item $starshipLink).LinkType -ne "Symbo
 }
 New-Item -Force -ItemType SymbolicLink -Path $starshipLink -Target (Join-Path -Path $PSScriptRoot -ChildPath "starship.toml")
 
+choco install wezterm -y
 choco install fd -y
 choco install ripgrep -y
 choco install starship -y
