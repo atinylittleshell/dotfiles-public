@@ -11,7 +11,6 @@ if [ "$(uname)" == "Darwin" ]; then
   git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 	brew install starship
-  brew install --cask wezterm-nightly
 else
 	sudo apt update
 	sudo apt install git
@@ -25,9 +24,6 @@ else
 
   sudo rm /usr/bin/nvim
   sudo ln -s $SCRIPT_DIR/nvim.appimage /usr/bin/nvim
-
-  sudo rm /usr/bin/wezterm
-  sudo ln -s $SCRIPT_DIR/wezterm.appimage /usr/bin/wezterm
 fi
 
 rm ~/.zshrc

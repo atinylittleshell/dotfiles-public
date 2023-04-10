@@ -29,14 +29,6 @@ if ((Test-Path $starshipLink) -and ((Get-Item $starshipLink).LinkType -ne "Symbo
 }
 New-Item -Force -ItemType SymbolicLink -Path $starshipLink -Target (Join-Path -Path $PSScriptRoot -ChildPath "starship.toml")
 
-$weztermLink = Join-Path -Path $HOME -ChildPath ".wezterm.lua"
-if ((Test-Path $weztermLink) -and ((Get-Item $profile).LinkType -ne "SymbolicLink")) {
-  Write-Warning "Deleting existing wezterm config: $weztermLink"
-  Remote-Item -Force $weztermLink
-}
-New-Item -Force -ItemType SymbolicLink -Path $weztermLink -Target (Join-Path -Path $PSScriptRoot -ChildPath ".wezterm.lua")
-
-choco install wezterm -y
 choco install fd -y
 choco install ripgrep -y
 choco install starship -y
