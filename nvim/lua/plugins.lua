@@ -115,6 +115,7 @@ require('lazy').setup({
       require('plugins_config.toggleterm')
     end,
   },
+  { 'Bekaboo/deadcolumn.nvim' },
 
   -- autocompletion
   {
