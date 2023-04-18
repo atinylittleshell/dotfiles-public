@@ -85,6 +85,14 @@ require('lazy').setup({
     end,
   },
   {
+    'echasnovski/mini.indentscope',
+    version = '*',
+    event = 'BufWinEnter',
+    config = function()
+      require('plugins_config.mini-indentscope')
+    end,
+  },
+  {
     'ggandor/leap.nvim',
     event = 'VimEnter',
     config = function()
