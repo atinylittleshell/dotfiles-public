@@ -189,6 +189,7 @@ require('lazy').setup({
           require('plugins_config.null-ls')
         end,
       },
+      { 'b0o/schemastore.nvim' },
     },
   },
   {
