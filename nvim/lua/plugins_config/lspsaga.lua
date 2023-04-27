@@ -7,10 +7,13 @@ require('lspsaga').setup({
   },
   diagnostic = {
     on_insert = false,
+    keys = {
+      quit_in_show = { 'q', '<ESC>' },
+    },
   },
   code_action = {
     keys = {
-      quit = '<ESC>',
+      quit = { 'q', '<ESC>' },
       exec = '<CR>',
     },
   },
