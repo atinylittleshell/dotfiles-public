@@ -8,7 +8,7 @@ local on_attach = function(client, bufnr)
   -- Mappings.
   wk.register({
     K = {
-      '<CMD>Lspsaga hover_doc<CR>',
+      '<CMD>Lspsaga hover_doc ++quiet<CR>',
       'Hover',
     },
     g = {
