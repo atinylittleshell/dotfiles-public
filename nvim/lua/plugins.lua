@@ -32,6 +32,19 @@ require('lazy').setup({
       },
     },
   },
+  {
+    'nvim-treesitter/nvim-treesitter',
+    lazy = false,
+    dependencies = {
+      'windwp/nvim-ts-autotag',
+      'JoosepAlviste/nvim-ts-context-commentstring',
+      'nvim-treesitter/nvim-treesitter-context',
+    },
+    config = function()
+      require('plugins_config.treesitter')
+    end,
+    build = ':TSUpdate',
+  },
 
   -- theme
   {
@@ -191,18 +204,5 @@ require('lazy').setup({
       },
       { 'b0o/schemastore.nvim' },
     },
-  },
-  {
-    'nvim-treesitter/nvim-treesitter',
-    lazy = false,
-    dependencies = {
-      'windwp/nvim-ts-autotag',
-      'JoosepAlviste/nvim-ts-context-commentstring',
-      'nvim-treesitter/nvim-treesitter-context',
-    },
-    config = function()
-      require('plugins_config.treesitter')
-    end,
-    build = ':TSUpdate',
   },
 })
