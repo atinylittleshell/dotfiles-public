@@ -75,10 +75,10 @@ require('lazy').setup({
     end,
   },
   {
-    'nvim-telescope/telescope.nvim',
+    'nvim-telescope/telescope-file-browser.nvim',
     lazy = false,
     dependencies = {
-      'nvim-telescope/telescope-file-browser.nvim',
+      'nvim-telescope/telescope.nvim',
     },
     config = function()
       require('plugins_config.telescope')
@@ -194,7 +194,7 @@ require('lazy').setup({
   },
   {
     'nvim-treesitter/nvim-treesitter',
-    event = 'VimEnter',
+    lazy = false,
     dependencies = {
       'windwp/nvim-ts-autotag',
       'JoosepAlviste/nvim-ts-context-commentstring',

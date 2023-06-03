@@ -16,26 +16,7 @@ ts.setup({
     enable_autocmd = false,
   },
   auto_install = true,
-  ensure_installed = {
-    'bash',
-    'dockerfile',
-    'javascript',
-    'jsdoc',
-    'typescript',
-    'tsx',
-    'html',
-    'css',
-    'graphql',
-    'json',
-    'markdown',
-    'markdown_inline',
-    'php',
-    'prisma',
-    'python',
-    'yaml',
-    'lua',
-    'vim',
-  },
+  ensure_installed = 'all',
 })
 
 require('nvim-treesitter.install').compilers = { 'x86_64-w64-mingw32-clang', 'gcc' }
