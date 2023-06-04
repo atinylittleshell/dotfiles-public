@@ -1,8 +1,12 @@
+require('nvim-treesitter.install').compilers = { 'x86_64-w64-mingw32-clang', 'gcc' }
+
+require('treesitter-context').setup()
+require('nvim-ts-autotag').setup()
+
 local ts = require('nvim-treesitter.configs')
 ts.setup({
   highlight = {
     enable = true,
-    use_languagetree = true,
   },
   indent = {
     enable = true,
@@ -18,8 +22,3 @@ ts.setup({
   auto_install = true,
   ensure_installed = 'all',
 })
-
-require('nvim-treesitter.install').compilers = { 'x86_64-w64-mingw32-clang', 'gcc' }
-
-require('treesitter-context').setup()
-require('nvim-ts-autotag').setup()

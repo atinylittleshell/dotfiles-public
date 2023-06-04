@@ -62,7 +62,18 @@ g.loaded_matchparen = 0
 
 -- disable copilot in telescope
 g.copilot_filetypes = {
-  TelescopePrompt = false,
+  ['*'] = false,
+  javascript = true,
+  javascriptreact = true,
+  typescript = true,
+  typescriptreact = true,
+  json = true,
+  html = true,
+  css = true,
+  lua = true,
+  yaml = true,
+  markdown = true,
+  text = true,
 }
 
 -- format on save
