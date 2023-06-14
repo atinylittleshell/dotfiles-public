@@ -21,4 +21,5 @@ ts.setup({
   },
   auto_install = true,
   ensure_installed = 'all',
+  ignore_install = { 'luadoc' },
 })
