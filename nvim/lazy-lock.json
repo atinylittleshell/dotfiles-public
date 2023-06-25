@@ -27,10 +27,10 @@
   "nvim-ts-autotag": { "branch": "main", "commit": "40615e96075c743ef47aaf9de966dc348bec6459" },
   "nvim-ts-context-commentstring": { "branch": "main", "commit": "0bf8fbc2ca8f8cdb6efbd0a9e32740d7a991e4c3" },
   "nvim-web-devicons": { "branch": "master", "commit": "2a125024a137677930efcfdf720f205504c97268" },
+  "oil.nvim": { "branch": "master", "commit": "8882f6c89eccb3754221cab942904780ed6b3e62" },
   "plenary.nvim": { "branch": "master", "commit": "499e0743cf5e8075cd32af68baa3946a1c76adf1" },
   "rose-pine": { "branch": "main", "commit": "15aac8c529bb38ac39fdb22f7be7f37c0e39dd0c" },
   "schemastore.nvim": { "branch": "main", "commit": "2d0b27ad28443cb700835b0d6a404ffe7f29c731" },
-  "telescope-file-browser.nvim": { "branch": "master", "commit": "6cf29d5139601993343c4e70ee2d1f67959d9cc5" },
   "telescope.nvim": { "branch": "master", "commit": "6d3fbffe426794296a77bb0b37b6ae0f4f14f807" },
   "toggleterm.nvim": { "branch": "main", "commit": "cf146a267a6a7db62b1e2aff40414b20081048a1" },
   "which-key.nvim": { "branch": "main", "commit": "e271c28118998c93a14d189af3395812a1aa646c" }

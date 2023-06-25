@@ -88,11 +88,15 @@ require('lazy').setup({
     end,
   },
   {
-    'nvim-telescope/telescope-file-browser.nvim',
+    'stevearc/oil.nvim',
+    opts = {},
+    config = function()
+      require('plugins_config.oil')
+    end,
+  },
+  {
+    'nvim-telescope/telescope.nvim',
     lazy = false,
-    dependencies = {
-      'nvim-telescope/telescope.nvim',
-    },
     config = function()
       require('plugins_config.telescope')
     end,

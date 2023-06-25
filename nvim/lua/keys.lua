@@ -1,5 +1,4 @@
 local wk = require('which-key')
-local telescope = require('telescope')
 local telescope_builtin = require('telescope.builtin')
 
 -- make 'p' no longer update register
@@ -50,12 +49,7 @@ wk.register({
     'Grep',
   },
   e = {
-    function()
-      telescope.extensions.file_browser.file_browser({
-        path = '%:p:h',
-        cwd = vim.fn.expand('%:p:h'),
-      })
-    end,
+    ':Oil<CR>',
     'File Browser',
   },
   -- buffer
