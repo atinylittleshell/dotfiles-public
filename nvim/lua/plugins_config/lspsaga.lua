@@ -5,6 +5,11 @@ require('lspsaga').setup({
   lightbulb = {
     virtual_text = false,
   },
+  finder = {
+    keys = {
+      expand_or_jump = '<CR>',
+    },
+  },
   diagnostic = {
     on_insert = false,
     keys = {
