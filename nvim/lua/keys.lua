@@ -17,19 +17,15 @@ wk.register({
     ':bprevious<CR>',
     'Previous Buffer',
   },
-  -- increment/decrement
-  ['+'] = {
-    '<C-a>',
-    'Increment',
-  },
-  ['-'] = {
-    '<C-x>',
-    'Increment',
-  },
   -- selection
   ['<C-a>'] = {
     'ggVG',
     'Select All',
+  },
+  -- save
+  ['<Esc>'] = {
+    ':w<CR>',
+    'Save',
   },
 })
 
