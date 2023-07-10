@@ -1,6 +1,8 @@
 local nvim_lsp = require('lspconfig')
 local wk = require('which-key')
 
+require('lspconfig.configs').vtsls = require('vtsls').lspconfig
+
 local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -60,7 +62,7 @@ local on_attach = function(client, bufnr)
 
   -- formatting for the following languages are covered by null-ls
   if
-    client.name == 'tsserver'
+    client.name == 'vtsls'
     or client.name == 'tailwindcss'
     or client.name == 'rust_analyzer'
     or client.name == 'lua_ls'
@@ -98,7 +100,7 @@ nvim_lsp.eslint.setup({
   on_attach = on_attach,
 })
 
-nvim_lsp.tsserver.setup({
+nvim_lsp.vtsls.setup({
   on_attach = on_attach,
 })
 

@@ -207,6 +207,7 @@ require('lazy').setup({
         end,
       },
       { 'b0o/schemastore.nvim' },
+      { 'yioneko/nvim-vtsls' },
     },
   },
 })
