@@ -18,16 +18,16 @@ require('lazy').setup({
     lazy = true,
   },
   {
-    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
     lazy = false,
     config = function()
-      require('plugins_config.mason')
+      require('plugins_config.mason-lspconfig')
     end,
     dependencies = {
       {
-        'williamboman/mason-lspconfig.nvim',
+        'williamboman/mason.nvim',
         config = function()
-          require('plugins_config.mason-lspconfig')
+          require('plugins_config.mason')
         end,
       },
     },
