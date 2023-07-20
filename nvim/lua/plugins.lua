@@ -104,14 +104,14 @@ require('lazy').setup({
   {
     'echasnovski/mini.indentscope',
     version = '*',
-    event = 'BufWinEnter',
+    event = 'VeryLazy',
     config = function()
       require('plugins_config.mini-indentscope')
     end,
   },
   {
     'ggandor/leap.nvim',
-    event = 'VimEnter',
+    event = 'VeryLazy',
     config = function()
       require('plugins_config.leap')
     end,
@@ -177,12 +177,19 @@ require('lazy').setup({
   },
   {
     'numToStr/Comment.nvim',
-    event = 'BufWinEnter',
+    event = 'VeryLazy',
     config = function()
       require('plugins_config.comment')
     end,
   },
-
+  {
+    'kylechui/nvim-surround',
+    version = '*',
+    event = 'VeryLazy',
+    config = function()
+      require('plugins_config.comment')
+    end,
+  },
   -- lsp
   {
     'neovim/nvim-lspconfig',
