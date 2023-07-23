@@ -177,7 +177,7 @@ require('lazy').setup({
   },
   {
     'numToStr/Comment.nvim',
-    event = 'VeryLazy',
+    event = 'BufWinEnter',
     config = function()
       require('plugins_config.comment')
     end,
