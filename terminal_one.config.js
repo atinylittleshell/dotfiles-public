@@ -1,7 +1,7 @@
 const os = require("os");
 
 module.exports = {
-  fontFamily: "Hack NF",
+  fontFamily: os.platform() === "win32" ? "Hack NF" : "Hack Nerd Font",
   themes: [
     {
       "name": "rose-pine-moon",
