@@ -29,6 +29,16 @@ if ((Test-Path $starshipLink) -and ((Get-Item $starshipLink).LinkType -ne "Symbo
 }
 New-Item -Force -ItemType SymbolicLink -Path $starshipLink -Target (Join-Path -Path $PSScriptRoot -ChildPath "starship.toml")
 
+$terminalOneDir = Join-Path -Path $env:APPDATA -ChildPath "Terminal One"
+New-Item -ItemType Directory -Force -Path $terminalOneDir
+
+$terminalOneLink = Join-Path -Path $terminalOneDir -ChildPath "config.js"
+if ((Test-Path $terminalOneLink) -and ((Get-Item $terminalOneLink).LinkType -ne "SymbolicLink")) {
+  Write-Warning "Deleting existing terminal one config: $terminalOneLink"
+  Remove-Item -Force -Recurse $terminalOneLink
+}
+New-Item -Force -ItemType SymbolicLink -Path $terminalOneLink -Target (Join-Path -Path $PSScriptRoot -ChildPath "terminal_one.config.js")
+
 choco install fd -y
 choco install ripgrep -y
 choco install starship -y
