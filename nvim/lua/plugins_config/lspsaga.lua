@@ -3,7 +3,7 @@ require('lspsaga').setup({
     enable = false,
   },
   lightbulb = {
-    virtual_text = false,
+    enable = false,
   },
   finder = {
     keys = {

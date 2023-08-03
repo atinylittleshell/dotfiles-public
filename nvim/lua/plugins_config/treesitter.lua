@@ -14,6 +14,7 @@ ts.setup({
   },
   autotag = {
     enable = true,
+    enable_close_on_slash = false,
   },
   context_commentstring = {
     enable = true,
