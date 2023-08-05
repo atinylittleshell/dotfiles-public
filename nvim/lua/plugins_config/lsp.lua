@@ -16,7 +16,7 @@ local on_attach = function(client, bufnr)
     g = {
       name = 'lspsaga',
       d = {
-        '<CMD>Lspsaga lsp_finder<CR>',
+        '<CMD>Lspsaga finder<CR>',
         'Go to Definition',
       },
       p = {
