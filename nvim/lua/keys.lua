@@ -31,6 +31,13 @@ wk.register({
 
 -- n mode with leader prefix
 wk.register({
+  -- neogen
+  d = {
+    function()
+      require('neogen').generate()
+    end,
+    'Generate Docs',
+  },
   -- telescope
   f = {
     function()

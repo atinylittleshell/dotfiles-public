@@ -63,6 +63,7 @@ local on_attach = function(client, bufnr)
   -- formatting for the following languages are covered by null-ls
   if
     client.name == 'vtsls'
+    or client.name == 'jsonls'
     or client.name == 'tailwindcss'
     or client.name == 'rust_analyzer'
     or client.name == 'lua_ls'
