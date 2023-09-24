@@ -65,6 +65,11 @@ wk.register({
     '<CMD>exe v:count1 . "ToggleTerm"<CR>',
     'Open Terminal',
   },
+  -- git
+  g = {
+    ':Neogit<CR>',
+    'Git',
+  },
 }, {
   prefix = '<leader>',
   mode = 'n',

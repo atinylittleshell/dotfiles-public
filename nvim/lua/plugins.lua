@@ -15,12 +15,12 @@ require('lazy').setup({
   -- common utils
   {
     'nvim-lua/plenary.nvim',
-    version = "*",
+    version = '*',
     lazy = true,
   },
   {
     'williamboman/mason-lspconfig.nvim',
-    version = "*",
+    version = '*',
     lazy = false,
     config = function()
       require('plugins_config.mason-lspconfig')
@@ -36,7 +36,7 @@ require('lazy').setup({
   },
   {
     'nvim-treesitter/nvim-treesitter',
-    version = "*",
+    version = '*',
     lazy = false,
     dependencies = {
       'windwp/nvim-ts-autotag',
@@ -52,7 +52,7 @@ require('lazy').setup({
   -- theme
   {
     'rose-pine/neovim',
-    version = "*",
+    version = '*',
     lazy = false,
     priority = 1000,
     name = 'rose-pine',
@@ -64,7 +64,7 @@ require('lazy').setup({
   -- ui
   {
     'akinsho/bufferline.nvim',
-    version = "*",
+    version = '*',
     event = 'BufWinEnter',
     config = function()
       require('plugins_config.bufferline')
@@ -72,7 +72,7 @@ require('lazy').setup({
   },
   {
     'nvim-lualine/lualine.nvim',
-    version = "*",
+    version = '*',
     event = 'BufWinEnter',
     config = function()
       require('plugins_config.lualine')
@@ -80,7 +80,7 @@ require('lazy').setup({
   },
   {
     'folke/which-key.nvim',
-    version = "*",
+    version = '*',
     lazy = false,
     priority = 900,
     config = function()
@@ -89,7 +89,7 @@ require('lazy').setup({
   },
   {
     'lewis6991/gitsigns.nvim',
-    version = "*",
+    version = '*',
     event = 'BufWinEnter',
     config = function()
       require('plugins_config.gitsigns')
@@ -97,7 +97,7 @@ require('lazy').setup({
   },
   {
     'stevearc/oil.nvim',
-    version = "*",
+    version = '*',
     opts = {},
     config = function()
       require('plugins_config.oil')
@@ -105,11 +105,15 @@ require('lazy').setup({
   },
   {
     'nvim-telescope/telescope.nvim',
-    version = "*",
+    version = '*',
     lazy = false,
     config = function()
       require('plugins_config.telescope')
     end,
+  },
+  {
+    'NeogitOrg/neogit',
+    config = true,
   },
   {
     'echasnovski/mini.indentscope',
@@ -121,7 +125,7 @@ require('lazy').setup({
   },
   {
     'ggandor/leap.nvim',
-    version = "*",
+    version = '*',
     event = 'VeryLazy',
     config = function()
       require('plugins_config.leap')
@@ -129,7 +133,7 @@ require('lazy').setup({
   },
   {
     'akinsho/toggleterm.nvim',
-    version = "*",
+    version = '*',
     lazy = false,
     init = function()
       -- powershell on windows
@@ -152,9 +156,9 @@ require('lazy').setup({
       require('plugins_config.toggleterm')
     end,
   },
-  { 
+  {
     'Bekaboo/deadcolumn.nvim',
-    version = "*",
+    version = '*',
   },
 
   -- autocompletion
@@ -165,17 +169,17 @@ require('lazy').setup({
   },
   {
     'editorconfig/editorconfig-vim',
-    version = "*",
+    version = '*',
     event = 'VimEnter',
   },
   {
     'hrsh7th/nvim-cmp',
-    version = "*",
+    version = '*',
     event = 'InsertEnter',
     dependencies = {
       {
         'L3MON4D3/LuaSnip',
-        version = "*",
+        version = '*',
         dependencies = {
           'rafamadriz/friendly-snippets',
         },
@@ -195,7 +199,7 @@ require('lazy').setup({
   },
   {
     'numToStr/Comment.nvim',
-    version = "*",
+    version = '*',
     event = 'BufWinEnter',
     config = function()
       require('plugins_config.comment')
@@ -209,10 +213,10 @@ require('lazy').setup({
       require('plugins_config.comment')
     end,
   },
-  { 
-    "danymat/neogen", 
-    version = "*",
-    dependencies = "nvim-treesitter/nvim-treesitter", 
+  {
+    'danymat/neogen',
+    version = '*',
+    dependencies = 'nvim-treesitter/nvim-treesitter',
     config = function()
       require('plugins_config.neogen')
     end,
@@ -228,7 +232,7 @@ require('lazy').setup({
     dependencies = {
       {
         'glepnir/lspsaga.nvim',
-        version = "*",
+        version = '*',
         branch = 'main',
         event = 'BufRead',
         dependencies = { { 'nvim-tree/nvim-web-devicons' } },
