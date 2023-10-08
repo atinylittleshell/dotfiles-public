@@ -19,6 +19,7 @@ o.fileformats = 'unix,dos,mac'
 o.clipboard = 'unnamedplus'
 o.undofile = true
 o.mouse = ''
+g.fixeol = true
 g.mapleader = ' '
 
 -- indention

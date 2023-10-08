@@ -1,8 +1,6 @@
 local nvim_lsp = require('lspconfig')
 local wk = require('which-key')
 
-require('lspconfig.configs').vtsls = require('vtsls').lspconfig
-
 local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -10,42 +8,48 @@ local on_attach = function(client, bufnr)
   -- Mappings.
   wk.register({
     K = {
-      '<CMD>Lspsaga hover_doc ++quiet<CR>',
+      function()
+        vim.lsp.buf.hover()
+      end,
       'Hover',
     },
     g = {
-      name = 'lspsaga',
+      name = 'lsp',
       d = {
-        '<CMD>Lspsaga finder<CR>',
+        function()
+          vim.lsp.buf.definition()
+        end,
         'Go to Definition',
       },
-      p = {
-        '<CMD>Lspsaga peek_definition<CR>',
-        'Peek Definition',
-      },
       n = {
-        '<CMD>Lspsaga rename<CR>',
+        function()
+          vim.lsp.buf.rename()
+        end,
         'Rename',
       },
       s = {
-        '<CMD>Lspsaga signature_help<CR>',
+        function()
+          vim.lsp.buf.signature_help()
+        end,
         'Signature Help',
       },
       l = {
-        '<CMD>Lspsaga show_line_diagnostics<CR>',
+        function()
+          vim.diagnostic.open_float()
+        end,
         'Show Line Diagnostics',
-      },
-      c = {
-        '<CMD>Lspsaga show_cursor_diagnostics<CR>',
-        'Show Cursor Diagnostics',
       },
     },
     ['[g'] = {
-      '<cmd>Lspsaga diagnostic_jump_prev<CR>',
+      function()
+        vim.lsp.diagnostic.goto_prev()
+      end,
       'Jump to previous diagnostic',
     },
     [']g'] = {
-      '<cmd>Lspsaga diagnostic_jump_next<CR>',
+      function()
+        vim.lsp.diagnostic.goto_next()
+      end,
       'Jump to next diagnostic',
     },
   }, {
@@ -58,7 +62,7 @@ local on_attach = function(client, bufnr)
 
   -- formatting for the following languages are covered by null-ls
   if
-    client.name == 'vtsls'
+    client.name == 'tsserver'
     or client.name == 'jsonls'
     or client.name == 'tailwindcss'
     or client.name == 'rust_analyzer'
@@ -87,7 +91,6 @@ nvim_lsp.jsonls.setup({
   on_attach = on_attach,
   settings = {
     json = {
-      schemas = require('schemastore').json.schemas(),
       validate = { enable = true },
     },
   },
@@ -97,7 +100,7 @@ nvim_lsp.eslint.setup({
   on_attach = on_attach,
 })
 
-nvim_lsp.vtsls.setup({
+nvim_lsp.tsserver.setup({
   on_attach = on_attach,
 })
 
@@ -114,6 +117,10 @@ nvim_lsp.pyright.setup({
 })
 
 nvim_lsp.prismals.setup({
+  on_attach = on_attach,
+})
+
+nvim_lsp.graphql.setup({
   on_attach = on_attach,
 })
 

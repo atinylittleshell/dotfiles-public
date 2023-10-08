@@ -218,23 +218,11 @@ require('lazy').setup({
     end,
     dependencies = {
       {
-        'glepnir/lspsaga.nvim',
-        version = '*',
-        branch = 'main',
-        event = 'BufRead',
-        dependencies = { { 'nvim-tree/nvim-web-devicons' } },
-        config = function()
-          require('plugins_config.lspsaga')
-        end,
-      },
-      {
         'nvimtools/none-ls.nvim',
         config = function()
           require('plugins_config.null-ls')
         end,
       },
-      { 'b0o/schemastore.nvim' },
-      { 'yioneko/nvim-vtsls' },
     },
   },
   {
@@ -244,7 +232,7 @@ require('lazy').setup({
         enable = false,
       },
       mappings = {
-        code_action = '<leader>ga',
+        code_action = 'ga',
       },
     },
   },
