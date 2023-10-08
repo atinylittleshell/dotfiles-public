@@ -51,6 +51,12 @@ wk.register({
     end,
     'Grep',
   },
+  b = {
+    function()
+      telescope_builtin.buffers()
+    end,
+    'Grep',
+  },
   e = {
     ':Oil<CR>',
     'File Browser',

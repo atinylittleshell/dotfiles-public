@@ -63,14 +63,6 @@ require('lazy').setup({
 
   -- ui
   {
-    'akinsho/bufferline.nvim',
-    version = '*',
-    event = 'BufWinEnter',
-    config = function()
-      require('plugins_config.bufferline')
-    end,
-  },
-  {
     'nvim-lualine/lualine.nvim',
     version = '*',
     event = 'BufWinEnter',
@@ -168,11 +160,6 @@ require('lazy').setup({
     priority = 51,
   },
   {
-    'editorconfig/editorconfig-vim',
-    version = '*',
-    event = 'VimEnter',
-  },
-  {
     'hrsh7th/nvim-cmp',
     version = '*',
     event = 'InsertEnter',
@@ -210,7 +197,7 @@ require('lazy').setup({
     version = '*',
     event = 'VeryLazy',
     config = function()
-      require('plugins_config.comment')
+      require('plugins_config.surround')
     end,
   },
   {
@@ -241,13 +228,24 @@ require('lazy').setup({
         end,
       },
       {
-        'jose-elias-alvarez/null-ls.nvim',
+        'nvimtools/none-ls.nvim',
         config = function()
           require('plugins_config.null-ls')
         end,
       },
       { 'b0o/schemastore.nvim' },
       { 'yioneko/nvim-vtsls' },
+    },
+  },
+  {
+    'luckasRanarison/clear-action.nvim',
+    opts = {
+      signs = {
+        enable = false,
+      },
+      mappings = {
+        code_action = '<leader>ga',
+      },
     },
   },
 })

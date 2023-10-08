@@ -27,10 +27,6 @@ local on_attach = function(client, bufnr)
         '<CMD>Lspsaga rename<CR>',
         'Rename',
       },
-      a = {
-        '<CMD>Lspsaga code_action<CR>',
-        'Code Action',
-      },
       s = {
         '<CMD>Lspsaga signature_help<CR>',
         'Signature Help',
