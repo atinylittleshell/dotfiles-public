@@ -63,6 +63,7 @@ local on_attach = function(client, bufnr)
   -- formatting for the following languages are covered by null-ls
   if
     client.name == 'tsserver'
+    or client.name == 'typescript-tools'
     or client.name == 'jsonls'
     or client.name == 'tailwindcss'
     or client.name == 'rust_analyzer'
@@ -100,7 +101,7 @@ nvim_lsp.eslint.setup({
   on_attach = on_attach,
 })
 
-nvim_lsp.tsserver.setup({
+require("typescript-tools").setup({
   on_attach = on_attach,
 })
 

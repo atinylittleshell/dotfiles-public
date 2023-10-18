@@ -32,5 +32,6 @@
   "rose-pine": { "branch": "main", "commit": "835129f6a877005890b77562fb0cd7acb35e0292" },
   "telescope.nvim": { "branch": "master", "commit": "54930e1abfc94409e1bb9266e752ef8379008592" },
   "toggleterm.nvim": { "branch": "main", "commit": "faee9d60428afc7857e0927fdc18daa6c409fa64" },
+  "typescript-tools.nvim": { "branch": "master", "commit": "47c0461f652b90bc088bcaf6481d488d3b86291e" },
   "which-key.nvim": { "branch": "main", "commit": "bf09a25bdc9a83bcc69d2cf078e680368676513b" }
 }
