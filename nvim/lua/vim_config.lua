@@ -58,7 +58,8 @@ o.timeoutlen = 250
 o.ttimeoutlen = 10
 o.updatetime = 100
 
--- disable some unnecessary highlighting
+-- highlighting
+o.cursorline = true
 g.loaded_matchparen = 0
 
 -- disable copilot in telescope
