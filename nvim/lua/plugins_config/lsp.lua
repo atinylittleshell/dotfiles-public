@@ -33,6 +33,12 @@ local on_attach = function(client, bufnr)
         end,
         'Signature Help',
       },
+      a = {
+        function()
+          vim.lsp.buf.code_action()
+        end,
+        'Code Action',
+      },
       l = {
         function()
           vim.diagnostic.open_float()
@@ -42,13 +48,13 @@ local on_attach = function(client, bufnr)
     },
     ['[g'] = {
       function()
-        vim.lsp.diagnostic.goto_prev()
+        vim.diagnostic.goto_prev()
       end,
       'Jump to previous diagnostic',
     },
     [']g'] = {
       function()
-        vim.lsp.diagnostic.goto_next()
+        vim.diagnostic.goto_next()
       end,
       'Jump to next diagnostic',
     },
@@ -63,6 +69,7 @@ local on_attach = function(client, bufnr)
   -- formatting for the following languages are covered by null-ls
   if
     client.name == 'tsserver'
+    or client.name == 'vtsls'
     or client.name == 'typescript-tools'
     or client.name == 'jsonls'
     or client.name == 'tailwindcss'
@@ -101,7 +108,7 @@ nvim_lsp.eslint.setup({
   on_attach = on_attach,
 })
 
-require("typescript-tools").setup({
+nvim_lsp.vtsls.setup({
   on_attach = on_attach,
 })
 
@@ -122,6 +129,10 @@ nvim_lsp.prismals.setup({
 })
 
 nvim_lsp.graphql.setup({
+  on_attach = on_attach,
+})
+
+nvim_lsp.lemminx.setup({
   on_attach = on_attach,
 })
 

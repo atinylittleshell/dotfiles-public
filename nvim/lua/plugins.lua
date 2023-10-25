@@ -232,11 +232,9 @@ require('lazy').setup({
   {
     'luckasRanarison/clear-action.nvim',
     opts = {
+      silent = false,
       signs = {
         enable = false,
-      },
-      mappings = {
-        code_action = 'ga',
       },
     },
   },
