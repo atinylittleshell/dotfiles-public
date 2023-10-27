@@ -78,15 +78,6 @@ g.copilot_filetypes = {
   text = true,
 }
 
--- format on save
-vim.api.nvim_create_augroup('formatting', {})
-vim.api.nvim_create_autocmd('BufWritePre', {
-  group = 'formatting',
-  callback = function()
-    vim.lsp.buf.format({ timeout_ms = 10000 })
-  end,
-})
-
 -- diagnostic
 vim.diagnostic.config({
   virtual_text = false,

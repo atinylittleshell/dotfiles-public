@@ -216,18 +216,30 @@ require('lazy').setup({
     config = function()
       require('plugins_config.lsp')
     end,
-    dependencies = {
-      {
-        'nvimtools/none-ls.nvim',
-        config = function()
-          require('plugins_config.null-ls')
-        end,
-      },
-    },
   },
   {
-    "pmizio/typescript-tools.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    "stevearc/conform.nvim",
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+    opts = {
+      -- Define your formatters
+      formatters_by_ft = {
+        lua = { "stylua" },
+        python = { "black" },
+        css = { "prettierd" },
+        html = { "prettierd" },
+        json = { "prettierd" },
+        yaml = { "prettierd" },
+        markdown = { "prettierd" },
+        graphql = { "prettierd" },
+        javascript = { { "eslint_d", "prettierd" } },
+        javascriptreact = { { "eslint_d", "prettierd" } },
+        typescript = { { "eslint_d", "prettierd" } },
+        typescriptreact = { { "eslint_d", "prettierd" } },
+      },
+      -- Set up format-on-save
+      format_on_save = { timeout_ms = 1000, lsp_fallback = true },
+    },
   },
   {
     'luckasRanarison/clear-action.nvim',

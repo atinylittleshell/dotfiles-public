@@ -17,7 +17,7 @@ local on_attach = function(client, bufnr)
       name = 'lsp',
       d = {
         function()
-          vim.lsp.buf.definition()
+          require("telescope.builtin").lsp_definitions({ reuse_win = true })
         end,
         'Go to Definition',
       },
@@ -61,23 +61,6 @@ local on_attach = function(client, bufnr)
   }, {
     buffer = bufnr,
   })
-
-  if client.name == 'eslint' then
-    client.server_capabilities.documentFormattingProvider = true
-  end
-
-  -- formatting for the following languages are covered by null-ls
-  if
-    client.name == 'tsserver'
-    or client.name == 'vtsls'
-    or client.name == 'typescript-tools'
-    or client.name == 'jsonls'
-    or client.name == 'tailwindcss'
-    or client.name == 'rust_analyzer'
-    or client.name == 'lua_ls'
-  then
-    client.server_capabilities.documentFormattingProvider = false
-  end
 end
 
 nvim_lsp.cssls.setup({
@@ -141,14 +124,17 @@ nvim_lsp.lua_ls.setup({
   settings = {
     Lua = {
       runtime = {
-        version = 'LuaJIT',
+        version = "LuaJIT",
       },
       diagnostics = {
-        globals = { 'vim' },
+        globals = { "vim" },
       },
       workspace = {
-        library = vim.api.nvim_get_runtime_file('', true),
         checkThirdParty = false,
+        library = { vim.env.VIMRUNTIME },
+      },
+      completion = {
+        callSnippet = "Replace",
       },
     },
   },
