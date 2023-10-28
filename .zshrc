@@ -7,7 +7,7 @@ setopt appendhistory
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-export PATH=~/.npm-global/bin:/mnt/c/Windows/System32/:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:$PATH
+export PATH=/usr/local/bin:~/.npm-global/bin:/mnt/c/Windows/System32/:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:$PATH
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -22,4 +22,3 @@ esac
 # pnpm end
 
 eval "$(starship init zsh)"
-
