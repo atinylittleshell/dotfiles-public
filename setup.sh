@@ -11,15 +11,15 @@ rm ~/.config/starship.toml
 ln -s $SCRIPT_DIR/starship.toml ~/.config/starship.toml
 
 if [ "$(uname)" == "Darwin" ]; then
-  mkdir -p "~/Library/Application Support/Terminal One/"
+  mkdir -p ~/Library/"Application Support"/"Terminal One"/
 
-  rm "~/Library/Application Support/Terminal One/config.js"
-  ln -s $SCRIPT_DIR/terminal_one.config.js "~/Library/Application Support/Terminal One/config.js"
+  rm ~/Library/"Application Support"/"Terminal One"/config.js
+  ln -s $SCRIPT_DIR/terminal_one.config.js ~/Library/"Application Support"/"Terminal One"/config.js
 else
-  mkdir -p "~/.config/Terminal One/"
+  mkdir -p ~/.config/"Terminal One"/
 
-  rm "~/.config/Terminal One/config.js"
-  ln -s $SCRIPT_DIR/terminal_one.config.js "~/.config/Terminal One/config.js"
+  rm ~/.config/"Terminal One"/config.js
+  ln -s $SCRIPT_DIR/terminal_one.config.js ~/.config/"Terminal One"/config.js
 fi
 
 rm ~/.config/nvim
