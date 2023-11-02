@@ -95,6 +95,10 @@ nvim_lsp.vtsls.setup({
   on_attach = on_attach,
 })
 
+nvim_lsp.svelte.setup({
+  on_attach = on_attach,
+})
+
 nvim_lsp.tailwindcss.setup({
   on_attach = on_attach,
 })
