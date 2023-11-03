@@ -10,6 +10,7 @@
   "conform.nvim": { "branch": "master", "commit": "253878436e2b6d73dfd91ccf0ac12d04cc683d34" },
   "copilot.vim": { "branch": "release", "commit": "f6d1124a12ca76731313eb0e7ec9562ee6f12e73" },
   "deadcolumn.nvim": { "branch": "master", "commit": "fef1b129779b223ddde9971fc852da20dfa6717d" },
+  "do.nvim": { "branch": "main", "commit": "d3336b1ad88792445cda02231ab632643c162f39" },
   "dressing.nvim": { "branch": "master", "commit": "1f2d1206a03bd3add8aedf6251e4534611de577f" },
   "friendly-snippets": { "branch": "main", "commit": "43727c2ff84240e55d4069ec3e6158d74cb534b6" },
   "gitsigns.nvim": { "branch": "main", "commit": "bb808fc7376ed7bac0fbe8f47b83d4bf01738167" },
