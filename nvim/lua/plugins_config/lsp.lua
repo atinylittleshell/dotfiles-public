@@ -33,12 +33,6 @@ local on_attach = function(client, bufnr)
         end,
         'Signature Help',
       },
-      a = {
-        function()
-          vim.lsp.buf.code_action()
-        end,
-        'Code Action',
-      },
       l = {
         function()
           vim.diagnostic.open_float()

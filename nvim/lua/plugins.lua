@@ -254,6 +254,9 @@ require('lazy').setup({
       signs = {
         enable = false,
       },
+      mappings = {
+        code_action = 'ga',
+      },
     },
   },
 })
