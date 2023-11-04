@@ -145,8 +145,7 @@ require('lazy').setup({
       if vim.loop.os_uname().sysname == 'Windows_NT' then
         local powershell_options = {
           shell = vim.fn.executable('pwsh') and 'pwsh' or 'powershell',
-          shellcmdflag =
-          '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;',
+          shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;',
           shellredir = '-RedirectStandardOutput %s -NoNewWindow -Wait',
           shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode',
           shellquote = '',
@@ -233,28 +232,33 @@ require('lazy').setup({
     end,
   },
   {
-    "stevearc/conform.nvim",
-    event = { "BufWritePre" },
-    cmd = { "ConformInfo" },
+    'stevearc/conform.nvim',
+    event = { 'BufWritePre' },
+    cmd = { 'ConformInfo' },
     opts = {
       -- Define your formatters
       formatters_by_ft = {
-        lua = { "stylua" },
-        python = { "black" },
-        css = { "prettierd" },
-        html = { "prettierd" },
-        json = { "prettierd" },
-        yaml = { "prettierd" },
-        markdown = { "prettierd" },
-        graphql = { "prettierd" },
-        javascript = { { "eslint_d", "prettierd" } },
-        javascriptreact = { { "eslint_d", "prettierd" } },
-        typescript = { { "eslint_d", "prettierd" } },
-        typescriptreact = { { "eslint_d", "prettierd" } },
+        lua = { 'stylua' },
+        python = { 'black' },
+        css = { 'prettierd' },
+        html = { 'prettierd' },
+        json = { 'prettierd' },
+        yaml = { 'prettierd' },
+        markdown = { 'prettierd' },
+        graphql = { 'prettierd' },
+        javascript = {},
+        javascriptreact = {},
+        typescript = {},
+        typescriptreact = {},
       },
       -- Set up format-on-save
-      format_on_save = { timeout_ms = 1000, lsp_fallback = true },
+      format_on_save = { timeout_ms = 10000, lsp_fallback = true },
     },
+  },
+  {
+    'pmizio/typescript-tools.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+    opts = {},
   },
   {
     'luckasRanarison/clear-action.nvim',

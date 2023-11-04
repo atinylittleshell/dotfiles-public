@@ -17,7 +17,7 @@ local on_attach = function(client, bufnr)
       name = 'lsp',
       d = {
         function()
-          require("telescope.builtin").lsp_definitions({ reuse_win = true })
+          require('telescope.builtin').lsp_definitions({ reuse_win = true })
         end,
         'Go to Definition',
       },
@@ -85,7 +85,7 @@ nvim_lsp.eslint.setup({
   on_attach = on_attach,
 })
 
-nvim_lsp.vtsls.setup({
+require('typescript-tools').setup({
   on_attach = on_attach,
 })
 
@@ -122,17 +122,17 @@ nvim_lsp.lua_ls.setup({
   settings = {
     Lua = {
       runtime = {
-        version = "LuaJIT",
+        version = 'LuaJIT',
       },
       diagnostics = {
-        globals = { "vim" },
+        globals = { 'vim' },
       },
       workspace = {
         checkThirdParty = false,
         library = { vim.env.VIMRUNTIME },
       },
       completion = {
-        callSnippet = "Replace",
+        callSnippet = 'Replace',
       },
     },
   },
