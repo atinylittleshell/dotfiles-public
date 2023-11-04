@@ -226,7 +226,9 @@ require('lazy').setup({
   -- lsp
   {
     'neovim/nvim-lspconfig',
-    event = 'VimEnter',
+    dependencies = {
+      'williamboman/mason-lspconfig.nvim',
+    },
     config = function()
       require('plugins_config.lsp')
     end,
