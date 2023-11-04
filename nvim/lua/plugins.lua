@@ -246,10 +246,6 @@ require('lazy').setup({
         yaml = { 'prettierd' },
         markdown = { 'prettierd' },
         graphql = { 'prettierd' },
-        javascript = {},
-        javascriptreact = {},
-        typescript = {},
-        typescriptreact = {},
       },
       -- Set up format-on-save
       format_on_save = { timeout_ms = 10000, lsp_fallback = true },
