@@ -9,7 +9,7 @@ require('lualine').setup({
   sections = {
     lualine_a = { 'mode' },
     lualine_b = { 'branch', 'diff' },
-    lualine_c = { 'diagnostics' },
+    lualine_c = {},
     lualine_x = { 'encoding', 'fileformat' },
     lualine_y = { 'filetype' },
     lualine_z = {},
@@ -19,9 +19,9 @@ require('lualine').setup({
     lualine_b = {
       function()
         return require('do').view('active')
-      end
+      end,
     },
-    lualine_c = {},
+    lualine_c = { 'diagnostics' },
     lualine_x = { 'location' },
     lualine_y = {},
     lualine_z = {},

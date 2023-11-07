@@ -244,7 +244,6 @@ require('lazy').setup({
         python = { 'black' },
         css = { 'prettierd' },
         html = { 'prettierd' },
-        json = { 'prettierd' },
         yaml = { 'prettierd' },
         markdown = { 'prettierd' },
         graphql = { 'prettierd' },
@@ -252,11 +251,6 @@ require('lazy').setup({
       -- Set up format-on-save
       format_on_save = { timeout_ms = 10000, lsp_fallback = true },
     },
-  },
-  {
-    'pmizio/typescript-tools.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
-    opts = {},
   },
   {
     'luckasRanarison/clear-action.nvim',

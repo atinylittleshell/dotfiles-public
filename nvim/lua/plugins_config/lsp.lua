@@ -65,7 +65,6 @@ local on_attach = function(client, bufnr)
     client.name == 'tsserver'
     or client.name == 'vtsls'
     or client.name == 'typescript-tools'
-    or client.name == 'jsonls'
     or client.name == 'tailwindcss'
     or client.name == 'rust_analyzer'
     or client.name == 'lua_ls'
@@ -102,7 +101,7 @@ nvim_lsp.eslint.setup({
   on_attach = on_attach,
 })
 
-require('typescript-tools').setup({
+nvim_lsp.vtsls.setup({
   on_attach = on_attach,
 })
 

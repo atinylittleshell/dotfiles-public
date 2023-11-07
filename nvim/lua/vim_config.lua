@@ -45,7 +45,7 @@ o.splitbelow = true
 o.splitright = true
 o.wrap = false
 o.scrolloff = 16
-o.textwidth = 120
+o.textwidth = 80
 o.colorcolumn = '+0'
 
 -- show relative number
@@ -87,3 +87,4 @@ vim.diagnostic.config({
 if os.getenv('WSL_DISTRO_NAME') then
   o.clipboard = ''
 end
+
