@@ -42,6 +42,8 @@ else
   sudo apt update
   sudo apt install git curl zsh fd-find ripgrep zip unzip gcc build-essential
 
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+
   sudo rm /usr/bin/nvim
   sudo ln -s $SCRIPT_DIR/nvim.appimage /usr/bin/nvim
 
