@@ -2,10 +2,8 @@ const os = require("os");
 
 module.exports = {
   fontFamily: os.platform() === "win32" ? "Hack NF" : "Hack Nerd Font",
-  themes: [
-    {
-      "name": "rose-pine-moon",
-    
+  colorScheme:
+    {    
       "cursor": "#56526e",
       "cursorAccent": "#e0def4",
 
@@ -33,14 +31,12 @@ module.exports = {
       "brightRed": "#eb6f92",
       "brightWhite": "#e0def4",
       "brightYellow": "#f6c177"
-    }
-  ],
+    },
   shells: [
     {
       name: "Default",
       command: "",
       startupDirectory: "",
-      themeName: "rose-pine-moon"
     },
     ...(
       os.platform() === "win32" ? [
