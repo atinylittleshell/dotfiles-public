@@ -71,7 +71,7 @@ require('lazy').setup({
       opts = {
         kaomoji_mode = 1,
         store = {
-          auto_create_file = true,
+          auto_create_file = false,
         },
       },
     },
@@ -114,6 +114,11 @@ require('lazy').setup({
   },
   {
     'stevearc/dressing.nvim',
+    opts = {},
+  },
+  {
+    'levouh/tint.nvim',
+    event = 'WinNew',
     opts = {},
   },
   {
@@ -242,11 +247,11 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         python = { 'black' },
-        css = { 'prettierd' },
-        html = { 'prettierd' },
-        yaml = { 'prettierd' },
-        markdown = { 'prettierd' },
-        graphql = { 'prettierd' },
+        css = { 'prettier' },
+        html = { 'prettier' },
+        yaml = { 'prettier' },
+        markdown = { 'prettier' },
+        graphql = { 'prettier' },
       },
       -- Set up format-on-save
       format_on_save = { timeout_ms = 10000, lsp_fallback = true },

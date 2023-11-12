@@ -8,19 +8,22 @@ require('lualine').setup({
   },
   sections = {
     lualine_a = { 'mode' },
-    lualine_b = { 'branch', 'diff' },
-    lualine_c = {},
-    lualine_x = { 'encoding', 'fileformat' },
-    lualine_y = { 'filetype' },
-    lualine_z = {},
-  },
-  winbar = {
-    lualine_a = { 'filename' },
     lualine_b = {
       function()
         return require('do').view('active')
       end,
     },
+    lualine_c = {},
+    lualine_x = { 'encoding', 'fileformat', 'filetype' },
+    lualine_y = {
+      'branch',
+      'diff',
+    },
+    lualine_z = {},
+  },
+  winbar = {
+    lualine_a = { 'filename' },
+    lualine_b = {},
     lualine_c = { 'diagnostics' },
     lualine_x = { 'location' },
     lualine_y = {},
