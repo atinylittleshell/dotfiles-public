@@ -137,16 +137,6 @@ nvim_lsp.lua_ls.setup({
   on_attach = on_attach,
   settings = {
     Lua = {
-      runtime = {
-        version = 'LuaJIT',
-      },
-      diagnostics = {
-        globals = { 'vim' },
-      },
-      workspace = {
-        checkThirdParty = false,
-        library = { vim.env.VIMRUNTIME },
-      },
       completion = {
         callSnippet = 'Replace',
       },

@@ -230,9 +230,14 @@ require('lazy').setup({
 
   -- lsp
   {
+    'folke/neodev.nvim',
+    opts = {},
+  },
+  {
     'neovim/nvim-lspconfig',
     dependencies = {
       'williamboman/mason-lspconfig.nvim',
+      'folke/neodev.nvim',
     },
     config = function()
       require('plugins_config.lsp')
