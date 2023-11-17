@@ -257,6 +257,7 @@ require('lazy').setup({
         yaml = { 'prettier' },
         markdown = { 'prettier' },
         graphql = { 'prettier' },
+        kotlin = { 'ktlint' },
       },
       -- Set up format-on-save
       format_on_save = { timeout_ms = 10000, lsp_fallback = true },

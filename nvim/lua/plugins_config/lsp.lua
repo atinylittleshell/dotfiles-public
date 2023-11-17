@@ -143,3 +143,15 @@ nvim_lsp.lua_ls.setup({
     },
   },
 })
+
+nvim_lsp.dockerls.setup({
+  on_attach = on_attach,
+})
+
+nvim_lsp.yamlls.setup({
+  on_attach = on_attach,
+})
+
+nvim_lsp.kotlin_language_server.setup({
+  on_attach = on_attach,
+})
