@@ -7,6 +7,11 @@ setopt nocaseglob
 
 alias ..='cd ..'
 alias ...='cd ../..'
+alias m='git switch main'
+alias mst='git switch master'
+alias pull='git pull'
+alias push='git push'
+alias add='git add .'
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
