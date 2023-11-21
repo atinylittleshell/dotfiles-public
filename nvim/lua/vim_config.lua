@@ -62,7 +62,7 @@ o.updatetime = 100
 o.cursorline = true
 g.loaded_matchparen = 0
 
--- disable copilot in telescope
+-- file types for copilot
 g.copilot_filetypes = {
   ['*'] = false,
   javascript = true,
@@ -76,6 +76,7 @@ g.copilot_filetypes = {
   yaml = true,
   markdown = true,
   text = true,
+  kotlin = true,
 }
 
 -- diagnostic
