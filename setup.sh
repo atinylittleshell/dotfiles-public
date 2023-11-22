@@ -30,6 +30,9 @@ mkdir -p ~/.zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 
+# ktfmt
+curl -o /usr/local/bin/ktfmt.jar https://repo1.maven.org/maven2/com/facebook/ktfmt/0.46/ktfmt-0.46-jar-with-dependencies.jar
+
 # install os packages
 if [ "$(uname)" == "Darwin" ]; then
   brew tap homebrew/cask-versions

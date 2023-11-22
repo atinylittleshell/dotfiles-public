@@ -68,6 +68,7 @@ local on_attach = function(client, bufnr)
     or client.name == 'tailwindcss'
     or client.name == 'rust_analyzer'
     or client.name == 'lua_ls'
+    or client.name == 'kotlin_language_server'
   then
     client.server_capabilities.documentFormattingProvider = false
   end
@@ -153,5 +154,9 @@ nvim_lsp.yamlls.setup({
 })
 
 nvim_lsp.kotlin_language_server.setup({
+  on_attach = on_attach,
+})
+
+nvim_lsp.groovyls.setup({
   on_attach = on_attach,
 })

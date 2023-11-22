@@ -247,20 +247,37 @@ require('lazy').setup({
     'stevearc/conform.nvim',
     event = { 'BufWritePre' },
     cmd = { 'ConformInfo' },
-    opts = {
-      -- Define your formatters
-      formatters_by_ft = {
-        lua = { 'stylua' },
-        python = { 'black' },
-        css = { 'prettier' },
-        html = { 'prettier' },
-        yaml = { 'prettier' },
-        markdown = { 'prettier' },
-        graphql = { 'prettier' },
-      },
-      -- Set up format-on-save
-      format_on_save = { timeout_ms = 10000, lsp_fallback = true },
-    },
+    opts = function ()
+      return {
+        -- Define your formatters
+        formatters_by_ft = {
+          lua = { 'stylua' },
+          python = { 'black' },
+          css = { 'prettier' },
+          html = { 'prettier' },
+          yaml = { 'prettier' },
+          markdown = { 'prettier' },
+          graphql = { 'prettier' },
+          kotlin = { 'ktfmt' },
+        },
+        -- Set up format-on-save
+        format_on_save = { timeout_ms = 10000, lsp_fallback = true },
+        formatters = {
+          ktfmt = {
+            command = 'java',
+            args = {
+              '-jar',
+              '/usr/local/bin/ktfmt.jar',
+              '--kotlinlang-style',
+              '-',
+            },
+            stdin = true,
+            cwd = require('conform.util').root_file({ '.git', 'build.gradle', '.editorconfig' }),
+            require_cwd = true,
+          },
+        },
+      }
+    end
   },
   {
     'luckasRanarison/clear-action.nvim',
