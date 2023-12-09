@@ -253,6 +253,11 @@ require('lazy').setup({
         formatters_by_ft = {
           lua = { 'stylua' },
           python = { 'black' },
+          javascript = { 'prettier' },
+          javascriptreact = { 'prettier' },
+          typescript = { 'prettier' },
+          typescriptreact = { 'prettier' },
+          json = { 'prettier' },
           css = { 'prettier' },
           html = { 'prettier' },
           yaml = { 'prettier' },
@@ -261,7 +266,7 @@ require('lazy').setup({
           kotlin = { 'ktfmt' },
         },
         -- Set up format-on-save
-        format_on_save = { timeout_ms = 10000, lsp_fallback = true },
+        format_on_save = { timeout_ms = 10000, lsp_fallback = 'always' },
         formatters = {
           ktfmt = {
             command = 'java',
