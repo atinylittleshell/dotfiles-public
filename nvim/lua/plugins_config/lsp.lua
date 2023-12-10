@@ -56,6 +56,10 @@ local on_attach = function(client, bufnr)
     buffer = bufnr,
   })
 
+  if client.name == 'eslint' then
+    client.server_capabilities.documentFormattingProvider = true
+  end
+
   -- formatting for the following languages are covered by conform
   if
     client.name == 'tsserver'
