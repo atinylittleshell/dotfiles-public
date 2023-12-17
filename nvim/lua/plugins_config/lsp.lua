@@ -162,6 +162,9 @@ nvim_lsp.groovyls.setup({
   on_attach = on_attach,
 })
 
-nvim_lsp.jdtls.setup({
+nvim_lsp.java_language_server.setup({
   on_attach = on_attach,
+  cmd = {
+    vim.fn.stdpath('data') .. '/mason/bin/java-language-server',
+  },
 })
