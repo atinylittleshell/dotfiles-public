@@ -181,7 +181,8 @@ require('lazy').setup({
   {
     "David-Kunz/gen.nvim",
     opts = {
-        model = "codellama:13b",
+      model = "codellama:13b",
+      display_mode = 'split',
     },
   },
   {
