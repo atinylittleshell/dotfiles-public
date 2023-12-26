@@ -179,6 +179,12 @@ require('lazy').setup({
     priority = 51,
   },
   {
+    "David-Kunz/gen.nvim",
+    opts = {
+        model = "codellama:13b",
+    },
+  },
+  {
     'hrsh7th/nvim-cmp',
     version = '*',
     event = 'InsertEnter',

@@ -8,15 +8,6 @@ vim.cmd([[
 
 -- n mode with no prefix
 wk.register({
-  -- buffer
-  ['<Tab>'] = {
-    ':bnext<CR>',
-    'Next Buffer',
-  },
-  ['<S-Tab>'] = {
-    ':bprevious<CR>',
-    'Previous Buffer',
-  },
   -- selection
   ['<C-a>'] = {
     'ggVG',
@@ -27,6 +18,8 @@ wk.register({
     ':w<CR>',
     'Save',
   },
+}, {
+  mode = 'n',
 })
 
 -- n mode with leader prefix
@@ -34,7 +27,7 @@ wk.register({
   -- neogen
   d = {
     function()
-      require('neogen').generate()
+      require('neogen').generate({})
     end,
     'Generate Docs',
   },
@@ -66,27 +59,39 @@ wk.register({
     ':bd<CR>',
     'Close Buffer',
   },
-  -- terminal
-  t = {
-    '<CMD>exe v:count1 . "ToggleTerm"<CR>',
-    'Open Terminal',
-  },
   -- git
   g = {
     ':Neogit<CR>',
     'Git',
+  },
+  -- llm
+  l = {
+    ':Gen<CR>',
+    'LLM',
   },
 }, {
   prefix = '<leader>',
   mode = 'n',
 })
 
+-- v mode with leader prefix
+wk.register({
+  -- llm
+  l = {
+    ':Gen<CR>',
+    'LLM',
+  },
+}, {
+  prefix = '<leader>',
+  mode = 'v',
+})
+
 -- t mode with no prefix
 wk.register({
   -- terminal
   ['<ESC>'] = {
-    '<CMD>close<CR>',
-    'Close Terminal',
+    '<C-\\><C-n>',
+    'Exit Terminal Mode',
   },
 }, {
   mode = 't',
