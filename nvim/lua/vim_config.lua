@@ -45,7 +45,7 @@ o.splitbelow = true
 o.splitright = true
 o.wrap = false
 o.scrolloff = 16
-o.textwidth = 80
+o.textwidth = 120
 o.colorcolumn = '+0'
 
 -- show relative number
