@@ -15,7 +15,13 @@ wk.register({
   },
   -- save
   ['<Esc>'] = {
-    ':w<CR>',
+    function()
+      if vim.bo.filetype == 'toggleterm' then
+        vim.cmd('ToggleTerm')
+      else
+        vim.cmd('w')
+      end
+    end,
     'Save',
   },
 }, {
