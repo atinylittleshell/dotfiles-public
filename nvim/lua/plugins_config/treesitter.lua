@@ -16,10 +16,6 @@ ts.setup({
     enable = true,
     enable_close_on_slash = false,
   },
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-  },
   auto_install = true,
   ensure_installed = 'all',
   ignore_install = { 'luadoc' },
