@@ -4,7 +4,7 @@ require('toggleterm').setup({
   start_in_insert = true,
   persist_mode = false,
   open_mapping = [[<leader>t]],
-  insert_mappings = true,
+  insert_mappings = false,
   terminal_mappings = false,
   close_on_exit = true,
   auto_scroll = true,
