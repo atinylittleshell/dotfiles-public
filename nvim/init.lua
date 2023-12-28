@@ -9,5 +9,6 @@ end
 ----=== Config modules ===----
 ----======================----
 require('vim_config')
+require('autocmd')
 require('plugins')
 require('keys')

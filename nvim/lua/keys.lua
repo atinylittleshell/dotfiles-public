@@ -15,13 +15,7 @@ wk.register({
   },
   -- save
   ['<Esc>'] = {
-    function()
-      if vim.bo.filetype == 'toggleterm' then
-        vim.cmd('ToggleTerm')
-      else
-        vim.cmd('w')
-      end
-    end,
+    ':w<CR>',
     'Save',
   },
 }, {
@@ -74,6 +68,16 @@ wk.register({
   l = {
     ':Gen<CR>',
     'LLM',
+  },
+  t = {
+    v = {
+      ':vsplit | vertical resize 80 | term<CR>',
+      'Terminal in vsplit',
+    },
+    s = {
+      ':split | resize 20 | term<CR>',
+      'Terminal in split',
+    },
   },
 }, {
   prefix = '<leader>',
