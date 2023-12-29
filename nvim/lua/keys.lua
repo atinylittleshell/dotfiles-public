@@ -71,7 +71,7 @@ wk.register({
   },
   t = {
     v = {
-      ':vsplit | vertical resize 80 | term<CR>',
+      ':vsplit | vertical resize 120 | term<CR>',
       'Terminal in vsplit',
     },
     s = {
