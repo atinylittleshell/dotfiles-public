@@ -158,10 +158,6 @@ nvim_lsp.kotlin_language_server.setup({
   on_attach = on_attach,
 })
 
-nvim_lsp.groovyls.setup({
-  on_attach = on_attach,
-})
-
 nvim_lsp.java_language_server.setup({
   on_attach = on_attach,
   cmd = {
