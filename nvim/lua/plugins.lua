@@ -66,15 +66,6 @@ require('lazy').setup({
     'nvim-lualine/lualine.nvim',
     version = '*',
     event = 'BufWinEnter',
-    dependencies = {
-      'nocksock/do.nvim',
-      opts = {
-        kaomoji_mode = 1,
-        store = {
-          auto_create_file = false,
-        },
-      },
-    },
     config = function()
       require('plugins_config.lualine')
     end,

@@ -8,11 +8,7 @@ require('lualine').setup({
   },
   sections = {
     lualine_a = { 'mode' },
-    lualine_b = {
-      function()
-        return require('do').view('active')
-      end,
-    },
+    lualine_b = {},
     lualine_c = {},
     lualine_x = { 'encoding', 'fileformat', 'filetype' },
     lualine_y = {
