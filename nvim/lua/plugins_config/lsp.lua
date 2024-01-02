@@ -164,3 +164,7 @@ nvim_lsp.java_language_server.setup({
     vim.fn.stdpath('data') .. '/mason/bin/java-language-server',
   },
 })
+
+nvim_lsp.gopls.setup({
+  on_attach = on_attach,
+})
