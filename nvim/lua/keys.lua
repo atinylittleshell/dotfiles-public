@@ -56,7 +56,7 @@ wk.register({
   },
   -- buffer
   x = {
-    ':bd<CR>',
+    ':Bdelete<CR>',
     'Close Buffer',
   },
   -- git

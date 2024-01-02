@@ -137,7 +137,10 @@ require('lazy').setup({
     version = '*',
     event = 'VeryLazy',
   },
-
+  {
+    'moll/vim-bbye',
+    event = 'VeryLazy',
+  },
   -- autocompletion
   {
     'github/copilot.vim',
