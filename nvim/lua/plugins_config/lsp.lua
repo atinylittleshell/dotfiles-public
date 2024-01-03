@@ -168,3 +168,7 @@ nvim_lsp.java_language_server.setup({
 nvim_lsp.gopls.setup({
   on_attach = on_attach,
 })
+
+nvim_lsp.templ.setup({
+  on_attach = on_attach,
+})

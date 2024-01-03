@@ -36,7 +36,6 @@ require('lazy').setup({
   },
   {
     'nvim-treesitter/nvim-treesitter',
-    version = '*',
     lazy = false,
     dependencies = {
       'windwp/nvim-ts-autotag',
@@ -151,7 +150,7 @@ require('lazy').setup({
     "David-Kunz/gen.nvim",
     opts = {
       model = "codellama:13b",
-      display_mode = 'split',
+      display_mode = 'float',
     },
   },
   {

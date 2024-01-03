@@ -62,6 +62,12 @@ o.updatetime = 100
 o.cursorline = true
 g.loaded_matchparen = 0
 
+vim.filetype.add({
+  extension = {
+    templ = 'templ',
+  },
+})
+
 -- file types for copilot
 g.copilot_filetypes = {
   ['*'] = false,
@@ -77,6 +83,8 @@ g.copilot_filetypes = {
   markdown = true,
   text = true,
   kotlin = true,
+  go = true,
+  templ = true,
 }
 
 -- diagnostic

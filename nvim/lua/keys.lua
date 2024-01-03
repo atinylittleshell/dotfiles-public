@@ -59,6 +59,10 @@ wk.register({
     ':Bdelete<CR>',
     'Close Buffer',
   },
+  q = {
+    ':bd<CR>',
+    'Close Window',
+  },
   -- git
   g = {
     ':Neogit<CR>',
