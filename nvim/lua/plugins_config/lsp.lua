@@ -19,7 +19,7 @@ local on_attach = function(client, bufnr)
       name = 'lsp',
       d = {
         function()
-          require('telescope.builtin').lsp_definitions({ reuse_win = true })
+          require('trouble').open('lsp_definitions')
         end,
         'Go to Definition',
       },
@@ -37,20 +37,20 @@ local on_attach = function(client, bufnr)
       },
       l = {
         function()
-          vim.diagnostic.open_float()
+          require('trouble').open('workspace_diagnostics')
         end,
         'Show Line Diagnostics',
       },
     },
     ['[g'] = {
       function()
-        vim.diagnostic.goto_prev()
+        require('trouble').previous({ skip_groups = true, jump = true })
       end,
       'Jump to previous diagnostic',
     },
     [']g'] = {
       function()
-        vim.diagnostic.goto_next()
+        require('trouble').next({ skip_groups = true, jump = true })
       end,
       'Jump to next diagnostic',
     },

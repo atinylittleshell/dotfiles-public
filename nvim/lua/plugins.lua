@@ -140,6 +140,13 @@ require('lazy').setup({
     'moll/vim-bbye',
     event = 'VeryLazy',
   },
+  {
+    'folke/trouble.nvim',
+    opts = {
+      icons = false,
+      auto_close = true,
+    },
+  },
   -- autocompletion
   {
     'github/copilot.vim',
