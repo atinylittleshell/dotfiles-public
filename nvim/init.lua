@@ -1,8 +1,8 @@
 ----=====================----
 ----=== Version check ===----
 ----=====================----
-if vim.fn.has('nvim-0.8') == 0 then
-  error('Need Neovim v0.8+ in order to run this config!')
+if vim.fn.has('nvim-0.9') == 0 then
+  error('Need Neovim v0.9+ in order to run this config!')
 end
 
 ----======================----
