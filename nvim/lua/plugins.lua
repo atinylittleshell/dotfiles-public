@@ -147,9 +147,9 @@ require('lazy').setup({
     priority = 51,
   },
   {
-    "David-Kunz/gen.nvim",
+    'David-Kunz/gen.nvim',
     opts = {
-      model = "codellama:13b",
+      model = 'codellama:13b',
       display_mode = 'float',
     },
   },
@@ -206,7 +206,6 @@ require('lazy').setup({
   -- lsp
   {
     'folke/neodev.nvim',
-    opts = {},
   },
   {
     'neovim/nvim-lspconfig',
@@ -222,7 +221,7 @@ require('lazy').setup({
     'stevearc/conform.nvim',
     event = { 'BufWritePre' },
     cmd = { 'ConformInfo' },
-    opts = function ()
+    opts = function()
       return {
         -- Define your formatters
         formatters_by_ft = {
@@ -257,7 +256,7 @@ require('lazy').setup({
           },
         },
       }
-    end
+    end,
   },
   {
     'luckasRanarison/clear-action.nvim',

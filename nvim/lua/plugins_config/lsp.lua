@@ -1,3 +1,5 @@
+require('neodev').setup()
+
 local nvim_lsp = require('lspconfig')
 local wk = require('which-key')
 
@@ -137,13 +139,6 @@ nvim_lsp.lemminx.setup({
 
 nvim_lsp.lua_ls.setup({
   on_attach = on_attach,
-  settings = {
-    Lua = {
-      completion = {
-        callSnippet = 'Replace',
-      },
-    },
-  },
 })
 
 nvim_lsp.dockerls.setup({
