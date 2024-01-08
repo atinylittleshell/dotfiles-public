@@ -17,7 +17,7 @@ local autocmds = {
     { 'TermOpen', '*', [[tnoremap <buffer> <Esc> <c-\><c-n>]] },
     { 'TermOpen', '*', 'startinsert' },
     { 'BufWinEnter,WinEnter', 'term://*', 'startinsert' },
-    { 'TermOpen', '*', 'setlocal listchars= nonumber norelativenumber' },
+    { 'TermOpen', '*', 'setlocal listchars= nonumber norelativenumber nocursorline' },
   },
   toggle_search_highlighting = {
     { 'InsertEnter', '*', 'setlocal nohlsearch' },
