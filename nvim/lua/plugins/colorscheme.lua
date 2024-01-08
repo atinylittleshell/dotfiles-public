@@ -8,7 +8,7 @@ return {
       require('rose-pine').setup({
         dark_variant = 'moon',
         dim_inactive_windows = false,
-        extend_background_behind_borders = true,
+        extend_background_behind_borders = false,
         styles = {
           italic = false,
         },

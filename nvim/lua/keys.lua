@@ -60,7 +60,7 @@ wk.register({
     'Close Buffer',
   },
   q = {
-    ':bd<CR>',
+    ':q<CR>',
     'Close Window',
   },
   -- git
