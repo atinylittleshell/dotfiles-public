@@ -19,6 +19,10 @@ local autocmds = {
     { 'BufWinEnter,WinEnter', 'term://*', 'startinsert' },
     { 'TermOpen', '*', 'setlocal listchars= nonumber norelativenumber nocursorline' },
   },
+  disable_indentscope = {
+    { 'TermOpen', '*', ':lua vim.b.miniindentscope_disable = true' },
+    { 'FileType', 'NvimTree,Telescope,alpha', ':lua vim.b.miniindentscope_disable = true' },
+  },
   toggle_search_highlighting = {
     { 'InsertEnter', '*', 'setlocal nohlsearch' },
   },
