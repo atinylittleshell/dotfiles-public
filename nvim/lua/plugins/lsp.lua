@@ -134,6 +134,11 @@ return {
         },
       })
 
+      nvim_lsp.htmx.setup({
+        on_attach = on_attach,
+        filetypes = { 'html', 'typescriptreact', 'javascriptreact' },
+      })
+
       nvim_lsp.jsonls.setup({
         on_attach = on_attach,
         settings = {
