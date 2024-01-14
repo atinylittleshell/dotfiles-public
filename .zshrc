@@ -14,7 +14,10 @@ alias push='git push'
 alias add='git add .'
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[path]='none'
 
 export PATH=~/go/bin:/usr/local/bin:~/.npm-global/bin:$PATH
 

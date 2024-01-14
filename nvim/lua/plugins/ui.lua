@@ -1,8 +1,7 @@
 return {
   {
     'nvim-lualine/lualine.nvim',
-    version = '*',
-    event = 'BufWinEnter',
+    event = 'ColorScheme',
     opts = {
       options = {
         theme = 'rose-pine',
