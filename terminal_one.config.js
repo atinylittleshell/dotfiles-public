@@ -1,6 +1,7 @@
 const os = require("os");
 
 module.exports = {
+  acrylic: true,
   fontFamily: os.platform() === "win32" ? "Hack NF" : "Hack Nerd Font",
   colorScheme:
     {    

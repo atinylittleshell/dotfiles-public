@@ -11,6 +11,7 @@ return {
         extend_background_behind_borders = false,
         styles = {
           italic = false,
+          transparency = vim.loop.os_uname().sysname == 'Darwin',
         },
       })
 
