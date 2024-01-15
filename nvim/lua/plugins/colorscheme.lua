@@ -11,7 +11,8 @@ return {
         extend_background_behind_borders = false,
         styles = {
           italic = false,
-          transparency = vim.loop.os_uname().sysname == 'Darwin',
+          transparency = vim.loop.os_uname().sysname == 'Darwin'
+            or string.find(vim.loop.os_uname().sysname, 'Windows') ~= nil,
         },
       })
 
