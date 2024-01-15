@@ -1,6 +1,6 @@
 return {
   {
-    'atinylittleshell/rose-pine-neovim',
+    'rose-pine/neovim',
     lazy = false,
     priority = 1000,
     name = 'rose-pine',
