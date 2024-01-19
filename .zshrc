@@ -12,6 +12,7 @@ alias mst='git switch master'
 alias pull='git pull'
 alias push='git push'
 alias add='git add .'
+alias amend='git commit --amend'
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
