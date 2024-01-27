@@ -85,6 +85,7 @@ g.copilot_filetypes = {
   kotlin = true,
   go = true,
   templ = true,
+  rust = true,
 }
 
 -- diagnostic
