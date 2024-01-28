@@ -57,20 +57,20 @@ return {
             },
             l = {
               function()
-                require('trouble').open('workspace_diagnostics')
+                vim.lsp.diagnostic.show_line_diagnostics()
               end,
               'Show Line Diagnostics',
             },
           },
           ['[g'] = {
             function()
-              require('trouble').previous({ skip_groups = true, jump = true })
+              vim.lsp.diagnostic.goto_prev()
             end,
             'Jump to previous diagnostic',
           },
           [']g'] = {
             function()
-              require('trouble').next({ skip_groups = true, jump = true })
+              vim.lsp.diagnostic.goto_next()
             end,
             'Jump to next diagnostic',
           },
