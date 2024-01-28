@@ -110,6 +110,7 @@ return {
         'lua_ls',
         'prismals',
         'pyright',
+        'rust_analyzer',
         'svelte',
         'tailwindcss',
         'templ',
@@ -154,10 +155,5 @@ return {
         },
       })
     end,
-  },
-  {
-    'mrcjkb/rustaceanvim',
-    version = '^4',
-    ft = { 'rust' },
   },
 }
