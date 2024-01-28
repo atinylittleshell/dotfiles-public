@@ -57,7 +57,7 @@ return {
             },
             l = {
               function()
-                vim.lsp.diagnostic.show_line_diagnostics()
+                vim.diagnostic.open_float({ scope = 'line' })
               end,
               'Show Line Diagnostics',
             },
@@ -110,7 +110,6 @@ return {
         'lua_ls',
         'prismals',
         'pyright',
-        'rust_analyzer',
         'svelte',
         'tailwindcss',
         'templ',
@@ -155,5 +154,10 @@ return {
         },
       })
     end,
+  },
+  {
+    'mrcjkb/rustaceanvim',
+    version = '^4',
+    ft = { 'rust' },
   },
 }
