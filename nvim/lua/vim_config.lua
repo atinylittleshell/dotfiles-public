@@ -23,10 +23,10 @@ g.fixeol = true
 g.mapleader = ' '
 
 -- indention
-o.autoindent = true
+o.autoindent = false
 o.expandtab = true
 o.shiftwidth = indent
-o.smartindent = true
+o.smartindent = false
 o.softtabstop = indent
 o.tabstop = indent
 
