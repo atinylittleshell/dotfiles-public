@@ -113,6 +113,7 @@ return {
         'rust_analyzer',
         'svelte',
         'tailwindcss',
+        'taplo',
         'templ',
         'vtsls',
         'yamlls',

@@ -5,10 +5,10 @@ return {
     priority = 51,
   },
   {
-    'David-Kunz/gen.nvim',
+    'robitx/gp.nvim',
     opts = {
-      model = 'codellama:13b',
-      display_mode = 'float',
+      openai_api_key = os.getenv('OPENAI_API_KEY'),
+      toggle_target = 'popup',
     },
   },
 }

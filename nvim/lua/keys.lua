@@ -70,7 +70,7 @@ wk.register({
   },
   -- llm
   l = {
-    ':Gen<CR>',
+    ':GpChatToggle popup<CR>',
     'LLM',
   },
   t = {
@@ -92,7 +92,7 @@ wk.register({
 wk.register({
   -- llm
   l = {
-    ':Gen<CR>',
+    ':GpChatToggle popup<CR>',
     'LLM',
   },
 }, {
