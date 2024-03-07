@@ -86,6 +86,7 @@ g.copilot_filetypes = {
   go = true,
   templ = true,
   rust = true,
+  python = true,
 }
 
 -- diagnostic
