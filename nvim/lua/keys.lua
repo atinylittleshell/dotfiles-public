@@ -4,6 +4,7 @@ local telescope_builtin = require('telescope.builtin')
 -- make 'p' no longer update register
 vim.cmd([[
   xnoremap <expr> p 'pgv"'.v:register.'y'
+  nnoremap r <Nop>
 ]])
 
 -- n mode with no prefix
@@ -17,6 +18,11 @@ wk.register({
   ['<Esc>'] = {
     ':w<CR>',
     'Save',
+  },
+  -- substitute
+  ['r'] = {
+    require('substitute').operator,
+    'Substitute',
   },
 }, {
   mode = 'n',
