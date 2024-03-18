@@ -35,7 +35,7 @@ esac
 # pnpm end
 
 # bun completions
-[ -s "/home/kun/.bun/_bun" ] && source "/home/kun/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
