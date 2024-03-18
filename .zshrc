@@ -34,4 +34,11 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+# bun completions
+[ -s "/home/kun/.bun/_bun" ] && source "/home/kun/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
 eval "$(starship init zsh)"
