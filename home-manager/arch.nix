@@ -16,8 +16,7 @@
   ];
 
   home.file = {
-    ".xsession".source = files/.xsession;
-    ".xinitrc".source = files/.xsession;
+    ".config/autostart/xset.desktop".source = files/.config/autostart/xset.desktop;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''

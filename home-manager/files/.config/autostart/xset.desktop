@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=Xset Commands
+Type=Application
+Exec=/bin/bash -c "sleep 15 && xset r rate 200 30"
