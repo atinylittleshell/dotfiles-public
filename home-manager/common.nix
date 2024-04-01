@@ -56,6 +56,12 @@
       color = {
         ui = true;
       };
+      push = {
+        autoSetupRemote = true;
+      };
+      pull = {
+        rebase = true;
+      };
     };
   };
 
