@@ -23,6 +23,17 @@ else
   makepkg -si
 fi
 
+# install hyprland
+if command -v Hyprland &> /dev/null; then
+  echo "hyprland is already installed. skipping..."
+else
+  yay -S hyprland
+  
+  sudo systemctl enable nvidia-suspend.service
+  sudo systemctl enable nvidia-hibernate.service
+  sudo systemctl enable nvidia-resume.service
+fi
+
 # install chrome
 if command -v google-chrome-stable &> /dev/null; then
   echo "chrome is already installed. skipping..."
@@ -59,12 +70,12 @@ else
 fi
 
 # install nvm and node
-if command -v nvm &> /dev/null; then
+export NVM_DIR="$HOME/.nvm"
+if [ -d $NVM_DIR ]; then
   echo "nvm is already installed. skipping..."
 else
   PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash'
 
-  export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
@@ -86,7 +97,8 @@ else
   nix-shell '<home-manager>' -A install
 fi
 
-ln -sf $DOTFILES_DIR/home-manager/files ~/.config/home-manager/files
+rm ~/.config/home-manager/files || true
+ln -s $DOTFILES_DIR/home-manager/files ~/.config/home-manager/files
 ln -sf $DOTFILES_DIR/home-manager/common.nix ~/.config/home-manager/common.nix
 ln -sf $DOTFILES_DIR/home-manager/arch.nix ~/.config/home-manager/home.nix
 
