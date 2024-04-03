@@ -32,6 +32,15 @@ else
   sudo systemctl enable nvidia-suspend.service
   sudo systemctl enable nvidia-hibernate.service
   sudo systemctl enable nvidia-resume.service
+
+  ln -sf $DOTFILES_DIR/home-manager/files/.config/hypr/hyprland.conf ~/.config/hypr/hyprland.conf
+fi
+
+# install terminal one
+if command -v terminal-one &> /dev/null; then
+  echo "terminal one is already installed. skipping..."
+else
+  sudo ln -sf $DOTFILES_DIR/bin/TerminalOne.AppImage /usr/local/bin/terminal-one
 fi
 
 # install chrome
