@@ -33,7 +33,8 @@ else
   sudo systemctl enable nvidia-hibernate.service
   sudo systemctl enable nvidia-resume.service
 
-  ln -sf $DOTFILES_DIR/home-manager/files/.config/hypr/hyprland.conf ~/.config/hypr/hyprland.conf
+  rm -rf ~/.config/hypr || true
+  ln -s $DOTFILES_DIR/home-manager/files/.config/hypr ~/.config/hypr
 fi
 
 # install terminal one
