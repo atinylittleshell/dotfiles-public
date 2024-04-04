@@ -18,7 +18,7 @@
     wget
     jq
     fd
-    neofetch
+    fastfetch
     ripgrep
 
     # development

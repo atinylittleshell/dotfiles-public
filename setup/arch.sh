@@ -6,6 +6,14 @@ set -e
 DOTFILES_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && cd .. && pwd )
 sudo pacman -S --needed base-devel curl
 
+yay_if_needed() {
+  if command -v $1 &> /dev/null; then
+    echo "$1 is already installed. skipping..."
+  else
+    yay -S $1
+  fi
+}
+
 # install git
 if command -v git &> /dev/null; then
   echo "git is already installed. skipping..."
@@ -34,35 +42,6 @@ else
   sudo systemctl enable nvidia-resume.service
 
   rm -rf ~/.config/hypr || true
-  ln -s $DOTFILES_DIR/home-manager/files/.config/hypr ~/.config/hypr
-fi
-
-# install terminal one
-if command -v terminal-one &> /dev/null; then
-  echo "terminal one is already installed. skipping..."
-else
-  sudo ln -sf $DOTFILES_DIR/bin/TerminalOne.AppImage /usr/local/bin/terminal-one
-fi
-
-# install chrome
-if command -v google-chrome-stable &> /dev/null; then
-  echo "chrome is already installed. skipping..."
-else
-  yay -S google-chrome
-fi
-
-# install discord
-if command -v discord &> /dev/null; then
-  echo "discord is already installed. skipping..."
-else
-  yay -S discord
-fi
-
-# install obsidian
-if command -v obsidian &> /dev/null; then
-  echo "obsidian is already installed. skipping..."
-else
-  yay -S obsidian
 fi
 
 # install keyd and set up custom keymap
@@ -91,6 +70,22 @@ else
 
   nvm install 21
 fi
+
+# install terminal one
+if command -v terminal-one &> /dev/null; then
+  echo "terminal one is already installed. skipping..."
+else
+  sudo ln -sf $DOTFILES_DIR/bin/TerminalOne.AppImage /usr/local/bin/terminal-one
+fi
+
+# install apps with yay
+yay_if_needed google-chrome-stable
+yay_if_needed discord
+yay_if_needed obsidian
+yay_if_needed waybar
+yay_if_needed hyprpaper
+yay_if_needed dunst
+yay_if_needed wlogout
 
 # install nix and home manager
 if command -v nix-shell &> /dev/null; then
