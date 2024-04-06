@@ -20,7 +20,7 @@ return {
           additional_vim_regex_highlighting = false,
         },
         indent = {
-          enable = true,
+          enable = false,
           disable = { 'c', 'yaml', 'python', 'html', 'css' },
         },
         autotag = {

@@ -43,8 +43,8 @@
   };
 
   home.file = {
-    ".config/nvim".source = files/.config/nvim;
-    ".config/TerminalOne/config.js".source = files/.config/TerminalOne/config.js;
+    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink ./files/.config/nvim;
+    ".config/TerminalOne/config.js".source = config.lib.file.mkOutOfStoreSymlink ./files/.config/TerminalOne/config.js;
   };
 
   programs.git = {

@@ -14,9 +14,9 @@
   ];
 
   home.file = {
-    ".config/autostart/xset.desktop".source = files/.config/autostart/xset.desktop;
-    ".wallpapers".source = files/.wallpapers;
-    ".config/hypr".source = files/.config/hypr;
+    ".config/autostart/xset.desktop".source = ./files/.config/autostart/xset.desktop;
+    ".wallpapers".source = ./files/.wallpapers;
+    ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink ./files/.config/hypr;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
