@@ -92,13 +92,6 @@ return {
     event = 'VeryLazy',
   },
   {
-    'folke/trouble.nvim',
-    opts = {
-      icons = false,
-      auto_close = true,
-    },
-  },
-  {
     'numToStr/Comment.nvim',
     version = '*',
     event = 'BufWinEnter',

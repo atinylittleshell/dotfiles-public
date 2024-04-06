@@ -38,9 +38,7 @@ return {
           g = {
             name = 'lsp',
             d = {
-              function()
-                require('trouble').open('lsp_definitions')
-              end,
+              '<cmd>Telescope lsp_definitions<cr>',
               'Go to Definition',
             },
             n = {
@@ -64,13 +62,13 @@ return {
           },
           ['[g'] = {
             function()
-              vim.lsp.diagnostic.goto_prev()
+              vim.diagnostic.goto_prev()
             end,
             'Jump to previous diagnostic',
           },
           [']g'] = {
             function()
-              vim.lsp.diagnostic.goto_next()
+              vim.diagnostic.goto_next()
             end,
             'Jump to next diagnostic',
           },
