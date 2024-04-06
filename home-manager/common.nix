@@ -73,6 +73,7 @@
     enable = true;
     settings = {
       add_newline = false;
+      command_timeout = 1000;
       format = "$username$hostname$directory$git_branch$git_state$git_status$cmd_duration$python$character";
 
       directory = {
