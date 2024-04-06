@@ -63,6 +63,9 @@
       pull = {
         rebase = true;
       };
+      rebase = {
+        updateRefs = true;
+      };
     };
   };
 
