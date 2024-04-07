@@ -1,6 +1,14 @@
 return {
   {
     'folke/neodev.nvim',
+    opts = {
+      library = {
+        plugins = {
+          'nvim-treesitter',
+          'plenary.nvim',
+        },
+      },
+    },
   },
   {
     'luckasRanarison/clear-action.nvim',
@@ -103,7 +111,6 @@ return {
         'gopls',
         'graphql',
         'html',
-        'kotlin_language_server',
         'lemminx',
         'lua_ls',
         'prismals',
@@ -128,6 +135,19 @@ return {
           css = {
             lint = {
               unknownAtRules = 'ignore',
+            },
+          },
+        },
+      })
+
+      nvim_lsp.kotlin_language_server.setup({
+        on_attach = on_attach,
+        settings = {
+          kotlin = {
+            compiler = {
+              jvm = {
+                target = '21',
+              },
             },
           },
         },
