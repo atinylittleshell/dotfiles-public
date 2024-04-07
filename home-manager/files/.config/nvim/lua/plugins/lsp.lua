@@ -1,14 +1,6 @@
 return {
   {
     'folke/neodev.nvim',
-    opts = {
-      library = {
-        plugins = {
-          'nvim-treesitter',
-          'plenary.nvim',
-        },
-      },
-    },
   },
   {
     'luckasRanarison/clear-action.nvim',
@@ -29,7 +21,12 @@ return {
       'folke/neodev.nvim',
     },
     config = function()
-      require('neodev').setup()
+      require('neodev').setup({
+        override = function(_, library)
+          library.enabled = true
+          library.plugins = true
+        end,
+      })
 
       local nvim_lsp = require('lspconfig')
       local wk = require('which-key')
