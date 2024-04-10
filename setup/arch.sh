@@ -6,6 +6,9 @@ set -e
 DOTFILES_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && cd .. && pwd )
 sudo pacman -S --needed base-devel curl
 
+rm -rf ~/.config/nvim || true
+ln -s $DOTFILES_DIR/home-manager/files/.config/nvim ~/.config/nvim
+
 yay_if_needed() {
   if command -v $1 &> /dev/null; then
     echo "$1 is already installed. skipping..."
@@ -42,6 +45,7 @@ else
   sudo systemctl enable nvidia-resume.service
 
   rm -rf ~/.config/hypr || true
+  ln -s $DOTFILES_DIR/home-manager/files/.config/hypr ~/.config/hypr
 fi
 
 # install keyd and set up custom keymap
@@ -76,6 +80,8 @@ if command -v terminal-one &> /dev/null; then
   echo "terminal one is already installed. skipping..."
 else
   sudo ln -sf $DOTFILES_DIR/bin/TerminalOne.AppImage /usr/local/bin/terminal-one
+  rm -rf ~/.config/TerminalOne || true
+  ln -s $DOTFILES_DIR/home-manager/files/.config/TerminalOne ~/.config/TerminalOne
 fi
 
 # install apps with yay
