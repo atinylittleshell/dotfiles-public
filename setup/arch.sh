@@ -80,6 +80,7 @@ if command -v terminal-one &> /dev/null; then
   echo "terminal one is already installed. skipping..."
 else
   sudo ln -sf $DOTFILES_DIR/bin/TerminalOne.AppImage /usr/local/bin/terminal-one
+
   rm -rf ~/.config/TerminalOne || true
   ln -s $DOTFILES_DIR/home-manager/files/.config/TerminalOne ~/.config/TerminalOne
 fi
@@ -92,6 +93,7 @@ yay_if_needed waybar
 yay_if_needed hyprpaper
 yay_if_needed dunst
 yay_if_needed wlogout
+yay_if_needed gnome-keyring
 
 # install nix and home manager
 if command -v nix-shell &> /dev/null; then

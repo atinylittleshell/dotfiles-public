@@ -11,6 +11,8 @@
   home.packages = with pkgs; [
     # gnome tools
     gnome.gnome-tweaks
+    libadwaita
+    xdg-desktop-portal-gtk
   ];
 
   home.file = {
