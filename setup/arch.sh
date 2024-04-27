@@ -9,6 +9,9 @@ sudo pacman -S --needed base-devel curl
 rm -rf ~/.config/nvim || true
 ln -s $DOTFILES_DIR/home-manager/files/.config/nvim ~/.config/nvim
 
+rm ~/.config/discord/settings.json || true
+ln -s $DOTFILES_DIR/home-manager/files/.config/discord/settings.json ~/.config/discord/settings.json
+
 yay_if_needed() {
   if command -v $1 &> /dev/null; then
     echo "$1 is already installed. skipping..."
@@ -46,6 +49,16 @@ else
 
   rm -rf ~/.config/hypr || true
   ln -s $DOTFILES_DIR/home-manager/files/.config/hypr ~/.config/hypr
+fi
+
+# install waybar
+if command -v waybar &> /dev/null; then
+  echo "waybar is already installed. skipping..."
+else
+  yay -S waybar
+
+  rm -rf ~/.config/waybar || true
+  ln -s $DOTFILES_DIR/home-manager/files/.config/waybar ~/.config/waybar
 fi
 
 # install keyd and set up custom keymap
@@ -89,7 +102,6 @@ fi
 yay_if_needed google-chrome-stable
 yay_if_needed discord
 yay_if_needed obsidian
-yay_if_needed waybar
 yay_if_needed hyprpaper
 yay_if_needed dunst
 yay_if_needed wlogout

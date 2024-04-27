@@ -13,6 +13,7 @@ return {
           typescript = { 'prettier' },
           typescriptreact = { 'prettier' },
           json = { 'prettier' },
+          jsonc = { 'prettier' },
           css = { 'prettier' },
           html = { 'prettier' },
           yaml = { 'prettier' },
