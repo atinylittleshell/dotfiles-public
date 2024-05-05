@@ -3,6 +3,9 @@
 {
   services.xserver.enable = true;
 
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.sddm.enableGnomeKeyring = true;
+
   services.displayManager.sddm = {
     enable = true;
     wayland = {

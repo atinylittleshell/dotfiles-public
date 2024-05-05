@@ -9,6 +9,13 @@
   home.homeDirectory = "/home/atinylittleshell";
 
   home.packages = with pkgs; [
+    waybar
+    hyprpaper
+    dunst
+    wlogout
+    google-chrome-stable
+    discord
+    obsidian
   ];
 
   home.file = {
