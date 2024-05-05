@@ -10,10 +10,9 @@
       ./hardware-configuration.nix
     ];
 
-  # hostname
+  # Basics
   networking.hostName = "nixos"; # Define your hostname.
-
-  # flakes
+  nix.package = pkgs.nixVersions.latest;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Bootloader.
@@ -56,12 +55,16 @@
     variant = "";
   };
 
+  # zsh
+  programs.zsh.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.atinylittleshell = {
     isNormalUser = true;
     description = "atinylittleshell";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
+    shell = pkgs.zsh;
   };
 
   # Allow unfree packages
