@@ -10,8 +10,8 @@
       device = "nodev";
       efiSupport = true;
       useOSProber = true;
-      gfxpayloadEfi = "3840x1080x32";
-      gfxmodeEfi = "auto";
+      gfxpayloadEfi = "auto";
+      gfxmodeEfi = "3840x1080x32";
     };
   };
 }
