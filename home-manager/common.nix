@@ -22,6 +22,7 @@
     ripgrep
 
     # development
+    gcc
     bun
     neovim
     jdk17
