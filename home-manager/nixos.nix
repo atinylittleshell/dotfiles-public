@@ -13,7 +13,7 @@
     hyprpaper
     dunst
     wlogout
-    google-chrome-stable
+    google-chrome
     discord
     obsidian
   ];
