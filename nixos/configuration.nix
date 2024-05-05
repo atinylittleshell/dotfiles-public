@@ -8,26 +8,17 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./boot.nix
       ./graphics.nix
+      ./sound.nix
+      ./desktop.nix
     ];
 
   # Basics
   networking.hostName = "nixos"; # Define your hostname.
   nix.package = pkgs.nixVersions.latest;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # Bootloader.
-  boot.loader = {
-    efi = {
-      canTouchEfiVariables = true;
-    };
-    grub = {
-      enable = true;
-      device = "nodev";
-      efiSupport = true;
-      useOSProber = true;
-    };
-  };
+  nixpkgs.config.allowUnfree = true;
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -68,14 +59,10 @@
     shell = pkgs.zsh;
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
+    vim
     git
   ];
 
