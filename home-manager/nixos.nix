@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  terminal-one = pkgs.callPackage ./pkgs/terminal-one.nix { };
+in
 {
   imports = [
     ./common.nix
@@ -16,6 +19,7 @@
     google-chrome
     discord
     obsidian
+    terminal-one
   ];
 
   home.file = {
