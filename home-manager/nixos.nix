@@ -19,6 +19,7 @@ in
     google-chrome
     discord
     obsidian
+    lutris
     terminal-one
   ];
 
