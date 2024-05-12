@@ -22,6 +22,18 @@
     where-is-my-sddm-theme
   ];
 
+  services.keyd= {
+    enable = true;
+    keyboards.default = {
+      ids = [ "*" ];
+      settings = {
+        main = {
+          leftmeta = "leftcontrol";
+        };
+      };
+    };
+  };
+
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
