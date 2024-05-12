@@ -1,0 +1,60 @@
+* {
+  background-image: none;
+  font-size: 14px;
+}
+
+window {
+  background-color: transparent;
+}
+
+button {
+  color: #ebbcba;
+  background-color: #26233a;
+  outline-style: none;
+  border: none;
+  border-width: 0px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10%;
+  border-radius: 0px;
+  box-shadow: none;
+  text-shadow: none;
+  animation: gradient_f 20s ease-in infinite;
+}
+
+button:focus {
+  background-color: #31748f;
+  background-size: 15%;
+}
+
+button:hover {
+  background-color: #eb6f92;
+  background-size: 20%;
+  border-radius: 24px;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.3s cubic-bezier(0.55, 0, 0.28, 1.682);
+}
+
+#lock {
+  background-image: image(url("./icons/lock_white.png"));
+  border-radius: 32px 0px 0px 0px;
+  margin: 240px 0px 0px 1440px;
+}
+
+#logout {
+  background-image: image(url("./icons/logout_white.png"));
+  border-radius: 0px 0px 0px 32px;
+  margin: 0px 0px 240px 1440px;
+}
+
+#shutdown {
+  background-image: image(url("./icons/shutdown_white.png"));
+  border-radius: 0px 32px 0px 0px;
+  margin: 240px 1440px 0px 0px;
+}
+
+#reboot {
+  background-image: image(url("./icons/reboot_white.png"));
+  border-radius: 0px 0px 32px 0px;
+  margin: 0px 1440px 240px 0px;
+}
