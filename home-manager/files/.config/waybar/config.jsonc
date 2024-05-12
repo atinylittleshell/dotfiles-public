@@ -1,22 +1,10 @@
 {
   "layer": "top",
-  "height": 41,
+  "height": 40,
 
-  "modules-left": [
-    "temperature", 
-    "cpu", 
-    "memory", 
-  ],
-  "modules-center": [
-    "hyprland/workspaces",
-    "hyprland/window",
-  ],
-  "modules-right": [
-    "tray", 
-    "wireplumber",
-    "clock#date",
-    "clock#time",
-  ],
+  "modules-left": ["temperature", "cpu", "memory"],
+  "modules-center": ["hyprland/workspaces", "hyprland/window"],
+  "modules-right": ["tray", "wireplumber", "clock#date", "clock#time"],
 
   "clock#time": {
     "format": "<span color=\"#7aa2f7\"> </span>{:%H:%M:%S}",

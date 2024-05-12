@@ -20,6 +20,7 @@
     fd
     fastfetch
     ripgrep
+    killall
 
     # development
     gcc
@@ -30,6 +31,9 @@
     rustup
     python3
     go
+    nodejs_22
+    zip
+    unzip
 
     # fonts
     nerdfonts
@@ -39,7 +43,6 @@
     noto-fonts-cjk
     noto-fonts-emoji
     font-awesome
-    font-awesome_5
   ];
 
   fonts.fontconfig.enable = true;
