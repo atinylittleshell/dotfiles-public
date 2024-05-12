@@ -22,6 +22,7 @@ in
     obsidian
     lutris
     terminal-one
+    nwg-look
   ];
 
   home.file = {
