@@ -32,9 +32,14 @@
     go
 
     # fonts
-    (nerdfonts.override { fonts = [ "Hack" ]; })
+    nerdfonts
     roboto
     noto-fonts
+    noto-fonts-extra
+    noto-fonts-cjk
+    noto-fonts-emoji
+    font-awesome
+    font-awesome_5
   ];
 
   fonts.fontconfig.enable = true;

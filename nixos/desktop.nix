@@ -8,10 +8,19 @@
 
   services.displayManager.sddm = {
     enable = true;
+    package = pkgs.kdePackages.sddm;
+    extraPackages = [
+      pkgs.qt6.qt5compat
+    ];
+    theme = "where_is_my_sddm_theme";
     wayland = {
       enable = true;
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    where-is-my-sddm-theme
+  ];
 
   programs.hyprland = {
     enable = true;

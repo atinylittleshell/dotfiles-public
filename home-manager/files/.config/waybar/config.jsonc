@@ -3,20 +3,27 @@
   "height": 41,
 
   "modules-left": [
+    "temperature", 
+    "cpu", 
+    "memory", 
+  ],
+  "modules-center": [
     "hyprland/workspaces",
-    "clock#time",
+    "hyprland/window",
+  ],
+  "modules-right": [
+    "tray", 
+    "wireplumber",
     "clock#date",
-    "battery",
-  ], // Sets modules for the left of the bar
-  "modules-center": ["hyprland/window"], // Set modules for the center of the bar
-  "modules-right": ["tray", "temperature", "cpu", "memory", "wireplumber"], // Set modules for the right of the bar
+    "clock#time",
+  ],
 
   "clock#time": {
-    "format": "<span color=\"#7aa2f7\"> </span>{:%H:%M:%S}",
+    "format": "<span color=\"#7aa2f7\"> </span>{:%H:%M:%S}",
     "interval": 1,
   },
   "clock#date": {
-    "format": "<span color=\"#7aa2f7\"> </span>{:%d/%m/%Y}",
+    "format": "<span color=\"#7aa2f7\"> </span>{:%m/%d/%Y}",
     "tooltip-format": "<tt>{calendar}</tt>",
     "interval": 360,
     "calendar": {
@@ -34,43 +41,26 @@
       },
     },
   },
-  "battery": {
-    "bat": "BAT0",
-    "interval": 60,
-    "states": {
-      "warning": 40,
-      "critical": 20,
-    },
-    "format": "{icon} {capacity}%",
-    "format-icons": [
-      "<span color=\"#f7768e\"> </span>",
-      "<span color=\"#f7768e\"> </span>",
-      "<span color=\"#7aa2f7\"> </span>",
-      "<span color=\"#7aa2f7\"> </span>",
-      "<span color=\"#7aa2f7\"> </span>",
-    ],
-    "format-charging": "<span color=\"#e0af68\">󱐌</span> {capacity}%",
-  },
   "cpu": {
-    "format": "<span color=\"#7aa2f7\"> </span>{usage}%",
+    "format": "{usage}%",
     "interval": 4,
   },
   "memory": {
-    "format": "<span color=\"#7aa2f7\"> </span>{used}GiB",
+    "format": "{used}GiB",
     "interval": 4,
   },
   "temperature": {
-    "hwmon-path": "/sys/class/hwmon/hwmon6/temp1_input",
+    "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
     "critical-threshold": 80,
-    "format": "<span color=\"#7aa2f7\"> </span>{temperatureC}°C",
-    "format-critical": "<span color=\"#f7768e\"> </span>{temperatureC}°C",
+    "format": "<span color=\"#7aa2f7\"> </span>{temperatureC}°C",
+    "format-critical": "<span color=\"#f7768e\"> </span>{temperatureC}°C",
     "interval": 4,
   },
   "wireplumber": {
     "scroll-step": 5, // %, can be a float
     "format": "<span color=\"#7aa2f7\">{icon} </span>{volume}%",
-    "format-muted": "<span color=\"#f7768e\"> </span>Muted",
-    "format-icons": ["", "", ""],
+    "format-muted": "<span color=\"#f7768e\"> </span>Muted",
+    "format-icons": ["", ""],
     "on-click": "pavucontrol",
   },
   "hyprland/window": {

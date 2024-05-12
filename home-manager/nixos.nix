@@ -12,10 +12,15 @@ in
   home.homeDirectory = "/home/atinylittleshell";
 
   home.packages = with pkgs; [
+    killall
     waybar
     hyprpaper
     dunst
     wlogout
+    pavucontrol
+    nodejs_22
+    bun
+    kitty
     google-chrome
     discord
     obsidian

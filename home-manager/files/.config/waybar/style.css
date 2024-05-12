@@ -1,8 +1,6 @@
 * {
-  font-family:
-    Hack Nerd Font,
-    Roboto;
-  font-weight: 600;
+  font-family: "Noto Sans", "Font Awesome 6 Free";
+  font-weight: bold;
   font-size: 13.5px;
   color: #c0caf5;
 }
@@ -62,7 +60,8 @@ tooltip {
 }
 
 #workspaces {
-  padding-right: 0px;
+  border-radius: 12px;
+  margin-right: 4px;
 }
 
 /* Hide window module when not focused on window or empty workspace */
@@ -82,12 +81,10 @@ window#waybar.empty #window {
   border-radius: 12px;
 }
 
-/* close right side of bar */
-#temperature {
-  border-radius: 12px 0 0 12px;
+#memory {
+  border-radius: 0 12px 12px 0;
 }
 
-/* close left side of bar */
-#battery {
-  border-radius: 0 12px 12px 0;
+#wireplumber {
+  border-radius: 12px 0 0 12px;
 }
