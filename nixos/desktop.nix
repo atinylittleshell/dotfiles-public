@@ -27,5 +27,8 @@
     xwayland.enable = true;
   };
 
+  programs.thunar.enable = true;
+  programs.xfconf.enable = true;
+
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 }
