@@ -2,6 +2,7 @@
 
 let
   terminal-one = pkgs.callPackage ./pkgs/terminal-one.nix { };
+  configure-gtk = pkgs.callPackage ./pkgs/configure-gtk.nix { };
 in
 {
   imports = [
@@ -12,6 +13,7 @@ in
   home.homeDirectory = "/home/atinylittleshell";
 
   home.packages = with pkgs; [
+    configure-gtk
     waybar
     hyprpaper
     dunst
@@ -31,6 +33,17 @@ in
     ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/github/atinylittleshell/dotfiles-public/home-manager/files/.config/waybar";
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/github/atinylittleshell/dotfiles-public/home-manager/files/.config/nvim";
     ".config/TerminalOne/config.js".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/github/atinylittleshell/dotfiles-public/home-manager/files/.config/TerminalOne/config.js";
+  };
+
+  home.pointerCursor = {
+    package = pkgs.rose-pine-cursor;
+    name = "BreezeX-RosePine-Linux";
+    size = 24;
+    gtk.enable = true;
+  };
+
+  gtk = {
+    enable = true;
   };
 
   programs.git = {
