@@ -2,30 +2,53 @@
   font-family: "Noto Sans", "Font Awesome 6 Free";
   font-weight: bold;
   font-size: 13.5px;
-  color: #c0caf5;
+  color: #ebbcba;
 }
 
 /* main waybar */
 window#waybar {
-  background: rgba(26, 27, 38, 0);
+  background: rgba(0, 0, 0, 0);
   border: none;
 }
 
 /* when hovering over modules */
 tooltip {
-  background: #1e1e2e;
+  background: #eb6f92;
+  color: #f6c177;
   border-radius: 5%;
+}
+
+/* Sets background, padding, margins, and borders for (all) modules */
+#workspaces,
+#clock,
+#window,
+#temperature,
+#cpu,
+#memory,
+#wireplumber,
+#tray,
+#battery {
+  background: #26233a;
+  padding: 0 10px;
+  border: 0;
+  /* margin-top: 4px; */
+}
+
+#workspaces {
+  border-radius: 12px;
+  margin-right: 4px;
 }
 
 #workspaces button {
   padding: 2px;
+  border-radius: 0;
+  border: 0;
 }
 
 /* Sets active workspace to have a solid line on the bottom */
 #workspaces button.active {
-  border-bottom: 3px solid #7aa2f7;
-  border-radius: 0;
-  margin-top: 3px;
+  border: 0;
+  border-bottom: 3px solid #31748f;
   transition: all 0.5s ease-in-out;
 }
 
@@ -39,29 +62,8 @@ tooltip {
 }
 
 #workspaces button:hover {
-  background: #11111b;
-  color: #cdd6f4;
-}
-
-/* Sets background, padding, margins, and borders for (all) modules */
-#workspaces,
-#clock,
-#window,
-#temperature,
-#cpu,
-#memory,
-#wireplumber,
-#tray,
-#battery {
-  background: rgba(26, 27, 38, 0.6);
-  padding: 0 10px;
-  border: 0;
-  /* margin-top: 4px; */
-}
-
-#workspaces {
-  border-radius: 12px;
-  margin-right: 4px;
+  background: #31748f;
+  color: #9ccfd8;
 }
 
 /* Hide window module when not focused on window or empty workspace */

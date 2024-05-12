@@ -7,11 +7,11 @@
   "modules-right": ["tray", "wireplumber", "clock#date", "clock#time"],
 
   "clock#time": {
-    "format": "<span color=\"#7aa2f7\"> </span>{:%H:%M:%S}",
+    "format": "<span color=\"#9ccfd8\"> </span>{:%H:%M:%S}",
     "interval": 1,
   },
   "clock#date": {
-    "format": "<span color=\"#7aa2f7\"> </span>{:%m/%d/%Y}",
+    "format": "<span color=\"#9ccfd8\"> </span>{:%m/%d/%Y}",
     "tooltip-format": "<tt>{calendar}</tt>",
     "interval": 360,
     "calendar": {
@@ -40,14 +40,14 @@
   "temperature": {
     "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
     "critical-threshold": 80,
-    "format": "<span color=\"#7aa2f7\"> </span>{temperatureC}°C",
-    "format-critical": "<span color=\"#f7768e\"> </span>{temperatureC}°C",
+    "format": "<span color=\"#9ccfd8\"> </span>{temperatureC}°C",
+    "format-critical": "<span color=\"#f6c177\"> </span>{temperatureC}°C",
     "interval": 4,
   },
   "wireplumber": {
     "scroll-step": 5, // %, can be a float
-    "format": "<span color=\"#7aa2f7\">{icon} </span>{volume}%",
-    "format-muted": "<span color=\"#f7768e\"> </span>Muted",
+    "format": "<span color=\"#9ccfd8\">{icon} </span>{volume}%",
+    "format-muted": "<span color=\"#f6c177\"> </span>Muted",
     "format-icons": ["", ""],
     "on-click": "pavucontrol",
   },
