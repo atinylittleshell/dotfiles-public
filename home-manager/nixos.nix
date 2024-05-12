@@ -14,10 +14,13 @@ in
 
   home.packages = with pkgs; [
     configure-gtk
+    wl-clipboard
     waybar
     hyprpaper
     dunst
+    libnotify
     wlogout
+    rofi-wayland
     pavucontrol
     google-chrome
     discord
@@ -44,6 +47,16 @@ in
 
   gtk = {
     enable = true;
+
+    theme = {
+      package = pkgs.rose-pine-gtk-theme;
+      name = "rose-pine";
+    };
+
+    iconTheme = {
+      package = pkgs.rose-pine-icon-theme;
+      name = "rose-pine";
+    };
   };
 
   programs.git = {
