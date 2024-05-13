@@ -22,7 +22,7 @@
     where-is-my-sddm-theme
   ];
 
-  services.keyd= {
+  services.keyd = {
     enable = true;
     keyboards.default = {
       ids = [ "*" ];
@@ -32,6 +32,11 @@
         };
       };
     };
+  };
+
+  services.ollama = {
+    enable = true;
+    acceleration = "cuda";
   };
 
   programs.hyprland = {
