@@ -5,10 +5,10 @@ return {
     priority = 51,
   },
   {
-    'robitx/gp.nvim',
+    'David-Kunz/gen.nvim',
     opts = {
-      openai_api_key = os.getenv('OPENAI_API_KEY'),
-      toggle_target = 'popup',
+      model = 'llama3',
+      display_mode = 'float',
     },
   },
 }
