@@ -10,6 +10,9 @@ return {
       telescope.setup({
         defaults = {
           sorting_strategy = 'ascending',
+          preview = {
+            filesize_limit = 0.1,
+          },
           path_display = {
             'smart',
           },
@@ -41,7 +44,7 @@ return {
               '--hidden',
               '--follow',
               '-E',
-              '.git/*'
+              '.git/*',
             },
           },
           buffers = {
