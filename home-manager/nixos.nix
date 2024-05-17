@@ -13,6 +13,9 @@ in
   home.homeDirectory = "/home/atinylittleshell";
 
   home.packages = with pkgs; [
+    corretto21
+    maven
+    nodejs_22
     configure-gtk
     wl-clipboard
     waybar

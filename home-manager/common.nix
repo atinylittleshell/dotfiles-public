@@ -26,12 +26,9 @@
     gcc
     bun
     neovim
-    jdk17
-    maven
     rustup
     python3
     go
-    nodejs_22
     zip
     unzip
 
