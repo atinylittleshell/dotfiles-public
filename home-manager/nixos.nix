@@ -26,6 +26,7 @@ in
     discord
     obsidian
     lutris
+    wowup-cf
     terminal-one
     nwg-look
   ];
