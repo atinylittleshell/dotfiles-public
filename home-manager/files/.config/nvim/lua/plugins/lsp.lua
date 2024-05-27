@@ -139,6 +139,7 @@ return {
 
       nvim_lsp.kotlin_language_server.setup({
         on_attach = on_attach,
+        root_dir = nvim_lsp.util.root_pattern('build.gradle.kts', 'build.gradle'),
         settings = {
           kotlin = {
             compiler = {
