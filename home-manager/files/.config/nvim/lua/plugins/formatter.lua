@@ -19,7 +19,6 @@ return {
           yaml = { 'prettier' },
           markdown = { 'prettier' },
           graphql = { 'prettier' },
-          kotlin = { 'ktfmt' },
         },
         format_on_save = { timeout_ms = 10000, lsp_fallback = 'always' },
         formatters = {
