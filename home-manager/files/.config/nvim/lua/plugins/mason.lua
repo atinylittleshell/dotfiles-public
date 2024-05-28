@@ -25,7 +25,7 @@ return {
     config = function()
       require('mason-lspconfig').setup({
         automatic_installation = {
-          exclude = { 'kotlin-language-server' },
+          exclude = { 'kotlin_language_server' },
         },
       })
     end,
