@@ -8,6 +8,7 @@ return {
       { 'nvim-treesitter/nvim-treesitter-context' },
     },
     config = function()
+      require('nvim-treesitter.install').prefer_git = true
       require('nvim-treesitter.install').compilers = { 'x86_64-w64-mingw32-clang', 'gcc' }
 
       require('treesitter-context').setup()
