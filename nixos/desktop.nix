@@ -1,7 +1,25 @@
 { config, lib, pkgs, ... }:
 
 {
-  services.xserver.enable = true;
+  services.xserver = {
+    enable = true;
+
+    resolutions = [
+      {
+        x = 5120;
+        y = 1440;
+      }
+    ];
+
+    dpi = 109;
+
+    windowManager.awesome = {
+      enable = true;
+      luaModules = with pkgs.luaPackages; [
+        luarocks
+      ];
+    };
+  };
 
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.sddm.enableGnomeKeyring = true;
@@ -14,7 +32,7 @@
     ];
     theme = "where_is_my_sddm_theme";
     wayland = {
-      enable = true;
+      enable = false;
     };
   };
 
@@ -39,13 +57,7 @@
     acceleration = "cuda";
   };
 
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
   programs.thunar.enable = true;
   programs.xfconf.enable = true;
-
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  programs.dconf.enable = true;
 }

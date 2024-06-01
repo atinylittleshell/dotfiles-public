@@ -13,33 +13,24 @@ in
   home.homeDirectory = "/home/atinylittleshell";
 
   home.packages = with pkgs; [
+    configure-gtk
     corretto21
     maven
     nodejs_22
-    configure-gtk
-    wl-clipboard
-    waybar
-    hyprpaper
-    dunst
-    libnotify
-    wlogout
-    rofi-wayland
     pavucontrol
+    rofi
     google-chrome
     discord
     obsidian
     lutris
     wowup-cf
     terminal-one
-    nwg-look
   ];
 
   home.file = {
-    ".wallpapers".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/github/atinylittleshell/dotfiles-public/home-manager/files/.wallpapers";
-    ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/github/atinylittleshell/dotfiles-public/home-manager/files/.config/hypr";
-    ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/github/atinylittleshell/dotfiles-public/home-manager/files/.config/waybar";
+    ".wallpapers".source = ./files/.wallpapers;
+    ".config/awesome".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/github/atinylittleshell/dotfiles-public/home-manager/files/.config/awesome";
     ".config/rofi".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/github/atinylittleshell/dotfiles-public/home-manager/files/.config/rofi";
-    ".config/wlogout".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/github/atinylittleshell/dotfiles-public/home-manager/files/.config/wlogout";
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/github/atinylittleshell/dotfiles-public/home-manager/files/.config/nvim";
     ".config/TerminalOne/config.js".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/github/atinylittleshell/dotfiles-public/home-manager/files/.config/TerminalOne/config.js";
   };
