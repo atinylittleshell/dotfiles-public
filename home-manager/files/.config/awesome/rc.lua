@@ -274,16 +274,14 @@ globalkeys = gears.table.join(
         {description = "go back", group = "client"}),
 
     -- Standard program
-    awful.key({ modkey,           }, "t", function () awful.spawn(terminal) end,
-              {description = "open a terminal", group = "launcher"}),
-    awful.key({ modkey, "Control" }, "r", awesome.restart,
-              {description = "reload awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift"   }, "q", awesome.quit,
-              {description = "quit awesome", group = "awesome"}),
     awful.key({ modkey,           }, "a", function () awful.spawn("rofi -show drun -theme ~/.config/rofi/launchers/theme.rasi") end,
               {description = "launcher", group = "launcher"}),
+    awful.key({ modkey,           }, "t", function () awful.spawn(terminal) end,
+              {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey,           }, "b", function () awful.spawn("google-chrome-stable") end,
               {description = "browser", group = "launcher"}),
+    awful.key({ modkey,           }, "e", function () awful.spawn("thunar") end,
+              {description = "file explorer", group = "launcher"}),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
