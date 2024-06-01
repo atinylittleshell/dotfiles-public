@@ -21,6 +21,19 @@
     };
   };
 
+  services.picom = {
+    enable = true;
+    settings = {
+      blur = {
+        method = "gaussian";
+        size = 10;
+        deviation = 5.0;
+      };
+      corner-radius = 8.0;
+      round-borders = 1;
+    };
+  };
+
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.sddm.enableGnomeKeyring = true;
 
