@@ -12,6 +12,7 @@ return {
           javascriptreact = { 'prettier' },
           typescript = { 'prettier' },
           typescriptreact = { 'prettier' },
+          kotlin = { 'ktlint' },
           json = { 'prettier' },
           jsonc = { 'prettier' },
           css = { 'prettier' },
