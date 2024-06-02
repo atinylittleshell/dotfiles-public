@@ -23,13 +23,14 @@
 
   services.picom = {
     enable = true;
+    backend = "glx";
+    fade = true;
+    fadeDelta = 8;
     settings = {
       blur = {
         method = "dual_kawase";
         strength = 8;
       };
-      corner-radius = 8.0;
-      round-borders = 1;
     };
   };
 

@@ -14,6 +14,8 @@ in
 
   home.packages = with pkgs; [
     configure-gtk
+    xsel
+    xclip
     corretto21
     maven
     nodejs_22

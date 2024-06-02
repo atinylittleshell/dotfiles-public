@@ -12,7 +12,11 @@ return {
       require('nvim-treesitter.install').compilers = { 'x86_64-w64-mingw32-clang', 'gcc' }
 
       require('treesitter-context').setup()
-      require('nvim-ts-autotag').setup()
+      require('nvim-ts-autotag').setup({
+        opts = {
+          enable_close_on_slash = false,
+        },
+      })
 
       local treesitter = require('nvim-treesitter.configs')
       treesitter.setup({
@@ -23,10 +27,6 @@ return {
         indent = {
           enable = false,
           disable = { 'c', 'yaml', 'python', 'html', 'css' },
-        },
-        autotag = {
-          enable = true,
-          enable_close_on_slash = false,
         },
         auto_install = true,
         ensure_installed = 'all',
