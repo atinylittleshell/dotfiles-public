@@ -6,6 +6,12 @@ local M = gears.table.join(
   -- Float
   awful.key({ vars.modkey }, "f", awful.client.floating.toggle, { description = "toggle floating", group = "client" }),
 
+  -- Maximize
+  awful.key({ vars.modkey }, "period", function(c)
+    c.maximized = not c.maximized
+    c:raise()
+  end, { description = "toggle maximize", group = "client" }),
+
   -- Kill
   awful.key({ vars.modkey }, "q", function(c)
     c:kill()
