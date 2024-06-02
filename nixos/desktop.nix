@@ -26,13 +26,13 @@
     backend = "glx";
     fade = true;
     fadeSteps = [
-      0.05
-      0.05
+      0.04
+      0.04
     ];
     settings = {
       blur = {
         method = "dual_kawase";
-        strength = 8;
+        strength = 5;
       };
     };
   };
