@@ -25,7 +25,10 @@
     enable = true;
     backend = "glx";
     fade = true;
-    fadeDelta = 8;
+    fadeSteps = [
+      0.05
+      0.05
+    ];
     settings = {
       blur = {
         method = "dual_kawase";
