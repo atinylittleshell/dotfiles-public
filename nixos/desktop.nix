@@ -64,6 +64,8 @@
     };
   };
 
+  services.libinput.mouse.middleEmulation = false;
+
   services.ollama = {
     enable = true;
     acceleration = "cuda";
