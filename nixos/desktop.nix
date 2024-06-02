@@ -25,9 +25,8 @@
     enable = true;
     settings = {
       blur = {
-        method = "gaussian";
-        size = 10;
-        deviation = 5.0;
+        method = "dual_kawase";
+        strength = 8;
       };
       corner-radius = 8.0;
       round-borders = 1;
