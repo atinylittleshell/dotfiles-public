@@ -15,7 +15,7 @@ theme.blue = "#3e8fb0"
 theme.magenta = "#c4a7e7"
 theme.cyan = "#9ccfd8"
 
-theme.font = "Hack Nerd Font 10"
+theme.font = "Noto Sans 10"
 theme.fg = theme.white
 theme.bg = theme.background_dark
 theme.bg_normal = theme.background_dark
@@ -117,7 +117,7 @@ theme.taglist_shape_border_color = "#00000040"
 ---------------------------------------
 -----Notifications---------------------
 ---------------------------------------
-theme.notification_font = "Hack Nerd Font 12"
+theme.notification_font = "Noto Sans 12"
 theme.notification_fg = theme.fg
 theme.notification_position = "top_right"
 theme.notification_margin = dpi(10)
@@ -127,8 +127,8 @@ theme.notification_icon_resize_strategy = "center"
 theme.notification_icon_size = dpi(300)
 
 --Shortcut key list popup theme
-theme.hotkeys_font = "Hack Nerd Font Bold 12"
-theme.hotkeys_description_font = "Hack Nerd Font 12"
+theme.hotkeys_font = "Noto Sans Bold 12"
+theme.hotkeys_description_font = "Noto Sans 12"
 theme.hotkeys_group_margin = dpi(12)
 theme.hotkeys_modifiers_fg = theme.blue
 
