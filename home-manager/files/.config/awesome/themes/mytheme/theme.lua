@@ -15,7 +15,7 @@ theme.blue = "#3e8fb0"
 theme.magenta = "#c4a7e7"
 theme.cyan = "#9ccfd8"
 
-theme.font = "Noto Sans 10"
+theme.font = "Hack Nerd Font 10"
 theme.fg = theme.white
 theme.bg = theme.background_dark
 theme.bg_normal = theme.background_dark
