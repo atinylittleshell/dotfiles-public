@@ -32,8 +32,10 @@
     settings = {
       blur = {
         method = "dual_kawase";
-        strength = 5;
+        strength = 6;
       };
+      corner-radius = 8;
+      rounded-borders = 1;
     };
   };
 
