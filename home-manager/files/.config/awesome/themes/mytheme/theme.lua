@@ -4,8 +4,8 @@ local dpi = beautiful.xresources.apply_dpi
 local theme = {}
 
 --Colorscheme
-theme.background_dark = "#232136"
-theme.background_lighter = "#393552"
+theme.background_dark = "#23213680"
+theme.background_lighter = "#39355280"
 theme.white = "#e0def4"
 theme.blueish_white = "#89b4fa"
 theme.red = "#eb6f92"
@@ -26,6 +26,7 @@ theme.border_width = 2
 theme.border_normal = theme.background_dark
 theme.border_focus = theme.blue
 theme.useless_gap = 3
+theme.bg_systray = theme.background_dark
 
 theme.logout_box_bg = "#00000090"
 
@@ -51,8 +52,6 @@ theme.titlebar_maximized_button_normal_active_hover =
   "~/.config/awesome/themes/mytheme/titlebar_icons/maximize-hover.png"
 theme.titlebar_maximized_button_focus_active_hover =
   "~/.config/awesome/themes/mytheme/titlebar_icons/maximize-hover.png"
-
-theme.bg_systray = theme.background_dark
 
 --Minimize Button
 theme.titlebar_minimize_button_normal = "~/.config/awesome/themes/mytheme/titlebar_icons/inactive.png"

@@ -40,6 +40,7 @@ awful.screen.connect_for_each_screen(function(s)
   -- Add widgets to the wibox
   s.mywibox:setup({
     layout = wibox.layout.align.horizontal,
+    expand = "inside",
     { -- Left widgets
       layout = wibox.layout.fixed.horizontal,
       s.mypromptbox,
@@ -49,7 +50,6 @@ awful.screen.connect_for_each_screen(function(s)
     },
     { -- Right widgets
       layout = wibox.layout.fixed.horizontal,
-      wibox.widget.systray(),
       text_clock,
     },
   })
