@@ -35,7 +35,10 @@
         strength = 6;
       };
       corner-radius = 8;
-      rounded-borders = 1;
+      rounded-corners-exclude = [
+        "window_type = 'dock'"
+        "window_type = 'desktop'"
+      ];
     };
   };
 
