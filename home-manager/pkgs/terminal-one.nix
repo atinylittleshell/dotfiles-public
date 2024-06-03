@@ -16,6 +16,11 @@ in appimageTools.wrapType2 rec {
 
   extraInstallCommands = ''
     mv $out/bin/${name} $out/bin/${pname}
+    install -m 444 -D ${appimageContents}/@terminalonemonorepo.desktop $out/share/applications/TerminalOne.desktop
+    install -m 444 -D ${appimageContents}/usr/share/icons/hicolor/512x512/apps/@terminalonemonorepo.png \
+      $out/share/icons/hicolor/512x512/apps/@terminalonemonorepo.png
+    substituteInPlace $out/share/applications/TerminalOne.desktop \
+      --replace 'Exec=AppRun' 'Exec=${pname}'
   '';
 
   meta = with lib; {

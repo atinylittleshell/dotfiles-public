@@ -11,7 +11,7 @@
       }
     ];
 
-    dpi = 109;
+    dpi = 96;
 
     windowManager.awesome = {
       enable = true;

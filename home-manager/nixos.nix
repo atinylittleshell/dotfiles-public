@@ -2,6 +2,7 @@
 
 let
   terminal-one = pkgs.callPackage ./pkgs/terminal-one.nix { };
+  wowarenalogs = pkgs.callPackage ./pkgs/wowarenalogs.nix { };
   configure-gtk = pkgs.callPackage ./pkgs/configure-gtk.nix { };
 in
 {
@@ -16,6 +17,7 @@ in
     configure-gtk
     xsel
     xclip
+    gnumake
     corretto21
     maven
     nodejs_22
@@ -27,6 +29,7 @@ in
     lutris
     wowup-cf
     terminal-one
+    wowarenalogs
   ];
 
   home.file = {
