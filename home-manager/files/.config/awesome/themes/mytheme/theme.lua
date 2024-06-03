@@ -4,8 +4,8 @@ local dpi = beautiful.xresources.apply_dpi
 local theme = {}
 
 --Colorscheme
-theme.background_dark = "#23213680"
-theme.background_lighter = "#39355280"
+theme.background_dark = "#23213660"
+theme.background_lighter = "#39355260"
 theme.white = "#e0def4"
 theme.blueish_white = "#89b4fa"
 theme.red = "#eb6f92"
@@ -99,19 +99,19 @@ theme.layout_cornerse = "/usr/share/awesome/themes/default/layouts/cornerse.png"
 --------------------------------
 --Taglist-----------------------
 --------------------------------
-theme.taglist_bg_empty = theme.bg
+theme.taglist_bg_empty = "#00000000"
 theme.taglist_fg_empty = theme.fg
 -- theme.taglist_bg_occupied                       = "#434c5e"
 theme.taglist_bg_occupied = theme.bg
 theme.taglist_fg_occupied = theme.fg
 theme.taglist_bg_focus = theme.background_lighter
-theme.taglist_fg_focus = theme.green
+theme.taglist_fg_focus = theme.red
 theme.taglist_fg_urgent = theme.yellow
 -- Other Taglist settings
-theme.taglist_spacing = 2
+theme.taglist_spacing = 4
 theme.taglist_shape_border_width = 0
 theme.taglist_shape_border_radius = 20
-theme.taglist_shape_border_color = "#00000040"
+theme.taglist_shape_border_color = "#00000000"
 
 ---------------------------------------
 -----Notifications---------------------

@@ -2,6 +2,7 @@ local awful = require("awful")
 local beautiful = require("beautiful")
 local gears = require("gears")
 local wibox = require("wibox")
+local vars = require("main.vars")
 
 -- Create a textclock widget
 local text_clock = wibox.widget.textclock()
@@ -21,6 +22,29 @@ end
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
+local taglist_buttons = gears.table.join(
+  awful.button({}, 1, function(t)
+    t:view_only()
+  end),
+  awful.button({ vars.modkey }, 1, function(t)
+    if client.focus then
+      client.focus:move_to_tag(t)
+    end
+  end),
+  awful.button({}, 3, awful.tag.viewtoggle),
+  awful.button({ vars.modkey }, 3, function(t)
+    if client.focus then
+      client.focus:toggle_tag(t)
+    end
+  end),
+  awful.button({}, 4, function(t)
+    awful.tag.viewnext(t.screen)
+  end),
+  awful.button({}, 5, function(t)
+    awful.tag.viewprev(t.screen)
+  end)
+)
+
 awful.screen.connect_for_each_screen(function(s)
   -- Wallpaper
   set_wallpaper(s)
@@ -30,6 +54,12 @@ awful.screen.connect_for_each_screen(function(s)
 
   -- Create a promptbox for each screen
   s.mypromptbox = awful.widget.prompt()
+
+  s.mytaglist = awful.widget.taglist({
+    screen = s,
+    filter = awful.widget.taglist.filter.all,
+    buttons = taglist_buttons,
+  })
 
   -- Create the wibox
   s.mywibox = awful.wibar({
@@ -43,6 +73,7 @@ awful.screen.connect_for_each_screen(function(s)
     expand = "inside",
     { -- Left widgets
       layout = wibox.layout.fixed.horizontal,
+      s.mytaglist,
       s.mypromptbox,
     },
     { -- Middle widget
