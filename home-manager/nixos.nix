@@ -21,6 +21,7 @@ in
     corretto21
     maven
     nodejs_22
+    python3
     pavucontrol
     rofi
     google-chrome

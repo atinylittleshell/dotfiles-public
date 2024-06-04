@@ -27,7 +27,6 @@
     bun
     neovim
     rustup
-    python3
     go
     zip
     unzip
