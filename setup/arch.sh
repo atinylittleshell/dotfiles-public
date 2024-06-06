@@ -4,13 +4,7 @@
 set -e
 
 DOTFILES_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && cd .. && pwd )
-sudo pacman -S --needed base-devel curl
-
-rm -rf ~/.config/nvim || true
-ln -s $DOTFILES_DIR/home-manager/files/.config/nvim ~/.config/nvim
-
-rm ~/.config/discord/settings.json || true
-ln -s $DOTFILES_DIR/home-manager/files/.config/discord/settings.json ~/.config/discord/settings.json
+sudo pacman -S --needed base-devel
 
 yay_if_needed() {
   if command -v $1 &> /dev/null; then
@@ -20,13 +14,6 @@ yay_if_needed() {
   fi
 }
 
-# install git
-if command -v git &> /dev/null; then
-  echo "git is already installed. skipping..."
-else
-  sudo pacman -S git
-fi
-
 # install yay
 if command -v yay &> /dev/null; then
   echo "yay is already installed. skipping..."
@@ -35,30 +22,6 @@ else
   git clone https://aur.archlinux.org/yay.git ~/yay
   cd ~/yay
   makepkg -si
-fi
-
-# install hyprland
-if command -v Hyprland &> /dev/null; then
-  echo "hyprland is already installed. skipping..."
-else
-  yay -S hyprland
-  
-  sudo systemctl enable nvidia-suspend.service
-  sudo systemctl enable nvidia-hibernate.service
-  sudo systemctl enable nvidia-resume.service
-
-  rm -rf ~/.config/hypr || true
-  ln -s $DOTFILES_DIR/home-manager/files/.config/hypr ~/.config/hypr
-fi
-
-# install waybar
-if command -v waybar &> /dev/null; then
-  echo "waybar is already installed. skipping..."
-else
-  yay -S waybar
-
-  rm -rf ~/.config/waybar || true
-  ln -s $DOTFILES_DIR/home-manager/files/.config/waybar ~/.config/waybar
 fi
 
 # install keyd and set up custom keymap
@@ -85,7 +48,7 @@ else
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-  nvm install 21
+  nvm install 22
 fi
 
 # install terminal one
@@ -93,19 +56,15 @@ if command -v terminal-one &> /dev/null; then
   echo "terminal one is already installed. skipping..."
 else
   sudo ln -sf $DOTFILES_DIR/bin/TerminalOne.AppImage /usr/local/bin/terminal-one
-
-  rm -rf ~/.config/TerminalOne || true
-  ln -s $DOTFILES_DIR/home-manager/files/.config/TerminalOne ~/.config/TerminalOne
 fi
 
 # install apps with yay
-yay_if_needed google-chrome-stable
 yay_if_needed discord
 yay_if_needed obsidian
-yay_if_needed hyprpaper
-yay_if_needed dunst
-yay_if_needed wlogout
-yay_if_needed gnome-keyring
+yay_if_needed rofi
+yay_if_needed pavucontrol
+yay_if_needed lutris
+yay_if_needed wowup-cf-bin
 
 # install nix and home manager
 if command -v nix-shell &> /dev/null; then

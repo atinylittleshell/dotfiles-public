@@ -9,22 +9,22 @@
   home.homeDirectory = "/home/atinylittleshell";
 
   home.packages = with pkgs; [
-    # gnome tools
-    gnome.gnome-tweaks
-    libadwaita
-    xdg-desktop-portal-gtk
+    xsel
+    xclip
+    corretto21
+    maven
+    python3
   ];
 
   home.file = {
-    ".config/autostart/xset.desktop".source = ./files/.config/autostart/xset.desktop;
     ".wallpapers".source = ./files/.wallpapers;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
+    ".config/autostart/xset.desktop".source = ./files/.config/autostart/xset.desktop;
+    ".config/rofi".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/github/atinylittleshell/dotfiles-public/home-manager/files/.config/rofi";
+    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/github/atinylittleshell/dotfiles-public/home-manager/files/.config/nvim";
+    ".config/TerminalOne".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/github/atinylittleshell/dotfiles-public/home-manager/files/.config/TerminalOne";
+    ".config/discord/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/github/atinylittleshell/dotfiles-public/home-manager/files/.config/discord/settings.json";
   };
+
 
   programs.git = {
     userName = "atinylittleshell";

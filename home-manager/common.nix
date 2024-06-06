@@ -32,7 +32,7 @@
     unzip
 
     # fonts
-    nerdfonts
+    (nerdfonts.override { fonts = [ "Hack" ]; })
     roboto
     noto-fonts
     noto-fonts-extra
