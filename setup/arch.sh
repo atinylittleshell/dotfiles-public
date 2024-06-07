@@ -10,7 +10,7 @@ yay_if_needed() {
   if command -v $1 &> /dev/null; then
     echo "$1 is already installed. skipping..."
   else
-    yay -S $1
+    yay -S --needed $1
   fi
 }
 
@@ -63,7 +63,7 @@ yay_if_needed discord
 yay_if_needed obsidian
 yay_if_needed rofi
 yay_if_needed pavucontrol
-yay_if_needed lutris
+yay_if_needed steam
 yay_if_needed wowup-cf-bin
 
 # install nix and home manager
