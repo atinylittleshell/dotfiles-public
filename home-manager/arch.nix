@@ -13,7 +13,6 @@
     xclip
     corretto21
     maven
-    python3
   ];
 
   home.file = {
