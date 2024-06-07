@@ -70,7 +70,7 @@ yay_if_needed pavucontrol
 yay_if_needed steam
 yay_if_needed wowup-cf-bin
 yay_if_needed python
-yay_if_needed chrome-gnome-shell
+yay_if_needed awesome
 
 # install nix and home manager
 if command -v nix-shell &> /dev/null; then
