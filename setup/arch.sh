@@ -65,6 +65,7 @@ yay_if_needed qt6-base
 yay_if_needed qt6-5compat
 yay_if_needed discord
 yay_if_needed obsidian
+yay_if_needed google-chrome
 yay_if_needed rofi
 yay_if_needed pavucontrol
 yay_if_needed steam
