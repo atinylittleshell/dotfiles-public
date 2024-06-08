@@ -3,10 +3,10 @@
 pcall(require, "luarocks.loader")
 
 require("main.error-handling")
+require("main.startup")
 require("main.theme")
 require("main.layouts")
 require("main.client")
-require("main.startup")
 
 require("binding.global_buttons")
 require("binding.global_keys")
