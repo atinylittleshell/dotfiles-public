@@ -12,6 +12,8 @@
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
+  home.language.base = "en_US.UTF-8";
+
   home.packages = with pkgs; [
     # cli tools
     curl
