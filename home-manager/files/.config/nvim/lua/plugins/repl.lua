@@ -1,7 +1,6 @@
 return {
   {
-    dir = '~/github/atinylittleshell/comment-repl.nvim',
-    name = 'comment-repl.nvim',
+    'atinylittleshell/comment-repl.nvim',
     opts = {
       log = {
         level = 'trace',

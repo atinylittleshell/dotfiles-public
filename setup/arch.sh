@@ -93,3 +93,5 @@ ln -sf $DOTFILES_DIR/home-manager/common.nix ~/.config/home-manager/common.nix
 ln -sf $DOTFILES_DIR/home-manager/arch.nix ~/.config/home-manager/home.nix
 
 home-manager switch
+
+rustup default stable

@@ -16,11 +16,18 @@ return {
   },
   {
     'neovim/nvim-lspconfig',
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       'williamboman/mason-lspconfig.nvim',
       'folke/neodev.nvim',
     },
     config = function()
+      require('mason-lspconfig').setup({
+        automatic_installation = {
+          exclude = { 'kotlin_language_server' },
+        },
+      })
+
       require('neodev').setup({
         override = function(_, library)
           library.enabled = true

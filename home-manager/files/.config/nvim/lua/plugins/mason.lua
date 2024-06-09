@@ -21,14 +21,6 @@ return {
   },
   {
     'williamboman/mason-lspconfig.nvim',
-    lazy = false,
-    config = function()
-      require('mason-lspconfig').setup({
-        automatic_installation = {
-          exclude = { 'kotlin_language_server' },
-        },
-      })
-    end,
     dependencies = {
       'williamboman/mason.nvim',
     },
