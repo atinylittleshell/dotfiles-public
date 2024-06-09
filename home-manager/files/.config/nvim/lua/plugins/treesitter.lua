@@ -12,11 +12,7 @@ return {
       require('nvim-treesitter.install').compilers = { 'x86_64-w64-mingw32-clang', 'gcc' }
 
       require('treesitter-context').setup()
-      require('nvim-ts-autotag').setup({
-        opts = {
-          enable_close_on_slash = false,
-        },
-      })
+      require('nvim-ts-autotag').setup()
 
       local treesitter = require('nvim-treesitter.configs')
       treesitter.setup({
@@ -36,5 +32,10 @@ return {
       })
     end,
     build = ':TSUpdate',
+  },
+  {
+    'altermo/ultimate-autopair.nvim',
+    event = { 'InsertEnter', 'CmdlineEnter' },
+    opts = {},
   },
 }

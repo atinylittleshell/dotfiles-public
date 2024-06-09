@@ -35,7 +35,7 @@ local globalkeys = gears.table.join(
 
   -- Browser
   awful.key({ vars.modkey }, "b", function()
-    awful.spawn("google-chrome-stable")
+    awful.spawn("google-chrome-stable --force-dark-mode")
   end, { description = "browser", group = "launcher" }),
 
   -- File explorer
