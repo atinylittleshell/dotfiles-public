@@ -55,7 +55,18 @@ fi
 if command -v terminal-one &> /dev/null; then
   echo "terminal one is already installed. skipping..."
 else
-  sudo ln -sf $DOTFILES_DIR/bin/TerminalOne.AppImage /usr/local/bin/terminal-one
+  wget -P $DOTFILES_DIR/bin https://github.com/atinylittleshell/TerminalOne/releases/download/v1.6.3/TerminalOne-1.6.3-x86_64.AppImage
+  chmod +x $DOTFILES_DIR/bin/TerminalOne-1.6.3-x86_64.AppImage
+  sudo ln -sf $DOTFILES_DIR/bin/TerminalOne-1.6.3-x86_64.AppImage /usr/local/bin/terminal-one
+fi
+
+# install wow arena logs
+if command -v wowarenalogs &> /dev/null; then
+  echo "wowarenalogs is already installed. skipping..."
+else
+  wget -P $DOTFILES_DIR/bin https://github.com/wowarenalogs/wowarenalogs/releases/download/v4.8.4/WoW-Arena-Logs-4.8.4.AppImage
+  chmod +x $DOTFILES_DIR/bin/WoW-Arena-Logs-4.8.4.AppImage
+  sudo ln -sf $DOTFILES_DIR/bin/WoW-Arena-Logs-4.8.4.AppImage /usr/local/bin/wowarenalogs
 fi
 
 # install apps with yay
