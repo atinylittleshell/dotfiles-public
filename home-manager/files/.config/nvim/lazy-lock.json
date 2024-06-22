@@ -7,7 +7,7 @@
   "cmp-nvim-lua": { "branch": "main", "commit": "f12408bdb54c39c23e67cab726264c10db33ada8" },
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
   "comment-repl.nvim": { "branch": "main", "commit": "fe787d9cc5bc5e5a9e620c699a453087ada9e648" },
-  "conform.nvim": { "branch": "master", "commit": "6e5d476e97dbd251cc2233d42fd238c810404701" },
+  "conform.nvim": { "branch": "master", "commit": "797d1f622a23d4a21bb58218bdf5999a9beac4ef" },
   "copilot.vim": { "branch": "release", "commit": "88d08cf54f623341adde4b18362bffc95174dcd5" },
   "deadcolumn.nvim": { "branch": "master", "commit": "d3faae957d7ebeb443c25ecb1ad286fc4f74964b" },
   "dressing.nvim": { "branch": "master", "commit": "e3714c8049b2243e792492c4149e4cc395c68eb9" },
@@ -35,7 +35,6 @@
   "substitute.nvim": { "branch": "main", "commit": "8b93e792747520b6490237b5b32963e256fbde24" },
   "telescope.nvim": { "branch": "master", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
   "tint.nvim": { "branch": "master", "commit": "02bd0527a315a80e4e25bb2dd7b6994fb0daae01" },
-  "ultimate-autopair.nvim": { "branch": "v0.6", "commit": "035d92eab05ac1390afef7204e3fcad9a50fa443" },
   "vim-bbye": { "branch": "master", "commit": "25ef93ac5a87526111f43e5110675032dbcacf56" },
   "which-key.nvim": { "branch": "main", "commit": "0539da005b98b02cf730c1d9da82b8e8edb1c2d2" }
 }

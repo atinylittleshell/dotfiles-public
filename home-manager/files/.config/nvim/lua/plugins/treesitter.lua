@@ -33,9 +33,4 @@ return {
     end,
     build = ':TSUpdate',
   },
-  {
-    'altermo/ultimate-autopair.nvim',
-    event = { 'InsertEnter', 'CmdlineEnter' },
-    opts = {},
-  },
 }
