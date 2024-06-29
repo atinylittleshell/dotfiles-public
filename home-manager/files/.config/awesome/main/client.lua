@@ -30,9 +30,7 @@ awful.rules.rules = {
       instance = {},
       class = {},
       name = {},
-      role = {
-        "pop-up", -- e.g. Google Chrome's (detached) Developer Tools.
-      },
+      role = {},
     },
     properties = { floating = true },
   },
@@ -42,7 +40,7 @@ awful.rules.rules = {
 client.connect_signal("manage", function(c)
   -- Set the windows at the slave,
   -- i.e. put it at the end of others instead of setting it master.
-  if not awesome.startup then
+  if not (awesome.startup or c.name == "World of Warcraft") then
     awful.client.setslave(c)
   end
 
