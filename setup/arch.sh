@@ -70,6 +70,7 @@ else
 fi
 
 # install apps with yay
+yay_if_needed flatpak
 yay_if_needed qt5-base
 yay_if_needed qt5-graphicaleffects
 yay_if_needed qt6-base

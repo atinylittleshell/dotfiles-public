@@ -38,6 +38,11 @@ local globalkeys = gears.table.join(
     awful.spawn("google-chrome-stable --force-dark-mode")
   end, { description = "browser", group = "launcher" }),
 
+  -- Bottles
+  awful.key({ vars.modkey }, "o", function()
+    awful.spawn("flatpak run com.usebottles.bottles")
+  end, { description = "bottles", group = "launcher" }),
+
   -- File explorer
   awful.key({ vars.modkey }, "e", function()
     awful.spawn("thunar")
