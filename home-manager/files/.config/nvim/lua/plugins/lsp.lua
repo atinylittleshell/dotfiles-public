@@ -16,12 +16,17 @@ return {
   },
   {
     'neovim/nvim-lspconfig',
-    event = { "BufReadPre", "BufNewFile" },
+    event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
       'williamboman/mason-lspconfig.nvim',
       'folke/neodev.nvim',
     },
     config = function()
+      -- Change border of documentation hover window, See https://github.com/neovim/neovim/pull/13998.
+      vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+        border = 'rounded',
+      })
+
       require('mason-lspconfig').setup({
         automatic_installation = {
           exclude = { 'kotlin_language_server' },
