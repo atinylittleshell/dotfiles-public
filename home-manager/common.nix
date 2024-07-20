@@ -29,7 +29,6 @@
     bun
     neovim
     rustup
-    go
     zip
     unzip
 

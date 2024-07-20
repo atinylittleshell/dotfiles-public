@@ -84,6 +84,7 @@ yay_if_needed steam
 yay_if_needed wowup-cf-bin
 yay_if_needed picom
 yay_if_needed ollama
+yay_if_needed go
 
 # install nix and home manager
 if command -v nix-shell &> /dev/null; then
