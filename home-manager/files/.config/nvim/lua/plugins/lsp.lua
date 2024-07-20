@@ -45,52 +45,55 @@ return {
 
       local on_attach = function(client, bufnr)
         -- mappings
-        wk.register({
-          K = {
+        wk.add({
+          buffer = bufnr,
+          {
+            'K',
             function()
               vim.lsp.buf.hover()
             end,
-            'Hover',
+            desc = 'Hover',
           },
-          g = {
-            name = 'lsp',
-            d = {
-              '<cmd>Telescope lsp_definitions<cr>',
-              'Go to Definition',
-            },
-            n = {
-              function()
-                vim.lsp.buf.rename()
-              end,
-              'Rename',
-            },
-            s = {
-              function()
-                vim.lsp.buf.signature_help()
-              end,
-              'Signature Help',
-            },
-            l = {
-              function()
-                vim.diagnostic.open_float({ scope = 'line' })
-              end,
-              'Show Line Diagnostics',
-            },
+          {
+            'gd',
+            '<cmd>Telescope lsp_definitions<cr>',
+            desc = 'Go to Definition',
           },
-          ['[g'] = {
+          {
+            'gn',
+            function()
+              vim.lsp.buf.rename()
+            end,
+            desc = 'Rename',
+          },
+          {
+            'gs',
+            function()
+              vim.lsp.buf.signature_help()
+            end,
+            desc = 'Signature Help',
+          },
+          {
+            'gl',
+            function()
+              vim.diagnostic.open_float({ scope = 'line' })
+            end,
+            desc = 'Show Line Diagnostics',
+          },
+          {
+            '[g',
             function()
               vim.diagnostic.goto_prev()
             end,
-            'Jump to previous diagnostic',
+            desc = 'Jump to previous diagnostic',
           },
-          [']g'] = {
+          {
+            ']g',
             function()
               vim.diagnostic.goto_next()
             end,
-            'Jump to next diagnostic',
+            desc = 'Jump to next diagnostic',
           },
-        }, {
-          buffer = bufnr,
         })
 
         if client.name == 'eslint' then

@@ -14,7 +14,7 @@ wk.add({
   { 'r', require('substitute').operator, desc = 'Substitute' },
   -- neogen
   {
-    'd',
+    '<leader>d',
     function()
       require('neogen').generate({})
     end,
