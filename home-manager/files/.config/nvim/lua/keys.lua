@@ -7,112 +7,93 @@ vim.cmd([[
   nnoremap r <Nop>
 ]])
 
--- n mode with no prefix
-wk.register({
-  -- selection
-  ['<C-a>'] = {
-    'ggVG',
-    'Select All',
-  },
-  -- save
-  ['<Esc>'] = {
-    ':w<CR>',
-    'Save',
-  },
-  -- substitute
-  ['r'] = {
-    require('substitute').operator,
-    'Substitute',
-  },
-}, {
+wk.add({
   mode = 'n',
-})
-
--- n mode with leader prefix
-wk.register({
+  { '<C-a>', 'ggVG', desc = 'Select All' },
+  { '<Esc>', ':w<CR>', desc = 'Save' },
+  { 'r', require('substitute').operator, desc = 'Substitute' },
   -- neogen
-  d = {
+  {
+    'd',
     function()
       require('neogen').generate({})
     end,
-    'Generate Docs',
+    desc = 'Generate Docs',
   },
   -- telescope
-  f = {
+  {
+    '<leader>f',
     function()
       telescope_builtin.find_files()
     end,
-    'Find Files',
+    desc = 'Find Files',
   },
-  s = {
+  {
+    '<leader>s',
     function()
       telescope_builtin.live_grep()
     end,
-    'Grep',
+    desc = 'Grep',
   },
-  b = {
+  {
+    '<leader>b',
     function()
       telescope_builtin.buffers()
     end,
-    'Grep',
+    desc = 'Grep',
   },
-  e = {
+  {
+    '<leader>e',
     ':Oil<CR>',
-    'File Browser',
+    desc = 'File Browser',
   },
   -- buffer
-  x = {
+  {
+    '<leader>x',
     ':Bdelete<CR>',
-    'Close Buffer',
+    desc = 'Close Buffer',
   },
-  q = {
+  {
+    '<leader>q',
     ':q<CR>',
-    'Close Window',
+    desc = 'Close Window',
   },
   -- git
-  g = {
+  {
+    '<leader>g',
     ':Neogit<CR>',
-    'Git',
+    desc = 'Git',
   },
   -- llm
-  l = {
+  {
+    '<leader>l',
     ':Gen<CR>',
-    'LLM',
+    desc = 'LLM',
   },
-  t = {
-    v = {
-      ':vsplit | vertical resize 120 | term<CR>',
-      'Terminal in vsplit',
-    },
-    s = {
-      ':split | resize 20 | term<CR>',
-      'Terminal in split',
-    },
+  {
+    '<leader>tv',
+    ':vsplit | vertical resize 120 | term<CR>',
+    desc = 'Terminal in vsplit',
   },
-}, {
-  prefix = '<leader>',
-  mode = 'n',
+  {
+    '<leader>ts',
+    ':split | resize 20 | term<CR>',
+    desc = 'Terminal in split',
+  },
 })
 
--- v mode with leader prefix
-wk.register({
-  -- llm
-  l = {
-    ':Gen<CR>',
-    'LLM',
-  },
-}, {
-  prefix = '<leader>',
+wk.add({
   mode = 'v',
+  -- llm
+  {
+    '<leader>l',
+    ':Gen<CR>',
+    desc = 'LLM',
+  },
 })
 
--- t mode with no prefix
-wk.register({
-  -- terminal
-  ['<ESC>'] = {
-    '<C-\\><C-n>',
-    'Exit Terminal Mode',
-  },
-}, {
+wk.add({
   mode = 't',
+  -- terminal
+  { '<ESC>', '<C-\\><C-n>', desc = 'Exit Terminal Mode' },
 })
