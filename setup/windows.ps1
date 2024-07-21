@@ -56,7 +56,7 @@ Install-Program-If-Needed -CommandName "ollama" -InstallCommand "scoop install o
 
 # Languages
 Install-Program-If-Needed -CommandName "go" -InstallCommand "scoop install go"
-Install-Program-If-Needed -CommandName "nvm" -InstallCommand "scoop install nvm"; nvm install lts
+Install-Program-If-Needed -CommandName "nvm" -InstallCommand "scoop install nvm"; nvm install lts; nvm use lts
 Install-Program-If-Needed -CommandName "bun" -InstallCommand "scoop install bun"
 Install-Program-If-Needed -CommandName "python" -InstallCommand "scoop install python"
 Install-Program-If-Needed -CommandName "rustup" -InstallCommand "scoop install rust"; rustup default stable
