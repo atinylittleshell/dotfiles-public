@@ -27,7 +27,7 @@ return {
         auto_install = true,
         ensure_installed = 'all',
         sync_install = false,
-        ignore_install = { 'luadoc' },
+        ignore_install = { 'luadoc', 'systemverilog' },
         modules = {},
       })
     end,
