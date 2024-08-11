@@ -1,10 +1,18 @@
+local rose_pine_theme = require('lualine.themes.rose-pine')
+rose_pine_theme.normal.c.bg = 'NONE'
+rose_pine_theme.insert.c.bg = 'NONE'
+rose_pine_theme.visual.c.bg = 'NONE'
+rose_pine_theme.replace.c.bg = 'NONE'
+rose_pine_theme.command.c.bg = 'NONE'
+rose_pine_theme.inactive.c.bg = 'NONE'
+
 return {
   {
     'nvim-lualine/lualine.nvim',
     event = 'ColorScheme',
     opts = {
       options = {
-        theme = 'rose-pine',
+        theme = rose_pine_theme,
         globalstatus = true,
         icons_enabled = false,
         component_separators = '',
