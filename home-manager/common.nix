@@ -132,8 +132,12 @@
       "mst" = "git switch master";
       "pull" = "git pull";
       "push" = "git push";
+      "pushf" = "git push --force";
       "add" = "git add .";
       "amend" = "git commit --amend";
+      "reset" = "git reset --soft HEAD^";
+      "rebasem" = "git rebase -i main";
+      "rebasemst" = "git rebase -i master";
     };
     initExtra = ''
       bindkey '^f' autosuggest-accept
