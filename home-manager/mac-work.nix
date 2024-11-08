@@ -26,7 +26,7 @@
       "acrastop" = "./gradlew :applications:autofix-service:nebulaeStop";
       "acrabuild" = "./gradlew :applications:autofix-service:clean :applications:autofix-service:build";
       "acrarun" = "./gradlew :applications:autofix-service:clean :applications:autofix-service:build :applications:autofix-service:bootRun";
-      "swebenchit" = "./gradlew :applications:autofix-service:integrationTest --tests io.atlassian.micros.autofix.apps.acra.workflows.SWEBenchEvalItemsIT";
+      "autodevit" = "./gradlew :applications:autofix-service:integrationTest --tests io.atlassian.micros.autofix.apps.acra.workflows.EvalItemsIT";
     };
   };
 }
