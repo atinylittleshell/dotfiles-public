@@ -32,6 +32,7 @@ return {
             '--smart-case',
             '--hidden',
             '--glob=!.git/*',
+            '--max-filesize=1M',
           },
         },
         pickers = {
