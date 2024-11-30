@@ -51,6 +51,7 @@ Install-Program-If-Needed -CommandName "fd" -InstallCommand "scoop install fd"
 Install-Program-If-Needed -CommandName "rg" -InstallCommand "scoop install ripgrep"
 Install-Program-If-Needed -CommandName "nvim" -InstallCommand "scoop install extras/vcredist2022"
 Install-Program-If-Needed -CommandName "nvim" -InstallCommand "scoop install neovim"
+Install-Program-If-Needed -CommandName "wezterm" -InstallCommand "scoop install wezterm"
 Install-Program-If-Needed -CommandName "starship" -InstallCommand "scoop install starship"
 Install-Program-If-Needed -CommandName "ollama" -InstallCommand "scoop install ollama"
 
