@@ -12,7 +12,8 @@ return {
         styles = {
           italic = false,
           transparency = vim.loop.os_uname().sysname == 'Darwin'
-            or string.find(vim.loop.os_uname().sysname, 'Windows') ~= nil,
+            or string.find(vim.loop.os_uname().sysname, 'Windows') ~= nil
+            or string.find(vim.loop.os_uname().release, 'WSL') ~= nil,
         },
       })
 
