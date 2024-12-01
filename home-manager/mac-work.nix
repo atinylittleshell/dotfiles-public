@@ -24,8 +24,11 @@
     shellAliases = {
       "acrastart" = "./gradlew :applications:autofix-service:nebulaeStart";
       "acrastop" = "./gradlew :applications:autofix-service:nebulaeStop";
-      "acrabuild" = "./gradlew :applications:autofix-service:clean :applications:autofix-service:build";
-      "acrarun" = "./gradlew :applications:autofix-service:clean :applications:autofix-service:build :applications:autofix-service:bootRun";
+      "acrac" = "./gradlew :applications:autofix-service:clean";
+      "acrab" = "./gradlew :applications:autofix-service:build";
+      "acrar" = "./gradlew :applications:autofix-service:bootRun";
+      "acracb" = "./gradlew :applications:autofix-service:clean :applications:autofix-service:build";
+      "acracbr" = "./gradlew :applications:autofix-service:clean :applications:autofix-service:build :applications:autofix-service:bootRun";
       "autodevit" = "./gradlew :applications:autofix-service:integrationTest --tests io.atlassian.micros.autofix.apps.acra.workflows.EvalItemsIT";
     };
   };
