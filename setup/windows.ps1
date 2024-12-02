@@ -40,6 +40,7 @@ function Ensure-Symlink {
 
 Ensure-Symlink -Link $profile -Target "profile.ps1"
 Ensure-Symlink -Link (Join-Path -Path $env:USERPROFILE -ChildPath ".config\TerminalOne") -Target "..\home-manager\files\.config\TerminalOne"
+Ensure-Symlink -Link (Join-Path -Path $env:USERPROFILE -ChildPath ".config\wezterm") -Target "..\home-manager\files\.config\wezterm"
 Ensure-Symlink -Link (Join-Path -Path $env:LOCALAPPDATA -ChildPath "nvim") -Target "..\home-manager\files\.config\nvim"
 Ensure-Symlink -Link (Join-Path -Path $env:LOCALAPPDATA -ChildPath "starship.toml") -Target "..\home-manager\files\.config\starship.toml"
 

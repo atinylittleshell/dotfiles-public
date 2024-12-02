@@ -8,6 +8,9 @@ DOTFILES_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && cd .
 rm -rf ~/.config/nvim || true
 ln -s $DOTFILES_DIR/home-manager/files/.config/nvim ~/.config/nvim
 
+rm -rf ~/.config/wezterm || true
+ln -s $DOTFILES_DIR/home-manager/files/.config/wezterm ~/.config/wezterm
+
 rm -rf ~/.config/TerminalOne || true
 ln -s $DOTFILES_DIR/home-manager/files/.config/TerminalOne ~/.config/TerminalOne
 

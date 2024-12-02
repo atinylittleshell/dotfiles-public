@@ -19,7 +19,6 @@
     userEmail = "kchen6@atlassian.com";
   };
 
-
   programs.zsh = {
     shellAliases = {
       "acrastart" = "./gradlew :applications:autofix-service:nebulaeStart";
