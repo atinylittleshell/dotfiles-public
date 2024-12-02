@@ -27,7 +27,7 @@ if is_windows then
 end
 
 if is_macos then
-  config.window_background_opacity = 0.5
+  config.window_background_opacity = 0.6
   config.macos_window_background_blur = 100
   config.font_size = 15.0
   config.window_frame.font_size = 13.0
