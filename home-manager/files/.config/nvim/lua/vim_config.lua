@@ -21,6 +21,7 @@ o.undofile = true
 o.mouse = ''
 g.fixeol = true
 g.mapleader = ' '
+g.maplocalleader = ','
 
 -- indention
 o.autoindent = true

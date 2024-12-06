@@ -126,4 +126,14 @@ return {
     'karb94/neoscroll.nvim',
     opts = {},
   },
+  {
+    'MagicDuck/grug-far.nvim',
+    opts = {
+      engines = {
+        ripgrep = {
+          extraArgs = '--color=never --smart-case --hidden --glob=!.git/* --max-filesize=1M',
+        },
+      },
+    },
+  },
 }

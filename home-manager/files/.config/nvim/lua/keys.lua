@@ -12,6 +12,12 @@ wk.add({
   { '<C-a>', 'ggVG', desc = 'Select All' },
   { '<Esc>', ':w<CR>', desc = 'Save' },
   { 'r', require('substitute').operator, desc = 'Substitute' },
+  -- grug-far
+  {
+    '<leader>r',
+    ':GrugFar<CR>',
+    desc = 'Search and Replace',
+  },
   -- neogen
   {
     '<leader>d',
