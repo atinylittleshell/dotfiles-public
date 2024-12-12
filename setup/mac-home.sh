@@ -13,9 +13,6 @@ ln -s $DOTFILES_DIR/home-manager/files/.config/nvim ~/.config/nvim
 rm -rf ~/.config/wezterm || true
 ln -s $DOTFILES_DIR/home-manager/files/.config/wezterm ~/.config/wezterm
 
-rm -rf ~/.config/TerminalOne || true
-ln -s $DOTFILES_DIR/home-manager/files/.config/TerminalOne ~/.config/TerminalOne
-
 # install nvm and node
 export NVM_DIR="$HOME/.nvm"
 if [ -d $NVM_DIR ]; then
@@ -47,6 +44,6 @@ fi
 rm ~/.config/home-manager/files || true
 ln -s $DOTFILES_DIR/home-manager/files ~/.config/home-manager/files
 ln -sf $DOTFILES_DIR/home-manager/common.nix ~/.config/home-manager/common.nix
-ln -sf $DOTFILES_DIR/home-manager/mac-work.nix ~/.config/home-manager/home.nix
+ln -sf $DOTFILES_DIR/home-manager/mac-home.nix ~/.config/home-manager/home.nix
 
 home-manager switch
