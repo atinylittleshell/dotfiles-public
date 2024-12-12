@@ -13,6 +13,18 @@ ln -s $DOTFILES_DIR/home-manager/files/.config/nvim ~/.config/nvim
 rm -rf ~/.config/wezterm || true
 ln -s $DOTFILES_DIR/home-manager/files/.config/wezterm ~/.config/wezterm
 
+# install homebrew
+if command -v brew &> /dev/null; then
+  echo "homebrew is already installed. skipping..."
+else
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+# homebrew apps
+brew install autoconf
+brew install --cask wezterm
+brew install --cask amethyst
+
 # install nvm and node
 export NVM_DIR="$HOME/.nvm"
 if [ -d $NVM_DIR ]; then

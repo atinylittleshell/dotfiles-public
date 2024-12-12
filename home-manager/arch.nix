@@ -9,6 +9,7 @@
   home.homeDirectory = "/home/atinylittleshell";
 
   home.packages = with pkgs; [
+    gcc
     xsel
     xclip
     corretto21

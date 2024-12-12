@@ -25,7 +25,6 @@
     killall
 
     # development
-    gcc
     bun
     neovim
     rustup

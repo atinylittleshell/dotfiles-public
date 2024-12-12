@@ -9,6 +9,8 @@
   home.homeDirectory = "/Users/kunchen";
 
   home.packages = with pkgs; [
+    jdk
+    maven
   ];
 
   home.file = {
