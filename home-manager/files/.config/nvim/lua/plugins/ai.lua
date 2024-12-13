@@ -7,7 +7,7 @@ return {
   {
     'David-Kunz/gen.nvim',
     opts = {
-      model = 'llama3',
+      model = 'qwen2.5:32b',
       display_mode = 'float',
     },
   },
