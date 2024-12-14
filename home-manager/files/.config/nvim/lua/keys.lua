@@ -53,15 +53,31 @@ wk.add({
     ':Oil<CR>',
     desc = 'File Browser',
   },
+  {
+    '<leader>n',
+    function()
+      Snacks.notifier.show_history()
+    end,
+    desc = 'Notification history',
+  },
   -- buffer
   {
     '<leader>x',
-    ':Bdelete<CR>',
+    function()
+      Snacks.bufdelete({
+        wipe = true,
+      })
+    end,
     desc = 'Close Buffer',
   },
   {
     '<leader>q',
-    ':q<CR>',
+    function()
+      Snacks.bufdelete({
+        wipe = true,
+      })
+      vim.cmd('q')
+    end,
     desc = 'Close Window',
   },
   -- git

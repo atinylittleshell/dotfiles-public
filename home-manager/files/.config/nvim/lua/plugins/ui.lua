@@ -8,6 +8,47 @@ rose_pine_theme.inactive.c.bg = 'NONE'
 
 return {
   {
+    'folke/snacks.nvim',
+    priority = 1000,
+    lazy = false,
+    opts = {
+      animate = {
+        enabled = true,
+        fps = 120,
+      },
+      bigfile = {
+        enabled = true,
+      },
+      dim = {
+        enabled = true,
+      },
+      indent = {
+        enabled = true,
+        animate = {
+          enabled = false,
+        },
+      },
+      input = {
+        enabled = true,
+        icon = '',
+      },
+      notifier = {
+        enabled = true,
+      },
+      scroll = {
+        enabled = true,
+        animate = {
+          duration = {
+            total = 150,
+          },
+        },
+      },
+      statuscolumn = {
+        enabled = true,
+      },
+    },
+  },
+  {
     'nvim-lualine/lualine.nvim',
     event = 'ColorScheme',
     opts = {
@@ -70,19 +111,6 @@ return {
     opts = {},
   },
   {
-    'echasnovski/mini.indentscope',
-    version = '*',
-    event = 'VeryLazy',
-    opts = function()
-      return {
-        draw = {
-          delay = 50,
-          animation = require('mini.indentscope').gen_animation.none(),
-        },
-      }
-    end,
-  },
-  {
     'ggandor/leap.nvim',
     version = '*',
     event = 'VeryLazy',
@@ -120,10 +148,6 @@ return {
   },
   {
     'gbprod/substitute.nvim',
-    opts = {},
-  },
-  {
-    'karb94/neoscroll.nvim',
     opts = {},
   },
   {
