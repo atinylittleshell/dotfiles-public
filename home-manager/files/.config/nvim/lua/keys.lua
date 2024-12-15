@@ -1,4 +1,5 @@
 local wk = require('which-key')
+local harpoon = require('harpoon')
 local telescope_builtin = require('telescope.builtin')
 
 -- make 'p' no longer update register
@@ -25,6 +26,21 @@ wk.add({
       require('neogen').generate({})
     end,
     desc = 'Generate Docs',
+  },
+  -- harpoon
+  {
+    '<leader>a',
+    function()
+      harpoon:list():add()
+    end,
+    desc = 'Add to Harpoon',
+  },
+  {
+    '<leader>h',
+    function()
+      harpoon.ui:toggle_quick_menu(harpoon:list())
+    end,
+    desc = 'Show Harpoon list',
   },
   -- telescope
   {
