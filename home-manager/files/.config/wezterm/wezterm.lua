@@ -38,6 +38,23 @@ if is_windows then
   config.default_domain = "WSL:Ubuntu-24.04"
 end
 
+-- mouse
+config.mouse_bindings = {
+  {
+    event = { Down = { streak = 1, button = "Right" } },
+    mods = "NONE",
+    action = wezterm.action_callback(function(window, pane)
+      local has_selection = window:get_selection_text_for_pane(pane) ~= ""
+      if has_selection then
+        window:perform_action(wezterm.action.CopyTo("ClipboardAndPrimarySelection"), pane)
+        window:perform_action(wezterm.action.ClearSelection, pane)
+      else
+        window:perform_action(wezterm.action({ PasteFrom = "Clipboard" }), pane)
+      end
+    end),
+  },
+}
+
 -- keys
 config.disable_default_key_bindings = true
 config.leader = { key = "b", mods = "CTRL" }
