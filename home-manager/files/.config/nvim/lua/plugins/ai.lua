@@ -5,7 +5,7 @@ return {
     priority = 51,
   },
   {
-    'David-Kunz/gen.nvim',
+    'atinylittleshell/gen.nvim',
     opts = {
       model = 'qwen2.5:32b',
       display_mode = 'float',
