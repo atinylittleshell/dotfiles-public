@@ -22,26 +22,8 @@ return {
       dim = {
         enabled = true,
       },
-      indent = {
-        enabled = true,
-        animate = {
-          enabled = false,
-        },
-      },
-      input = {
-        enabled = true,
-        icon = '',
-      },
       notifier = {
         enabled = true,
-      },
-      scroll = {
-        enabled = true,
-        animate = {
-          duration = {
-            total = 150,
-          },
-        },
       },
       statuscolumn = {
         enabled = true,
@@ -134,6 +116,23 @@ return {
   {
     'moll/vim-bbye',
     event = 'VeryLazy',
+  },
+  {
+    'echasnovski/mini.indentscope',
+    version = '*',
+    event = 'VeryLazy',
+    opts = function()
+      return {
+        draw = {
+          delay = 50,
+          animation = require('mini.indentscope').gen_animation.none(),
+        },
+      }
+    end,
+  },
+  {
+    'karb94/neoscroll.nvim',
+    opts = {},
   },
   {
     'numToStr/Comment.nvim',
