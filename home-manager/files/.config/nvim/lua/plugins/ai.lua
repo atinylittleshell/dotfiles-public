@@ -7,7 +7,7 @@ return {
   {
     'atinylittleshell/gen.nvim',
     opts = {
-      model = 'qwen2.5:32b',
+      model = 'qwen2.5',
       display_mode = 'float',
     },
   },
